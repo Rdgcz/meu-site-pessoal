@@ -12,6 +12,8 @@
     <link rel="icon" href="assets/images/favicon/favicon-32x32.png" type="image/png">
 </head>
 <body>
+     <button onclick="toggleDarkMode()" class="botao-modo-flutuante">🌓</button>
+    
     <div class="container">
         <h1>Rodrigo Cezar da Silva</h1>
         <p class="slogan">Design + Código + Café = <span class="destaque">produtividade infinita</span> (ou quase...)</p>
@@ -20,25 +22,20 @@
     </div>
 
     <script>
-        // Sistema de modo escuro melhorado
         function toggleDarkMode() {
-            const isDark = document.body.classList.toggle("dark-mode");
-            const botao = document.querySelector('.botao-modo');
-            botao.textContent = isDark ? 'Modo Claro' : 'Modo Escuro';
-            botao.classList.toggle('modo-ativo', isDark);
-            localStorage.setItem('darkMode', isDark);
-        }
+    const isDark = document.body.classList.toggle("dark-mode");
+    const botao = document.querySelector('.botao-modo-flutuante');
+    botao.textContent = isDark ? '🌞' : '🌓';
+    localStorage.setItem('darkMode', isDark);
+}
 
-        // Carrega preferência ao iniciar
-        document.addEventListener('DOMContentLoaded', function() {
-            const darkMode = localStorage.getItem('darkMode') === 'true';
-            if (darkMode) {
-                document.body.classList.add('dark-mode');
-                const botao = document.querySelector('.botao-modo');
-                botao.textContent = 'Modo Claro';
-                botao.classList.add('modo-ativo');
-            }
-        });
+// Carregar estado ao iniciar
+document.addEventListener('DOMContentLoaded', function() {
+    if (localStorage.getItem('darkMode') === 'true') {
+        document.body.classList.add('dark-mode');
+        document.querySelector('.botao-modo-flutuante').textContent = '🌞';
+    }
+});
     </script>
 </body>
 </html>
