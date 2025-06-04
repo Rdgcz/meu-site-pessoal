@@ -317,3 +317,232 @@ body.dark-mode {
         font-size: 2rem;
     }
 }
+
+/* ===== ESTILOS DOS PROJETOS ===== */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.projetos-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.projetos-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--cor-secundaria);
+}
+
+.destaque {
+    color: var(--cor-destaque);
+}
+
+.botao-voltar {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    background-color: var(--cor-secundaria);
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.botao-voltar:hover {
+    background-color: var(--cor-primaria);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.projetos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.projeto-box {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #eee;
+}
+
+.projeto-box:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 20px rgba(0,0,0,0.12);
+}
+
+.projeto-imagem-container {
+    height: 200px;
+    background: #f8f9fa;
+    position: relative;
+    overflow: hidden;
+}
+
+.projeto-imagem {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.projeto-box:hover .projeto-imagem {
+    transform: scale(1.03);
+}
+
+.projeto-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background-color: var(--cor-destaque);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.projeto-conteudo {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.projeto-conteudo h2 {
+    margin-bottom: 0.8rem;
+    color: var(--cor-secundaria);
+}
+
+.projeto-descricao {
+    color: #555;
+    margin-bottom: 1.2rem;
+    line-height: 1.5;
+}
+
+.projeto-techs {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+}
+
+.tech-tag {
+    background-color: #e0f2fe;
+    color: #0369a1;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.botao-visitar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.7rem 1.5rem;
+    background-color: var(--cor-primaria);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: auto;
+}
+
+.botao-visitar:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+}
+
+.botao-visitar.desativado {
+    background-color: #e2e8f0;
+    color: #64748b;
+    cursor: not-allowed;
+}
+
+/* Projetos em desenvolvimento */
+.em-breve .projeto-imagem-container {
+    background: #f1f5f9;
+}
+
+.placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #94a3b8;
+}
+
+.placeholder i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.projetos-footer {
+    text-align: center;
+    padding: 2rem 0;
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+/* ===== DARK MODE ===== */
+.dark-mode .projeto-box {
+    background: #1e293b;
+    border-color: #334155;
+}
+
+.dark-mode .projeto-imagem-container {
+    background: #0f172a;
+}
+
+.dark-mode .projeto-conteudo h2 {
+    color: #e2e8f0;
+}
+
+.dark-mode .projeto-descricao {
+    color: #94a3b8;
+}
+
+.dark-mode .tech-tag {
+    background-color: #334155;
+    color: #e2e8f0;
+}
+
+.dark-mode .placeholder {
+    color: #475569;
+}
+
+.dark-mode .projetos-footer {
+    color: #94a3b8;
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 768px) {
+    .projetos-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .projetos-header h1 {
+        font-size: 2rem;
+    }
+    
+    .container {
+        padding: 1.5rem;
+    }
+}
