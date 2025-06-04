@@ -1,25 +1,14 @@
 /* ===== SISTEMA DE DESIGN ===== */
-
-/* 
-  Breakpoints:
-  480px: Mobile
-  768px: Tablet
-  1200px: Desktop
-*/
-
 :root {
-  /* Cores base */
+  /* Cores base (antigo dark mode) */
   --cor-primaria: #3498db;    /* Azul principal */
-  --cor-secundaria: #2c3e50;  /* Azul escuro */
-  --cor-destaque: #e74c3c;    /* Vermelho para ênfase */
-  --cor-texto: #333;          /* Texto claro */
+  --cor-secundaria: #ecf0f1;  /* Branco azulado (antigo dark-text) */
+  --cor-destaque: #3498db;    /* Azul (antigo dark-destaque) */
+  --cor-texto: #f0f0f0;       /* Branco (antigo dark-text) */
   
-  /* Gradientes */
-  --cor-fundo: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #dee2e6 100%);
-  --dark-bg: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #2d2d2d 100%);
-  --dark-text: #f0f0f0;
-  --dark-destaque: #3498db;
-
+  /* Gradientes (antigo dark mode) */
+  --cor-fundo: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #2d2d2d 100%);
+  
   /* Espaçamentos */
   --espaco-xs: 0.5rem;
   --espaco-sm: 1rem;
@@ -34,9 +23,9 @@
   --borda-radius-circular: 50%;
 
   /* Sombras */
-  --sombra-sm: 0 2px 5px rgba(0,0,0,0.1);
-  --sombra-md: 0 5px 15px rgba(0,0,0,0.1);
-  --sombra-lg: 0 10px 25px rgba(0,0,0,0.15);
+  --sombra-sm: 0 2px 5px rgba(0,0,0,0.3);
+  --sombra-md: 0 5px 15px rgba(0,0,0,0.3);
+  --sombra-lg: 0 10px 25px rgba(0,0,0,0.4);
 }
 
 /* ===== RESET & BASE ===== */
@@ -55,7 +44,6 @@ body {
   line-height: 1.6;
   background: var(--cor-fundo);
   color: var(--cor-texto);
-  transition: background 0.5s ease, color 0.3s ease;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -127,19 +115,19 @@ h2 {
 }
 
 .btn--disabled {
-  background-color: #e2e8f0;
-  color: #64748b;
+  background-color: #334155;
+  color: #94a3b8;
   cursor: not-allowed;
 }
 
 /* Cards */
 .card {
-  background: white;
+  background: #1e293b;
   border-radius: var(--borda-radius-lg);
   overflow: hidden;
   box-shadow: var(--sombra-md);
   transition: all 0.3s ease;
-  border: 1px solid #eee;
+  border: 1px solid #334155;
 }
 
 .card:hover {
@@ -149,7 +137,7 @@ h2 {
 
 .card__image-container {
   height: 200px;
-  background: #f8f9fa;
+  background: #0f172a;
   position: relative;
   overflow: hidden;
 }
@@ -194,51 +182,6 @@ h2 {
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
 }
 
-/* ===== MODO ESCURO ===== */
-.dark-mode {
-  --cor-fundo: var(--dark-bg);
-  --cor-texto: var(--dark-text);
-  --cor-secundaria: #ecf0f1;
-  --cor-destaque: var(--dark-destaque);
-}
-
-.dark-mode .card {
-  background: #1e293b;
-  border-color: #334155;
-}
-
-.dark-mode .card__image-container {
-  background: #0f172a;
-}
-
-/* ===== COMPONENTES ESPECÍFICOS ===== */
-
-/* Botão modo escuro flutuante */
-.btn--theme-toggle {
-  position: fixed;
-  top: var(--espaco-md);
-  right: var(--espaco-md);
-  width: 44px;
-  height: 44px;
-  border-radius: var(--borda-radius-circular);
-  background: white;
-  border: 2px solid var(--cor-primaria);
-  box-shadow: var(--sombra-md);
-  font-size: 1.3rem;
-  z-index: 1000;
-}
-
-.btn--theme-toggle:hover {
-  transform: scale(1.1) rotate(12deg);
-  box-shadow: var(--sombra-lg);
-}
-
-.dark-mode .btn--theme-toggle {
-  background: var(--dark-bg);
-  border-color: var(--dark-text);
-  color: var(--dark-text);
-}
-
 /* Tags de tecnologia */
 .tech-tag {
   display: inline-block;
@@ -246,11 +189,8 @@ h2 {
   border-radius: 20px;
   font-size: 0.8rem;
   font-weight: 500;
-}
-
-.tech-tag--light {
-  background-color: #e0f2fe;
-  color: #0369a1;
+  background-color: #334155;
+  color: #e2e8f0;
 }
 
 /* Placeholder */
@@ -260,7 +200,7 @@ h2 {
   align-items: center;
   justify-content: center;
   height: 100%;
-  color: #94a3b8;
+  color: #475569;
 }
 
 .placeholder i {
@@ -284,25 +224,13 @@ h2 {
   gap: var(--espaco-sm);
   margin-bottom: var(--espaco-md);
   padding-bottom: var(--espaco-xs);
-  border-bottom: 2px solid #eee;
-}
-
-.dark-mode .projects-category__title {
-  border-bottom-color: #334155;
+  border-bottom: 2px solid #334155;
 }
 
 /* ===== RESPONSIVIDADE ===== */
 @media (max-width: 768px) {
   .grid--projects {
     grid-template-columns: 1fr;
-  }
-  
-  .btn--theme-toggle {
-    width: 38px;
-    height: 38px;
-    font-size: 1.1rem;
-    top: var(--espaco-sm);
-    right: var(--espaco-sm);
   }
 }
 
