@@ -1,95 +1,165 @@
-/* Estilos gerais */
-body {
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-    background-color: #f5f5f5;
-    color: #333;
-    transition: all 0.3s ease;
+/* ===== RESET & VARIÁVEIS ===== */
+:root {
+  --cor-primaria: #3498db;
+  --cor-secundaria: #2c3e50;
+  --cor-texto: #333;
+  --cor-fundo: #f5f5f5;
+  --cor-destaque: #e74c3c;
+  
+  /* Cores modo escuro */
+  --dark-bg: #121212;
+  --dark-text: #f0f0f0;
+  --dark-destaque: #3498db;
 }
 
-.container {
-    max-width: 800px;
-    margin: 50px auto;
-    padding: 20px;
-    text-align: center;
+/* ===== ESTILOS GERAIS ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Modo escuro */
-body.dark-mode {
-    background-color: #121212;
-    color: #f0f0f0;
-}
-/* Garante que o dark-mode afete todos os elementos */
-.dark-mode .botao-projetos {
-    background-color: #2980b9;
-}
-
-.dark-mode .botao-modo {
-    background-color: #34495e;
-}
-
-/* Melhora a visualização do favicon */
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
-/* Título */
+
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  transition: all 0.4s ease;
+  padding-top: 20px;
+}
+
+/* ===== CONTAINER PRINCIPAL ===== */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+/* ===== TIPOGRAFIA ===== */
 h1 {
-    color: #2c3e50;
-    margin-bottom: 20px;
+  color: var(--cor-secundaria);
+  margin-bottom: 20px;
+  font-size: 2.5rem;
 }
 
-.dark-mode h1 {
-    color: #ecf0f1;
-}
-
-/* Slogan */
 .slogan {
-    font-size: 1.2em;
-    margin-bottom: 30px;
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  opacity: 0.9;
 }
 
 .destaque {
-    color: #e74c3c;
-    font-weight: bold;
+  color: var(--cor-destaque);
+  font-weight: bold;
 }
 
-.dark-mode .destaque {
-    color: #3498db;
-}
-
-/* Navegação */
+/* ===== NAVEGAÇÃO ===== */
 nav {
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-    margin-top: 30px;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 30px;
+  flex-wrap: wrap;
 }
 
 .botao-projetos {
-    background-color: #3498db;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: background-color 0.3s;
+  background-color: var(--cor-primaria);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-weight: 600;
 }
 
 .botao-projetos:hover {
-    background-color: #2980b9;
+  background-color: #2980b9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-.botao-modo {
-    background-color: #2c3e50;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+/* ===== BOTÃO MODO FLUTUANTE ===== */
+.botao-modo-flutuante {
+  position: fixed;
+  top: 25px;
+  right: 25px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: white;
+  border: 2px solid var(--cor-primaria);
+  cursor: pointer;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.15);
+  font-size: 1.3rem;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-.botao-modo:hover {
-    background-color: #1a252f;
+.botao-modo-flutuante:hover {
+  transform: scale(1.1) rotate(12deg);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.botao-modo-flutuante:active {
+  transform: scale(0.95);
+}
+
+/* ===== MODO ESCURO ===== */
+body.dark-mode {
+  --cor-fundo: var(--dark-bg);
+  --cor-texto: var(--dark-text);
+  --cor-destaque: var(--dark-destaque);
+  --cor-secundaria: #ecf0f1;
+}
+
+.dark-mode .botao-modo-flutuante {
+  background: var(--dark-bg);
+  border-color: var(--dark-text);
+  color: var(--dark-text);
+}
+
+.dark-mode .botao-projetos {
+  background-color: var(--cor-primaria);
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 768px) {
+  .container {
+    padding: 15px;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+  .botao-modo-flutuante {
+    width: 38px;
+    height: 38px;
+    font-size: 1.1rem;
+    top: 15px;
+    right: 15px;
+  }
+  
+  nav {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* ===== ANIMAÇÕES ===== */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.destaque {
+  animation: float 3s ease-in-out infinite;
 }
