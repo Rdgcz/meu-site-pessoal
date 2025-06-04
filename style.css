@@ -13,23 +13,17 @@
 }
 
 /* ===== ESTILOS GERAIS ===== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
 body {
   font-family: 'Arial', sans-serif;
   line-height: 1.6;
-  background-color: var(--cor-fundo);
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #dee2e6 100%);
   color: var(--cor-texto);
-  transition: all 0.4s ease;
-  padding-top: 20px;
+  transition: background 0.5s ease, color 0.3s ease;
+  min-height: 100vh;
+}
+
+.dark-mode body {
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #2d2d2d 100%);
 }
 
 /* ===== CONTAINER PRINCIPAL ===== */
