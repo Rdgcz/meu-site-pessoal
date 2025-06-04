@@ -26,10 +26,19 @@ html {
 body {
   font-family: 'Arial', sans-serif;
   line-height: 1.6;
-  background-color: var(--cor-fundo);
-  color: var(--cor-texto);
-  transition: all 0.4s ease;
-  padding-top: 20px;
+  background: linear-gradient(-45deg, #f5f5f5, #e0e0e0, #f5f5f5);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.dark-mode body {
+    background: linear-gradient(-45deg, #121212, #1e1e1e, #121212);
 }
 
 /* ===== CONTAINER PRINCIPAL ===== */
@@ -593,6 +602,8 @@ body.dark-mode {
 .projeto-badge[data-categoria="design"] {
     background-color: #8b5cf6; /* Roxo */
 }
+  /* ===== ANIMAÇÃO SUTIL - BACKGROUND ===== */
+
 
 .projeto-badge[data-categoria="games"] {
     background-color: #10b981; /* Verde */
