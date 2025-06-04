@@ -3,63 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meus Projetos | Rodrigo Cezar</title>
+    <title>Projetos | Rodrigo Cezar</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="assets/images/favicon/favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <!-- Botão de Modo Escuro Flutuante -->
+    <!-- Botão Modo Escuro -->
     <button onclick="toggleDarkMode()" class="botao-modo-flutuante">🌓</button>
 
-    <div class="container-projetos">
-        <header class="cabecalho-projetos">
-            <h1>🧿 Meus Projetos</h1>
-            <nav>
-                <a href="index.html" class="botao-voltar">← Voltar para Home</a>
-            </nav>
+    <div class="container">
+        <!-- Cabeçalho -->
+        <header class="projetos-header">
+            <h1><span class="destaque">#</span> Meus Projetos</h1>
+            <a href="index.html" class="botao-voltar">
+                <i class="fas fa-arrow-left"></i> Voltar para Home
+            </a>
         </header>
 
-        <main class="galeria-projetos">
+        <!-- Grid de Projetos -->
+        <main class="projetos-grid">
+            
             <!-- Projeto 1 -->
-            <article class="card-projeto">
+            <div class="projeto-box">
+                <div class="projeto-imagem-container">
+                    <img src="assets/imagens/site-pessoal.png" alt="Site Pessoal" class="projeto-imagem">
+                    <div class="projeto-badge">Online</div>
+                </div>
                 <div class="projeto-conteudo">
                     <h2>Site Pessoal</h2>
-                    <div class="projeto-imagem-container">
-                        <img src="assets/imagens/site-pessoal.png" alt="Print do site pessoal" class="projeto-imagem">
+                    <p class="projeto-descricao">Meu portfólio desenvolvido com HTML, CSS e JavaScript, apresentando meus trabalhos e habilidades.</p>
+                    <div class="projeto-techs">
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">JS</span>
                     </div>
-                    <p class="projeto-descricao">Meu primeiro site portfolio desenvolvido com HTML, CSS e JavaScript, incluindo modo escuro personalizado e design responsivo.</p>
-                    <div class="projeto-rodape">
-                        <a href="https://rdgcz.github.io/meu-site-pessoal/" target="_blank" class="botao-projeto">Ver Online</a>
-                        <span class="projeto-tags">#HTML #CSS #JavaScript</span>
-                    </div>
+                    <a href="https://rdgcz.github.io/meu-site-pessoal/" target="_blank" class="botao-visitar">
+                        <i class="fas fa-external-link-alt"></i> Visitar Projeto
+                    </a>
                 </div>
-            </article>
+            </div>
 
             <!-- Projeto 2 -->
-            <article class="card-projeto">
-                <div class="projeto-conteudo">
-                    <h2>Calculadora</h2>
-                    <div class="projeto-imagem-container">
-                        <div class="projeto-em-breve">
-                            <p>🚀 Em desenvolvimento</p>
-                        </div>
-                    </div>
-                    <p class="projeto-descricao">Calculadora web com operações básicas, desenvolvida com JavaScript puro.</p>
-                    <div class="projeto-rodape">
-                        <button disabled class="botao-projeto desativado">Em Breve</button>
-                        <span class="projeto-tags">#JavaScript #CSS</span>
+            <div class="projeto-box em-breve">
+                <div class="projeto-imagem-container">
+                    <div class="placeholder">
+                        <i class="fas fa-calculator"></i>
+                        <p>Em Desenvolvimento</p>
                     </div>
                 </div>
-            </article>
+                <div class="projeto-conteudo">
+                    <h2>Calculadora</h2>
+                    <p class="projeto-descricao">Calculadora web com operações básicas, desenvolvida com JavaScript.</p>
+                    <div class="projeto-techs">
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">JS</span>
+                    </div>
+                    <button class="botao-visitar desativado">
+                        <i class="fas fa-lock"></i> Em Breve
+                    </button>
+                </div>
+            </div>
+
+            <!-- Projeto 3 (Modelo para novos projetos) -->
+            <div class="projeto-box em-breve">
+                <div class="projeto-imagem-container">
+                    <div class="placeholder">
+                        <i class="fas fa-code"></i>
+                        <p>Novo Projeto</p>
+                    </div>
+                </div>
+                <div class="projeto-conteudo">
+                    <h2>Jogo da Memória</h2>
+                    <p class="projeto-descricao">Jogo interativo para treinar memória com temas personalizáveis.</p>
+                    <div class="projeto-techs">
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">JS</span>
+                    </div>
+                    <button class="botao-visitar desativado">
+                        <i class="fas fa-lock"></i> Em Breve
+                    </button>
+                </div>
+            </div>
         </main>
 
-        <footer class="rodape-projetos">
-            <p>© <span id="ano-atual">2025</span> - Desenvolvido com ❤️ por Rodrigo Cezar</p>
+        <footer class="projetos-footer">
+            <p>© <span id="ano-atual"></span> Rodrigo Cezar. Todos os direitos reservados.</p>
         </footer>
     </div>
 
     <script>
-        // Sistema de modo escuro
+        // Sistema de Modo Escuro
         function toggleDarkMode() {
             const isDark = document.body.classList.toggle("dark-mode");
             const botao = document.querySelector('.botao-modo-flutuante');
@@ -67,14 +102,15 @@
             localStorage.setItem('darkMode', isDark);
         }
 
-        // Carrega preferência de tema
+        // Carrega preferências ao iniciar
         document.addEventListener('DOMContentLoaded', function() {
+            // Modo Escuro
             if (localStorage.getItem('darkMode') === 'true') {
                 document.body.classList.add('dark-mode');
                 document.querySelector('.botao-modo-flutuante').textContent = '🌞';
             }
             
-            // Atualiza ano do footer
+            // Ano atual
             document.getElementById('ano-atual').textContent = new Date().getFullYear();
         });
     </script>
