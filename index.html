@@ -6,35 +6,19 @@
     <title>Rodrigo Cezar da Silva</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Favicon com fallback caso o caminho mude -->
+    <!-- Favicon com fallback -->
     <link rel="icon" href="assets/images/favicon/favicon.ico" type="image/x-icon">
-    <!-- Fallback para SVG caso o .ico não carregue -->
     <link rel="icon" href="assets/images/favicon/favicon-32x32.png" type="image/png">
 </head>
 <body>
-     <button onclick="toggleDarkMode()" class="botao-modo-flutuante">🌓</button>
-    
     <div class="container">
-        <h1>Rodrigo Cezar da Silva</h1>
-        <p class="slogan">Design + Código + Café = <span class="destaque">produtividade infinita</span> (ou quase...)</p>
-        <nav><a href="projetos.html" class="botao-projetos">Ver Meus Projetos</a></nav>
-       </div>
-
-    <script>
-        function toggleDarkMode() {
-    const isDark = document.body.classList.toggle("dark-mode");
-    const botao = document.querySelector('.botao-modo-flutuante');
-    botao.textContent = isDark ? '🌞' : '🌓';
-    localStorage.setItem('darkMode', isDark);
-}
-
-// Carregar estado ao iniciar
-document.addEventListener('DOMContentLoaded', function() {
-    if (localStorage.getItem('darkMode') === 'true') {
-        document.body.classList.add('dark-mode');
-        document.querySelector('.botao-modo-flutuante').textContent = '🌞';
-    }
-});
-    </script>
+        <h1>🧿 Rodrigo Cezar da Silva</h1>
+        <p class="slogan">📐 Design + 💻 Código + ☕ Café = <span class="destaque">🚀 produtividade infinita</span> (ou quase...)</p>
+        <nav>
+            <a href="projetos.html" class="btn btn--primary">
+                <i class="fas fa-folder-open"></i> Ver Meus Projetos
+            </a>
+        </nav>
+    </div>
 </body>
 </html>
