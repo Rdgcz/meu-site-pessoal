@@ -546,3 +546,54 @@ body.dark-mode {
         padding: 1.5rem;
     }
 }
+/* ===== ESTILOS DE CATEGORIAS ===== */
+.categoria-projetos {
+    margin-bottom: 3rem;
+}
+
+.categoria-titulo {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: var(--cor-secundaria);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #eee;
+}
+
+.dark-mode .categoria-titulo {
+    border-bottom-color: #334155;
+}
+
+.categoria-titulo i {
+    color: var(--cor-destaque);
+}
+
+/* Destaque especial para projetos */
+.projeto-destaque {
+    border: 2px solid var(--cor-destaque);
+    position: relative;
+}
+
+.projeto-destaque::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border: 2px dashed var(--cor-destaque);
+    border-radius: 15px;
+    z-index: -1;
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+/* Badges diferentes por categoria */
+.projeto-badge[data-categoria="design"] {
+    background-color: #8b5cf6; /* Roxo */
+}
+
+.projeto-badge[data-categoria="games"] {
+    background-color: #10b981; /* Verde */
+}
