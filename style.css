@@ -163,3 +163,157 @@ body.dark-mode {
 .destaque {
   animation: float 3s ease-in-out infinite;
 }
+/* ===== ESTILOS ESPECÍFICOS PARA PROJETOS ===== */
+.container-projetos {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.cabecalho-projetos {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.cabecalho-projetos h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.botao-voltar {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: var(--cor-secundaria);
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.botao-voltar:hover {
+    background-color: var(--cor-primaria);
+    transform: translateY(-2px);
+}
+
+.galeria-projetos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.card-projeto {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-projeto:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.projeto-conteudo {
+    padding: 1.5rem;
+}
+
+.projeto-imagem-container {
+    height: 200px;
+    background: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.projeto-imagem {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.projeto-em-breve {
+    text-align: center;
+    color: var(--cor-primaria);
+    font-weight: bold;
+}
+
+.projeto-descricao {
+    margin: 1rem 0;
+    color: #555;
+    line-height: 1.6;
+}
+
+.projeto-rodape {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.5rem;
+}
+
+.botao-projeto {
+    padding: 0.5rem 1.5rem;
+    background-color: var(--cor-primaria);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.botao-projeto:hover {
+    background-color: #2980b9;
+}
+
+.botao-projeto.desativado {
+    background-color: #95a5a6;
+    cursor: not-allowed;
+}
+
+.projeto-tags {
+    font-size: 0.8rem;
+    color: #7f8c8d;
+    font-style: italic;
+}
+
+.rodape-projetos {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #eee;
+    color: #7f8c8d;
+}
+
+/* ===== DARK MODE PARA PROJETOS ===== */
+.dark-mode .card-projeto {
+    background: #2d3436;
+}
+
+.dark-mode .projeto-descricao,
+.dark-mode .projeto-tags {
+    color: #bdc3c7;
+}
+
+.dark-mode .projeto-imagem-container {
+    background: #34495e;
+}
+
+.dark-mode .rodape-projetos {
+    border-top-color: #34495e;
+    color: #bdc3c7;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 768px) {
+    .galeria-projetos {
+        grid-template-columns: 1fr;
+    }
+    
+    .cabecalho-projetos h1 {
+        font-size: 2rem;
+    }
+}
