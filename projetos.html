@@ -3,36 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meus Projetos</title>
+    <title>Meus Projetos | Rodrigo Cezar</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="assets/images/favicon/favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <header>
-        <h1>Meus Projetos</h1>
-        <nav>
-            <a href="index.html">Voltar para Home</a>
-        </nav>
-    </header>
+    <!-- Botão de Modo Escuro Flutuante -->
+    <button onclick="toggleDarkMode()" class="botao-modo-flutuante">🌓</button>
 
-    <main>
-        <section class="projeto">
-            <h2>Site Pessoal</h2>
-            <img src="assets/imagens/site-pessoal.png" alt="Print do site" width="300">
-            <p>Meu primeiro site usando HTML, CSS e JavaScript.</p>
-            <a href="https://rdgcz.github.io/meu-site-pessoal/" target="_blank">Ver online</a>
-        </section>
+    <div class="container-projetos">
+        <header class="cabecalho-projetos">
+            <h1>🧿 Meus Projetos</h1>
+            <nav>
+                <a href="index.html" class="botao-voltar">← Voltar para Home</a>
+            </nav>
+        </header>
 
-        <!-- Adicione mais projetos depois -->
-        <section class="projeto">
-            <h2>Calculadora</h2>
-            <p>Em breve... (próximo projeto!)</p>
-        </section>
-    </main>
+        <main class="galeria-projetos">
+            <!-- Projeto 1 -->
+            <article class="card-projeto">
+                <div class="projeto-conteudo">
+                    <h2>Site Pessoal</h2>
+                    <div class="projeto-imagem-container">
+                        <img src="assets/imagens/site-pessoal.png" alt="Print do site pessoal" class="projeto-imagem">
+                    </div>
+                    <p class="projeto-descricao">Meu primeiro site portfolio desenvolvido com HTML, CSS e JavaScript, incluindo modo escuro personalizado e design responsivo.</p>
+                    <div class="projeto-rodape">
+                        <a href="https://rdgcz.github.io/meu-site-pessoal/" target="_blank" class="botao-projeto">Ver Online</a>
+                        <span class="projeto-tags">#HTML #CSS #JavaScript</span>
+                    </div>
+                </div>
+            </article>
 
-    <footer>
-        <p>© 2025 - Feito por RDGCZ!</p>
-    </footer>
+            <!-- Projeto 2 -->
+            <article class="card-projeto">
+                <div class="projeto-conteudo">
+                    <h2>Calculadora</h2>
+                    <div class="projeto-imagem-container">
+                        <div class="projeto-em-breve">
+                            <p>🚀 Em desenvolvimento</p>
+                        </div>
+                    </div>
+                    <p class="projeto-descricao">Calculadora web com operações básicas, desenvolvida com JavaScript puro.</p>
+                    <div class="projeto-rodape">
+                        <button disabled class="botao-projeto desativado">Em Breve</button>
+                        <span class="projeto-tags">#JavaScript #CSS</span>
+                    </div>
+                </div>
+            </article>
+        </main>
+
+        <footer class="rodape-projetos">
+            <p>© <span id="ano-atual">2025</span> - Desenvolvido com ❤️ por Rodrigo Cezar</p>
+        </footer>
+    </div>
+
+    <script>
+        // Sistema de modo escuro
+        function toggleDarkMode() {
+            const isDark = document.body.classList.toggle("dark-mode");
+            const botao = document.querySelector('.botao-modo-flutuante');
+            botao.textContent = isDark ? '🌞' : '🌓';
+            localStorage.setItem('darkMode', isDark);
+        }
+
+        // Carrega preferência de tema
+        document.addEventListener('DOMContentLoaded', function() {
+            if (localStorage.getItem('darkMode') === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.botao-modo-flutuante').textContent = '🌞';
+            }
+            
+            // Atualiza ano do footer
+            document.getElementById('ano-atual').textContent = new Date().getFullYear();
+        });
+    </script>
 </body>
 </html>
-
