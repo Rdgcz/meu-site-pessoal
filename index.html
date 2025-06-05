@@ -6,19 +6,32 @@
     <title>Rodrigo Cezar da Silva</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Favicon com fallback -->
     <link rel="icon" href="assets/images/favicon/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="assets/images/favicon/favicon-32x32.png" type="image/png">
 </head>
 <body>
     <div class="container">
-        <h1>🧿 Rodrigo Cezar da Silva</h1>
-        <p class="slogan">📐 Design + 💻 Código + ☕ Café = <span class="destaque">🚀 produtividade infinita</span> (ou quase...)</p>
-        <nav>
-            <a href="projetos.html" class="btn btn--primary">
-                <i class="fas fa-folder-open"></i> Ver Meus Projetos
-            </a>
-        </nav>
+        <header class="header">
+            <h1>Rodrigo Cezar da Silva</h1>
+            <p class="slogan">Design + Código + Café = <span class="destaque">produtividade infinita</span> (ou quase...)</p>
+        </header>
+
+        <main class="main-content">
+            <!-- Barra de busca do Google -->
+            <div class="search-container">
+                <form action="https://www.google.com/search" method="get" target="_blank">
+                    <input type="text" name="q" placeholder="Pesquisar no Google..." class="search-input">
+                    <button type="submit" class="search-button">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+            </div>
+
+            <nav class="navigation">
+                <a href="projetos.html" class="btn btn--primary">
+                    Ver Meus Projetos
+                </a>
+            </nav>
+        </main>
     </div>
 </body>
 </html>
