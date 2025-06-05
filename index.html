@@ -53,8 +53,8 @@
             font-size: 0.9rem;
             position: absolute;
             top: 15px;
-            right: 15px;
-            text-align: right;
+            right: 25px;
+            text-align: center;
             color: var(--accent-color);
             text-shadow: var(--glow-effect);
             line-height: 1.4;
@@ -69,25 +69,13 @@
             opacity: 0.8;
             font-size: 0.8rem;
         }
-        
-        .moon-phase {
-            font-size: 0.8rem;
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            gap: 5px;
-        }
-        
-        .moon-emoji {
-            font-size: 1rem;
-        }
-        
+                  
         .slogan {
             margin: 60px 0 15px 0;
             font-style: italic;
             opacity: 0.8;
             max-width: 80%;
-            font-size: 0.9rem;
+            font-size: 1.5rem;
         }
         
         .separator {
@@ -157,11 +145,11 @@
         
         .card {
             background: linear-gradient(135deg, rgba(0, 48, 73, 0.3), rgba(0, 20, 40, 0.5));
-            border-radius: 6px;
+            border-radius: 8px;
             padding: 10px;
             transition: all 0.3s;
             cursor: pointer;
-            border: 1px solid rgba(0, 150, 255, 0.2);
+            border: 2px solid rgba(0, 150, 255, 0.2);
             height: 70px;
             display: flex;
             flex-direction: column;
@@ -223,11 +211,11 @@
             font-weight: bold;
             margin-bottom: 3px;
             color: var(--accent-color);
-            font-size: 0.8rem;
+            font-size: 1.0rem;
         }
         
         .card-desc {
-            font-size: 0.6rem;
+            font-size: 0.8rem;
             opacity: 0.7;
         }
     </style>
@@ -242,7 +230,7 @@
         </div>
     </div>
     
-    <p class="slogan">Design + Código + Caté = produtividade infinita (ou quase...)</p>
+    <p class="slogan">Design + Código + Café = produtividade infinita (ou quase...)</p>
     
     <div class="separator"></div>
     
@@ -294,7 +282,7 @@
 
     <script>
 
-        // Relógio digital e fase da lua
+        // Relógio digital
         function updateClock() {
             const now = new Date();
             const timeElement = document.getElementById('time');
