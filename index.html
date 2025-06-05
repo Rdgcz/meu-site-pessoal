@@ -22,7 +22,6 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
             min-height: 100vh;
             margin: 0;
             padding: 15px;
@@ -49,38 +48,40 @@
         }
         
         .digital-clock {
-            font-family: 'Orbitron', monospace; /* Adicionado monospace como fallback */
+            font-family: 'Orbitron', monospace;
             font-size: 0.9rem;
             position: absolute;
             top: 15px;
-            right: 15px;
-            text-align: right;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
             color: var(--accent-color);
             text-shadow: var(--glow-effect);
             line-height: 1.4;
-            width: 200px; /* Largura fixa suficiente */
+            width: auto;
+            white-space: nowrap;
         }
         
         .time {
             font-size: 1.1rem;
             letter-spacing: 2px;
-            font-feature-settings: "tnum"; /* Ativa números tabulares */
-            font-variant-numeric: tabular-nums; /* Garante alinhamento perfeito */
+            font-feature-settings: "tnum";
+            font-variant-numeric: tabular-nums;
             display: inline-block;
-            min-width: 85px; /* Largura mínima para HH:MM:SS */
-            text-align: right;
+            min-width: 85px;
         }
         
         .date {
             opacity: 0.8;
             font-size: 0.8rem;
+            margin: 3px 0;
         }
         
         .moon-phase {
             font-size: 0.8rem;
             display: flex;
             align-items: center;
-            justify-content: flex-end;
+            justify-content: center;
             gap: 5px;
         }
         
@@ -326,7 +327,7 @@
             return { phase: "Nova", emoji: "🌑", daysToNext: Math.ceil(29.53 - age + 1.84566) };
         }
 
-        // Relógio digital e fase da lua
+               // Relógio digital e fase da lua
         function updateClock() {
             const now = new Date();
             const timeElement = document.getElementById('time');
@@ -334,7 +335,7 @@
             const moonPhaseElement = document.getElementById('moon-phase');
             const moonEmojiElement = document.getElementById('moon-emoji');
             
-            // Formata hora com zeros à esquerda para manter largura consistente
+            // Formata hora com zeros à esquerda
             const hours = String(now.getHours()).padStart(2, '0');
             const minutes = String(now.getMinutes()).padStart(2, '0');
             const seconds = String(now.getSeconds()).padStart(2, '0');
@@ -345,7 +346,13 @@
             const date = now.toLocaleDateString('pt-BR', options);
             dateElement.textContent = date.charAt(0).toUpperCase() + date.slice(1);
             
-            // Calcula fase da lua precisa
+            // Calcula fase da lua
+            const moonData = getMoonPhase(now);
+            moonEmojiElement.textContent = moonData.emoji;
+            moonPhaseElement.textContent = `Lua ${moonData.phase} (${moonData.daysToNext} dias)`;
+        }
+
+        function getMoonPhase(date) 
             const moonData = getMoonPhase(now);
             moonEmojiElement.textContent = moonData.emoji;
             moonPhaseElement.textContent = `Lua ${moonData.phase} (${moonData.daysToNext} dias para próxima fase)`;
