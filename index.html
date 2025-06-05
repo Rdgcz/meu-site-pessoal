@@ -338,6 +338,10 @@ animation: metallicShine 4s linear infinite;
             <p>© <span id="current-year"></span> - RDGCZ - Todos os direitos reservados.</p>
         </footer>
     <script>
+        // Atualiza o ano atual
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+            
         // Relógio digital
         function updateClock() {
             const now = new Date();
