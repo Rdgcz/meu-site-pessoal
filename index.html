@@ -37,7 +37,7 @@
         h1 {
             position: absolute;
             top: 15px;
-            right: 15px;
+            left: 30px; /* Aumentado o padding esquerdo */
             margin: 0;
             color: var(--accent-color);
             text-shadow: var(--glow-effect);
@@ -45,6 +45,7 @@
             font-family: 'Montserrat', sans-serif;
             font-weight: 600;
             font-size: 1.8rem;
+            padding-left: 15px; /* Padding adicional */
         }
         
         .digital-clock {
@@ -52,8 +53,8 @@
             font-size: 0.9rem;
             position: absolute;
             top: 15px;
-            left: 15px;
-            text-align: left;
+            right: 15px; /* Movido para a direita */
+            text-align: right; /* Alinhado à direita */
             color: var(--accent-color);
             text-shadow: var(--glow-effect);
             line-height: 1.4;
@@ -73,6 +74,7 @@
             font-size: 0.8rem;
             display: flex;
             align-items: center;
+            justify-content: flex-end; /* Alinhado à direita */
             gap: 5px;
         }
         
@@ -237,8 +239,8 @@
         <div class="time" id="time">00:00:00</div>
         <div class="date" id="date">1 de Janeiro de 2023</div>
         <div class="moon-phase">
-            <span class="moon-emoji" id="moon-emoji">🌓</span>
             <span id="moon-phase">Lua Crescente (3 dias para Lua Cheia)</span>
+            <span class="moon-emoji" id="moon-emoji">🌓</span>
         </div>
     </div>
     
