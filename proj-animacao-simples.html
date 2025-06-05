@@ -107,7 +107,7 @@
             grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
             gap: 30px;
             max-width: 1200px;
-            margin: 60px auto;
+            margin: 0 auto;
         }
         
         .video-frame {
@@ -157,12 +157,18 @@
             border-top: 1px solid var(--separator-color);
         }
 
+        .project-description-container {
+            max-width: 1030px; /* Largura dos dois vídeos + gap */
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
         .project-description {
             background: rgba(0, 48, 73, 0.3);
             padding: 20px;
             border-radius: 8px;
             border: 1px solid var(--accent-secondary);
-            margin-bottom: 30px;
+            margin: 30px 0;
         }
         
         .project-description h3 {
@@ -223,6 +229,23 @@
                 background-position: -200% center;
             }
         }
+
+        textarea {
+            width: 100%;
+            min-height: 100px;
+            background: rgba(0, 20, 40, 0.5);
+            border: 1px solid var(--accent-secondary);
+            color: var(--text-color);
+            padding: 10px;
+            font-family: 'Orbitron', sans-serif;
+            border-radius: 4px;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 8px rgba(0, 240, 255, 0.3);
+        }
     </style>
 </head>
 <body>
@@ -243,67 +266,68 @@
         </header>
         
         <div class="separator"></div>
-    <div class="video-gallery">
-        <!-- Vídeo 1 -->
-        <div class="video-frame">
-            <div class="video-title">
-                <i class="fas fa-play"></i> Animação Técnica - Versão 2017
+
+        <div class="video-gallery">
+            <!-- Vídeo 1 -->
+            <div class="video-frame">
+                <div class="video-title">
+                    <i class="fas fa-play"></i> Animação Técnica - Versão 2017
+                </div>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/SEU_ID_VIDEO_1?modestbranding=1&rel=0" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="video-footer">
+                    Criado com AutoCAD | Duração: 2:15
+                </div>
             </div>
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/SEU_ID_VIDEO_1?modestbranding=1&rel=0" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen>
-                </iframe>
-            </div>
-            <div class="video-footer">
-                Criado com AutoCAD | Duração: 2:15
-            </div>
-        </div>
-        
-        <!-- Vídeo 2 -->
-        <div class="video-frame">
-            <div class="video-title">
-                <i class="fas fa-play"></i> Demonstração de Projeto - 2018
-            </div>
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/SEU_ID_VIDEO_2?modestbranding=1&rel=0" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen>
-                </iframe>
-            </div>
-            <div class="video-footer">
-                Editado no Premiere | Resolução: 1080p
-            </div>
-        </div>
-        
-         <div class="separator"></div>
-       
-        <!-- Área de informações sobre o vídeo -->
-        <div class="project-description">
-            <h3>Sobre esta Animação</h3>
-            <p>Animação preliminar simples, criada em 2017 para estudo de viabilidade para apresentações de projetos técnicos.</p>
             
-            <h4>Detalhes Técnicos:</h4>
-            <ul>
-                <li>Criado com Autocad para modelagem 3D</li>
-                <li>Edição e composição no Adobe Premiere</li>
-                <li>Duração: 2 minutos</li>
-                <li>Resolução original: 1080p</li>
-            </ul>
-            
-            <h4>Observações:</h4>
-            <textarea placeholder="Adicione suas observações sobre a animação..." 
-                      style="width: 100%; min-height: 100px; background: rgba(0, 20, 40, 0.5); 
-                             border: 1px solid var(--accent-secondary); 
-                             color: var(--text-color); padding: 10px;"></textarea>
+            <!-- Vídeo 2 -->
+            <div class="video-frame">
+                <div class="video-title">
+                    <i class="fas fa-play"></i> Demonstração de Projeto - 2018
+                </div>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/SEU_ID_VIDEO_2?modestbranding=1&rel=0" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="video-footer">
+                    Editado no Premiere | Resolução: 1080p
+                </div>
+            </div>
         </div>
-        
+
+        <div class="separator"></div>
+
+        <!-- Área de informações sobre o vídeo - Centralizada com a largura dos vídeos -->
+        <div class="project-description-container">
+            <div class="project-description">
+                <h3>Sobre esta Animação</h3>
+                <p>Animação preliminar simples, criada em 2017 para estudo de viabilidade para apresentações de projetos técnicos.</p>
+                
+                <h4>Detalhes Técnicos:</h4>
+                <ul>
+                    <li>Criado com Autocad para modelagem 3D</li>
+                    <li>Edição e composição no Adobe Premiere</li>
+                    <li>Duração: 2 minutos</li>
+                    <li>Resolução original: 1080p</li>
+                </ul>
+                
+                <h4>Observações:</h4>
+                <p>Animação preliminar simples, criada em 2017 para estudo de viabilidade para apresentações de projetos técnicos.</p>
+            </div>
+        </div>
+
         <div class="separator"></div>
     </div>
 
-        <footer>
+    <footer>
         <p>© <span id="current-year"></span> - RDGCZ - Todos os direitos reservados.</p>
     </footer>
 
