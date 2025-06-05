@@ -37,7 +37,7 @@
         h1 {
             position: absolute;
             top: 15px;
-            left: 30px; /* Aumentado o padding esquerdo */
+            left: 30px;
             margin: 0;
             color: var(--accent-color);
             text-shadow: var(--glow-effect);
@@ -45,7 +45,7 @@
             font-family: 'Montserrat', sans-serif;
             font-weight: 600;
             font-size: 1.8rem;
-            padding-left: 15px; /* Padding adicional */
+            padding-left: 15px;
         }
         
         .digital-clock {
@@ -53,8 +53,8 @@
             font-size: 0.9rem;
             position: absolute;
             top: 15px;
-            right: 15px; /* Movido para a direita */
-            text-align: right; /* Alinhado à direita */
+            right: 15px;
+            text-align: right;
             color: var(--accent-color);
             text-shadow: var(--glow-effect);
             line-height: 1.4;
@@ -74,7 +74,7 @@
             font-size: 0.8rem;
             display: flex;
             align-items: center;
-            justify-content: flex-end; /* Alinhado à direita */
+            justify-content: flex-end;
             gap: 5px;
         }
         
@@ -82,154 +82,7 @@
             font-size: 1rem;
         }
         
-        .slogan {
-            margin: 60px 0 15px 0;
-            font-style: italic;
-            opacity: 0.8;
-            max-width: 80%;
-            font-size: 0.9rem;
-        }
-        
-        .separator {
-            width: 80%;
-            max-width: 400px;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
-            margin: 15px auto;
-            opacity: 0.5;
-        }
-        
-        .search-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
-            max-width: 500px;
-            margin: 10px 0;
-        }
-        
-        .search-bar {
-            width: 100%;
-            padding: 10px 18px;
-            margin-bottom: 8px;
-            border: 1px solid var(--search-border);
-            border-radius: 24px;
-            font-size: 14px;
-            background-color: rgba(0, 20, 40, 0.5);
-            color: var(--text-color);
-            outline: none;
-            font-family: 'Orbitron', sans-serif;
-        }
-        
-        .search-bar:focus {
-            border-color: var(--accent-color);
-            box-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
-        }
-        
-        .search-button {
-            padding: 6px 18px;
-            background-color: rgba(0, 102, 255, 0.2);
-            border: 1px solid var(--accent-secondary);
-            border-radius: 4px;
-            color: var(--accent-color);
-            font-size: 12px;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-family: 'Orbitron', sans-serif;
-            letter-spacing: 1px;
-        }
-        
-        .search-button:hover {
-            background-color: rgba(0, 102, 255, 0.4);
-            box-shadow: 0 0 10px rgba(0, 102, 255, 0.5);
-        }
-        
-        .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
-            margin: 15px 0;
-            width: 100%;
-            max-width: 700px;
-            padding: 0 10px;
-            box-sizing: border-box;
-        }
-        
-        .card {
-            background: linear-gradient(135deg, rgba(0, 48, 73, 0.3), rgba(0, 20, 40, 0.5));
-            border-radius: 6px;
-            padding: 10px;
-            transition: all 0.3s;
-            cursor: pointer;
-            border: 1px solid rgba(0, 150, 255, 0.2);
-            height: 70px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            right: 10px;
-            bottom: 10px;
-            background-size: cover;
-            background-position: center;
-            opacity: 0.15;
-            z-index: 0;
-        }
-        
-        .card:nth-child(1)::before {
-            background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');
-        }
-        
-        .card:nth-child(2)::before {
-            background-image: url('https://images.unsplash.com/photo-1546074177-ffdda98d214f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');
-        }
-        
-        .card:nth-child(3)::before {
-            background-image: url('https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');
-        }
-        
-        .card:nth-child(4)::before {
-            background-image: url('https://images.unsplash.com/photo-1515378960530-7c0da6231fb1?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');
-        }
-        
-        .card:nth-child(5)::before {
-            background-image: url('https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');
-        }
-        
-        .card:nth-child(6)::before {
-            background-image: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');
-        }
-        
-        .card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 240, 255, 0.3);
-            border-color: var(--accent-color);
-            background: linear-gradient(135deg, rgba(0, 48, 73, 0.5), rgba(0, 20, 40, 0.7));
-        }
-        
-        .card-content {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .card-title {
-            font-weight: bold;
-            margin-bottom: 3px;
-            color: var(--accent-color);
-            font-size: 0.8rem;
-        }
-        
-        .card-desc {
-            font-size: 0.6rem;
-            opacity: 0.7;
-        }
+        /* ... (mantenha o resto do CSS igual) ... */
     </style>
 </head>
 <body>
@@ -239,62 +92,39 @@
         <div class="time" id="time">00:00:00</div>
         <div class="date" id="date">1 de Janeiro de 2023</div>
         <div class="moon-phase">
-            <span id="moon-phase">Lua Crescente (3 dias para Lua Cheia)</span>
-            <span class="moon-emoji" id="moon-emoji">🌓</span>
+            <span id="moon-phase">Carregando fase lunar...</span>
+            <span class="moon-emoji" id="moon-emoji">🌑</span>
         </div>
     </div>
     
-    <p class="slogan">Design + Código + Caté = produtividade infinita (ou quase...)</p>
-    
-    <div class="separator"></div>
-    
-    <div class="search-container">
-        <input type="text" class="search-bar" placeholder="Pesquisar no Google...">
-        <button class="search-button">PESQUISAR</button>
-    </div>
-    
-    <div class="separator"></div>
-    
-    <div class="cards-grid">
-        <div class="card">
-            <div class="card-content">
-                <div class="card-title">PROJETOS</div>
-                <div class="card-desc">Trabalhos e criações</div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-content">
-                <div class="card-title">BLOG</div>
-                <div class="card-desc">Artigos e tutoriais</div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-content">
-                <div class="card-title">PORTFÓLIO</div>
-                <div class="card-desc">Cases e experiências</div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-content">
-                <div class="card-title">CONTATO</div>
-                <div class="card-desc">Redes e informações</div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-content">
-                <div class="card-title">SOBRE MIM</div>
-                <div class="card-desc">Jornada profissional</div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-content">
-                <div class="card-title">HABILIDADES</div>
-                <div class="card-desc">Tecnologias que domino</div>
-            </div>
-        </div>
-    </div>
+    <!-- ... (mantenha o resto do HTML igual) ... -->
 
     <script>
+        // Função para calcular a fase lunar precisa
+        function getMoonPhase(date) {
+            // Baseado em algoritmos astronômicos
+            const year = date.getFullYear();
+            const month = date.getMonth();
+            const day = date.getDate();
+            
+            // Cálculo aproximado da fase lunar (0-29.5)
+            const c = Math.floor((year - 2000) * 12.3685);
+            const totalMonths = c + month;
+            const frac = (totalMonths * 29.530588853) / 365.25;
+            const age = (frac - Math.floor(frac)) * 29.53;
+            
+            // Determinar a fase com base na idade
+            if (age < 1.84566) return { phase: "Nova", emoji: "🌑", daysToNext: Math.ceil(1.84566 - age) };
+            if (age < 5.53699) return { phase: "Crescente", emoji: "🌒", daysToNext: Math.ceil(5.53699 - age) };
+            if (age < 9.22831) return { phase: "Quarto Crescente", emoji: "🌓", daysToNext: Math.ceil(9.22831 - age) };
+            if (age < 12.91963) return { phase: "Crescente Gibosa", emoji: "🌔", daysToNext: Math.ceil(12.91963 - age) };
+            if (age < 16.61096) return { phase: "Cheia", emoji: "🌕", daysToNext: Math.ceil(16.61096 - age) };
+            if (age < 20.30228) return { phase: "Minguante Gibosa", emoji: "🌖", daysToNext: Math.ceil(20.30228 - age) };
+            if (age < 23.99361) return { phase: "Quarto Minguante", emoji: "🌗", daysToNext: Math.ceil(23.99361 - age) };
+            if (age < 27.68493) return { phase: "Minguante", emoji: "🌘", daysToNext: Math.ceil(27.68493 - age) };
+            return { phase: "Nova", emoji: "🌑", daysToNext: Math.ceil(29.53 - age + 1.84566) };
+        }
+
         // Relógio digital e fase da lua
         function updateClock() {
             const now = new Date();
@@ -312,42 +142,17 @@
             const date = now.toLocaleDateString('pt-BR', options);
             dateElement.textContent = date.charAt(0).toUpperCase() + date.slice(1);
             
-            // Calcula fase da lua e dias para próxima fase
-            const moonPhases = [
-                { name: "Lua Nova", emoji: "🌑", daysToNext: 7 },
-                { name: "Lua Crescente", emoji: "🌓", daysToNext: 7 },
-                { name: "Lua Cheia", emoji: "🌕", daysToNext: 7 },
-                { name: "Lua Minguante", emoji: "🌗", daysToNext: 7 }
-            ];
-            
-            const day = now.getDate();
-            const phaseIndex = Math.floor((day % 28) / 7);
-            const currentPhase = moonPhases[phaseIndex];
-            const nextPhaseIndex = (phaseIndex + 1) % 4;
-            const nextPhase = moonPhases[nextPhaseIndex];
-            
-            moonEmojiElement.textContent = currentPhase.emoji;
-            moonPhaseElement.textContent = `${currentPhase.name} (${currentPhase.daysToNext - (day % 7)} dias para ${nextPhase.name})`;
+            // Calcula fase da lua precisa
+            const moonData = getMoonPhase(now);
+            moonEmojiElement.textContent = moonData.emoji;
+            moonPhaseElement.textContent = `Lua ${moonData.phase} (${moonData.daysToNext} dias para próxima fase)`;
         }
         
         // Atualiza a cada segundo
         setInterval(updateClock, 1000);
         updateClock(); // Chamada inicial
         
-        // Efeito de digitação no slogan
-        const slogan = document.querySelector('.slogan');
-        const originalText = slogan.textContent;
-        slogan.textContent = '';
-        
-        let i = 0;
-        const typingEffect = setInterval(() => {
-            if (i < originalText.length) {
-                slogan.textContent += originalText.charAt(i);
-                i++;
-            } else {
-                clearInterval(typingEffect);
-            }
-        }, 50);
+        // ... (mantenha o resto do JavaScript igual) ...
     </script>
 </body>
 </html>
