@@ -22,6 +22,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
             min-height: 100vh;
             margin: 0;
             padding: 15px;
@@ -48,40 +49,32 @@
         }
         
         .digital-clock {
-            font-family: 'Orbitron', monospace;
+            font-family: 'Orbitron', sans-serif;
             font-size: 0.9rem;
             position: absolute;
             top: 15px;
-            left: 50%;
-            transform: translateX(-50%);
-            text-align: center;
+            right: 15px;
+            text-align: right;
             color: var(--accent-color);
             text-shadow: var(--glow-effect);
             line-height: 1.4;
-            width: auto;
-            white-space: nowrap;
         }
         
         .time {
             font-size: 1.1rem;
             letter-spacing: 2px;
-            font-feature-settings: "tnum";
-            font-variant-numeric: tabular-nums;
-            display: inline-block;
-            min-width: 85px;
         }
         
         .date {
             opacity: 0.8;
             font-size: 0.8rem;
-            margin: 3px 0;
         }
         
         .moon-phase {
             font-size: 0.8rem;
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-end;
             gap: 5px;
         }
         
@@ -245,9 +238,7 @@
     <div class="digital-clock">
         <div class="time" id="time">00:00:00</div>
         <div class="date" id="date">1 de Janeiro de 2023</div>
-        <div class="moon-phase">
-            <span id="moon-phase">Carregando fase lunar...</span>
-            <span class="moon-emoji" id="moon-emoji">🌑</span>
+        <div class="date" id="day">segunda-feira</div>
         </div>
     </div>
     
@@ -302,60 +293,22 @@
     </div>
 
     <script>
-        // Função para calcular a fase lunar precisa
-        function getMoonPhase(date) {
-            // Baseado em algoritmos astronômicos
-            const year = date.getFullYear();
-            const month = date.getMonth();
-            const day = date.getDate();
-            
-            // Cálculo aproximado da fase lunar (0-29.5)
-            const c = Math.floor((year - 2000) * 12.3685);
-            const totalMonths = c + month;
-            const frac = (totalMonths * 29.530588853) / 365.25;
-            const age = (frac - Math.floor(frac)) * 29.53;
-            
-            // Determinar a fase com base na idade
-            if (age < 1.84566) return { phase: "Nova", emoji: "🌑", daysToNext: Math.ceil(1.84566 - age) };
-            if (age < 5.53699) return { phase: "Crescente", emoji: "🌒", daysToNext: Math.ceil(5.53699 - age) };
-            if (age < 9.22831) return { phase: "Quarto Crescente", emoji: "🌓", daysToNext: Math.ceil(9.22831 - age) };
-            if (age < 12.91963) return { phase: "Crescente Gibosa", emoji: "🌔", daysToNext: Math.ceil(12.91963 - age) };
-            if (age < 16.61096) return { phase: "Cheia", emoji: "🌕", daysToNext: Math.ceil(16.61096 - age) };
-            if (age < 20.30228) return { phase: "Minguante Gibosa", emoji: "🌖", daysToNext: Math.ceil(20.30228 - age) };
-            if (age < 23.99361) return { phase: "Quarto Minguante", emoji: "🌗", daysToNext: Math.ceil(23.99361 - age) };
-            if (age < 27.68493) return { phase: "Minguante", emoji: "🌘", daysToNext: Math.ceil(27.68493 - age) };
-            return { phase: "Nova", emoji: "🌑", daysToNext: Math.ceil(29.53 - age + 1.84566) };
-        }
 
-               // Relógio digital e fase da lua
+        // Relógio digital e fase da lua
         function updateClock() {
             const now = new Date();
             const timeElement = document.getElementById('time');
             const dateElement = document.getElementById('date');
-            const moonPhaseElement = document.getElementById('moon-phase');
-            const moonEmojiElement = document.getElementById('moon-emoji');
             
-            // Formata hora com zeros à esquerda
-            const hours = String(now.getHours()).padStart(2, '0');
-            const minutes = String(now.getMinutes()).padStart(2, '0');
-            const seconds = String(now.getSeconds()).padStart(2, '0');
-            timeElement.textContent = `${hours}:${minutes}:${seconds}`;
+            // Formata hora
+            const time = now.toLocaleTimeString('pt-BR', { hour12: false });
+            timeElement.textContent = time;
             
             // Formata data
             const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
             const date = now.toLocaleDateString('pt-BR', options);
             dateElement.textContent = date.charAt(0).toUpperCase() + date.slice(1);
             
-            // Calcula fase da lua
-            const moonData = getMoonPhase(now);
-            moonEmojiElement.textContent = moonData.emoji;
-            moonPhaseElement.textContent = `Lua ${moonData.phase} (${moonData.daysToNext} dias)`;
-        }
-
-        function getMoonPhase(date) 
-            const moonData = getMoonPhase(now);
-            moonEmojiElement.textContent = moonData.emoji;
-            moonPhaseElement.textContent = `Lua ${moonData.phase} (${moonData.daysToNext} dias para próxima fase)`;
         }
         
         // Atualiza a cada segundo
