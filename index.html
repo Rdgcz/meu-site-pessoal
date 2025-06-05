@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rodrigo Cezar da Silva</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Orbitron:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-color: #0d0d1a;
@@ -17,64 +18,74 @@
         }
         
         body {
-            font-family: 'Orbitron', 'Arial', sans-serif;
+            font-family: 'Orbitron', sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             min-height: 100vh;
             margin: 0;
-            padding: 20px;
+            padding: 15px;
             box-sizing: border-box;
             text-align: center;
             background-color: var(--bg-color);
             color: var(--text-color);
             overflow: hidden;
+            position: relative;
         }
-
-        @font-face {
-            font-family: 'Orbitron';
-            src: url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+        
+        h1 {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            margin: 0;
+            color: var(--accent-color);
+            text-shadow: var(--glow-effect);
+            letter-spacing: 1px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1.8rem;
         }
         
         .digital-clock {
             font-family: 'Orbitron', sans-serif;
-            font-size: 1.2rem;
-            margin-bottom: 30px;
+            font-size: 0.9rem;
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            text-align: left;
             color: var(--accent-color);
             text-shadow: var(--glow-effect);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            line-height: 1.4;
         }
         
         .time {
-            font-size: 2rem;
-            letter-spacing: 3px;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
         }
         
         .date {
-            margin-top: 5px;
             opacity: 0.8;
+            font-size: 0.8rem;
         }
         
         .moon-phase {
-            margin-top: 5px;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
         
-        h1 {
-            margin-bottom: 10px;
-            color: var(--accent-color);
-            text-shadow: var(--glow-effect);
-            letter-spacing: 1px;
+        .moon-emoji {
+            font-size: 1rem;
         }
         
         .slogan {
-            margin-bottom: 20px;
+            margin: 60px 0 15px 0;
             font-style: italic;
             opacity: 0.8;
             max-width: 80%;
+            font-size: 0.9rem;
         }
         
         .separator {
@@ -82,7 +93,7 @@
             max-width: 400px;
             height: 1px;
             background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
-            margin: 20px auto;
+            margin: 15px auto;
             opacity: 0.5;
         }
         
@@ -91,16 +102,17 @@
             flex-direction: column;
             align-items: center;
             width: 100%;
-            max-width: 584px;
+            max-width: 500px;
+            margin: 10px 0;
         }
         
         .search-bar {
             width: 100%;
-            padding: 12px 20px;
-            margin-bottom: 10px;
+            padding: 10px 18px;
+            margin-bottom: 8px;
             border: 1px solid var(--search-border);
             border-radius: 24px;
-            font-size: 16px;
+            font-size: 14px;
             background-color: rgba(0, 20, 40, 0.5);
             color: var(--text-color);
             outline: none;
@@ -113,12 +125,12 @@
         }
         
         .search-button {
-            padding: 8px 24px;
+            padding: 6px 18px;
             background-color: rgba(0, 102, 255, 0.2);
             border: 1px solid var(--accent-secondary);
             border-radius: 4px;
             color: var(--accent-color);
-            font-size: 14px;
+            font-size: 12px;
             cursor: pointer;
             transition: all 0.3s;
             font-family: 'Orbitron', sans-serif;
@@ -133,23 +145,64 @@
         .cards-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            margin-top: 20px;
+            gap: 12px;
+            margin: 15px 0;
             width: 100%;
-            max-width: 800px;
+            max-width: 700px;
+            padding: 0 10px;
+            box-sizing: border-box;
         }
         
         .card {
             background: linear-gradient(135deg, rgba(0, 48, 73, 0.3), rgba(0, 20, 40, 0.5));
-            border-radius: 8px;
-            padding: 15px;
+            border-radius: 6px;
+            padding: 10px;
             transition: all 0.3s;
             cursor: pointer;
             border: 1px solid rgba(0, 150, 255, 0.2);
-            height: 80px;
+            height: 70px;
             display: flex;
             flex-direction: column;
             justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.15;
+            z-index: 0;
+        }
+        
+        .card:nth-child(1)::before {
+            background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');
+        }
+        
+        .card:nth-child(2)::before {
+            background-image: url('https://images.unsplash.com/photo-1546074177-ffdda98d214f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');
+        }
+        
+        .card:nth-child(3)::before {
+            background-image: url('https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');
+        }
+        
+        .card:nth-child(4)::before {
+            background-image: url('https://images.unsplash.com/photo-1515378960530-7c0da6231fb1?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');
+        }
+        
+        .card:nth-child(5)::before {
+            background-image: url('https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');
+        }
+        
+        .card:nth-child(6)::before {
+            background-image: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');
         }
         
         .card:hover {
@@ -159,27 +212,35 @@
             background: linear-gradient(135deg, rgba(0, 48, 73, 0.5), rgba(0, 20, 40, 0.7));
         }
         
+        .card-content {
+            position: relative;
+            z-index: 1;
+        }
+        
         .card-title {
             font-weight: bold;
-            margin-bottom: 5px;
+            margin-bottom: 3px;
             color: var(--accent-color);
-            font-size: 1rem;
+            font-size: 0.8rem;
         }
         
         .card-desc {
-            font-size: 0.7rem;
+            font-size: 0.6rem;
             opacity: 0.7;
         }
     </style>
 </head>
 <body>
+    <h1>Rodrigo Cezar</h1>
+    
     <div class="digital-clock">
         <div class="time" id="time">00:00:00</div>
         <div class="date" id="date">1 de Janeiro de 2023</div>
-        <div class="moon-phase" id="moon-phase">Lua Crescente</div>
+        <div class="moon-phase">
+            <span class="moon-emoji" id="moon-emoji">🌓</span>
+            <span id="moon-phase">Lua Crescente (3 dias para Lua Cheia)</span>
+        </div>
     </div>
-    
-    <h1>Rodrigo Cezar da Silva</h1>
     
     <p class="slogan">Design + Código + Caté = produtividade infinita (ou quase...)</p>
     
@@ -194,38 +255,51 @@
     
     <div class="cards-grid">
         <div class="card">
-            <div class="card-title">PROJETOS</div>
-            <div class="card-desc">Trabalhos e criações</div>
+            <div class="card-content">
+                <div class="card-title">PROJETOS</div>
+                <div class="card-desc">Trabalhos e criações</div>
+            </div>
         </div>
         <div class="card">
-            <div class="card-title">BLOG</div>
-            <div class="card-desc">Artigos e tutoriais</div>
+            <div class="card-content">
+                <div class="card-title">BLOG</div>
+                <div class="card-desc">Artigos e tutoriais</div>
+            </div>
         </div>
         <div class="card">
-            <div class="card-title">PORTFÓLIO</div>
-            <div class="card-desc">Cases e experiências</div>
+            <div class="card-content">
+                <div class="card-title">PORTFÓLIO</div>
+                <div class="card-desc">Cases e experiências</div>
+            </div>
         </div>
         <div class="card">
-            <div class="card-title">CONTATO</div>
-            <div class="card-desc">Redes e informações</div>
+            <div class="card-content">
+                <div class="card-title">CONTATO</div>
+                <div class="card-desc">Redes e informações</div>
+            </div>
         </div>
         <div class="card">
-            <div class="card-title">SOBRE MIM</div>
-            <div class="card-desc">Jornada profissional</div>
+            <div class="card-content">
+                <div class="card-title">SOBRE MIM</div>
+                <div class="card-desc">Jornada profissional</div>
+            </div>
         </div>
         <div class="card">
-            <div class="card-title">HABILIDADES</div>
-            <div class="card-desc">Tecnologias que domino</div>
+            <div class="card-content">
+                <div class="card-title">HABILIDADES</div>
+                <div class="card-desc">Tecnologias que domino</div>
+            </div>
         </div>
     </div>
 
     <script>
-        // Relógio digital
+        // Relógio digital e fase da lua
         function updateClock() {
             const now = new Date();
             const timeElement = document.getElementById('time');
             const dateElement = document.getElementById('date');
-            const moonElement = document.getElementById('moon-phase');
+            const moonPhaseElement = document.getElementById('moon-phase');
+            const moonEmojiElement = document.getElementById('moon-emoji');
             
             // Formata hora
             const time = now.toLocaleTimeString('pt-BR', { hour12: false });
@@ -236,11 +310,22 @@
             const date = now.toLocaleDateString('pt-BR', options);
             dateElement.textContent = date.charAt(0).toUpperCase() + date.slice(1);
             
-            // Calcula fase da lua (simplificado)
-            const moonPhases = ["Lua Nova", "Lua Crescente", "Lua Cheia", "Lua Minguante"];
+            // Calcula fase da lua e dias para próxima fase
+            const moonPhases = [
+                { name: "Lua Nova", emoji: "🌑", daysToNext: 7 },
+                { name: "Lua Crescente", emoji: "🌓", daysToNext: 7 },
+                { name: "Lua Cheia", emoji: "🌕", daysToNext: 7 },
+                { name: "Lua Minguante", emoji: "🌗", daysToNext: 7 }
+            ];
+            
             const day = now.getDate();
             const phaseIndex = Math.floor((day % 28) / 7);
-            moonElement.textContent = moonPhases[phaseIndex];
+            const currentPhase = moonPhases[phaseIndex];
+            const nextPhaseIndex = (phaseIndex + 1) % 4;
+            const nextPhase = moonPhases[nextPhaseIndex];
+            
+            moonEmojiElement.textContent = currentPhase.emoji;
+            moonPhaseElement.textContent = `${currentPhase.name} (${currentPhase.daysToNext - (day % 7)} dias para ${nextPhase.name})`;
         }
         
         // Atualiza a cada segundo
