@@ -34,18 +34,44 @@
             position: relative;
         }
         
-        h1 {
-            position: absolute;
-            top: 15px;
-            left: 30px;
-            margin: 0;
-            color: var(--accent-color);
-            text-shadow: var(--glow-effect);
-            letter-spacing: 1px;
-            font-family: 'Orbitron', sans-serif;
-            font-weight: 600;
-            font-size: 1.8rem;
-            padding-left: 15px;
+       h1 {
+    position: absolute;
+    top: 15px;
+    left: 30px;
+    margin: 0;
+    color: var(--accent-color); /* Mantém a cor original */
+    text-shadow: var(--glow-effect);
+    letter-spacing: 1px;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 600;
+    font-size: 1.8rem;
+    padding-left: 15px;
+    
+    /* Novo efeito metálico */
+    background: linear-gradient(
+        135deg,
+        rgba(224, 247, 250, 0.8) 0%,
+        rgba(224, 247, 250, 0.2) 50%,
+        rgba(224, 247, 250, 0.8) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-fill-color: transparent;
+    background-size: 200% auto;
+    animation: metallicShine 5s ease-in-out infinite;
+}
+
+@keyframes metallicShine {
+    0% {
+        background-position: 0% center;
+    }
+    50% {
+        background-position: 100% center;
+    }
+    100% {
+        background-position: 0% center;
+    }
         }
         
         .digital-clock {
