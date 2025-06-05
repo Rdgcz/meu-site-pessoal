@@ -1,37 +1,89 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rodrigo Cezar da Silva</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" href="assets/images/favicon/favicon.ico" type="image/x-icon">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        
+        h1 {
+            margin-bottom: 10px;
+        }
+        
+        .slogan {
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        
+        .separator {
+            width: 300px;
+            height: 1px;
+            background-color: #ddd;
+            margin: 20px 0;
+        }
+        
+        .search-bar {
+            width: 300px;
+            padding: 12px;
+            margin: 20px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        
+        .buttons-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+            width: 300px;
+        }
+        
+        .button {
+            padding: 10px 15px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .button:hover {
+            background-color: #e0e0e0;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <header class="header">
-            <h1>Rodrigo Cezar da Silva</h1>
-            <p class="slogan">Design + Código + Café = <span class="destaque">produtividade infinita</span> (ou quase...)</p>
-        </header>
-
-        <main class="main-content">
-            <!-- Barra de busca do Google -->
-            <div class="search-container">
-                <form action="https://www.google.com/search" method="get" target="_blank">
-                    <input type="text" name="q" placeholder="Pesquisar no Google..." class="search-input">
-                    <button type="submit" class="search-button">
-                        <i class="fas fa-search"></i>
-                    </button>
-                </form>
-            </div>
-
-            <nav class="navigation">
-                <a href="projetos.html" class="btn btn--primary">
-                    Ver Meus Projetos
-                </a>
-            </nav>
-        </main>
+    <h1>Rodrigo Cezar da Silva</h1>
+    
+    <p class="slogan">Design + Código + Caté = produtividade infinita (ou quase...)</p>
+    
+    <div class="separator"></div>
+    
+    <input type="text" class="search-bar" placeholder="Pesquisar no Google...">
+    
+    <div class="separator"></div>
+    
+    <div class="buttons-grid">
+        <div class="button">Ver Meus Projetos</div>
+        <div class="button">Blog</div>
+        <div class="button">Portfólio</div>
+        <div class="button">Contato</div>
+        <div class="button">Sobre Mim</div>
+        <div class="button">Habilidades</div>
     </div>
 </body>
 </html>
