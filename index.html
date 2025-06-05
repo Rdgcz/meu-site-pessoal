@@ -5,8 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rodrigo Cezar da Silva</title>
     <style>
+        :root {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --accent-color: #bb86fc;
+            --card-bg: #1e1e1e;
+            --separator-color: #333;
+            --search-border: #3d3d3d;
+        }
+        
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -16,53 +25,102 @@
             padding: 20px;
             box-sizing: border-box;
             text-align: center;
+            background-color: var(--bg-color);
+            color: var(--text-color);
         }
         
         h1 {
             margin-bottom: 10px;
+            color: var(--accent-color);
         }
         
         .slogan {
             margin-bottom: 20px;
             font-style: italic;
+            opacity: 0.8;
         }
         
         .separator {
-            width: 300px;
+            width: 80%;
+            max-width: 400px;
             height: 1px;
-            background-color: #ddd;
-            margin: 20px 0;
+            background-color: var(--separator-color);
+            margin: 20px auto;
+        }
+        
+        .search-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 584px;
         }
         
         .search-bar {
-            width: 300px;
-            padding: 12px;
-            margin: 20px 0;
-            border: 1px solid #ccc;
-            border-radius: 4px;
+            width: 100%;
+            padding: 12px 20px;
+            margin-bottom: 10px;
+            border: 1px solid var(--search-border);
+            border-radius: 24px;
             font-size: 16px;
+            background-color: var(--card-bg);
+            color: var(--text-color);
+            outline: none;
         }
         
-        .buttons-grid {
+        .search-bar:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 5px rgba(187, 134, 252, 0.3);
+        }
+        
+        .search-button {
+            padding: 8px 16px;
+            background-color: #303134;
+            border: 1px solid #303134;
+            border-radius: 4px;
+            color: var(--text-color);
+            font-size: 14px;
+            cursor: pointer;
+            transition: border-color 0.3s;
+        }
+        
+        .search-button:hover {
+            border: 1px solid #5f6368;
+        }
+        
+        .cards-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            margin-top: 20px;
-            width: 300px;
+            gap: 20px;
+            margin-top: 30px;
+            width: 100%;
+            max-width: 900px;
         }
         
-        .button {
-            padding: 10px 15px;
-            background-color: #f0f0f0;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            text-align: center;
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            padding: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
             cursor: pointer;
-            transition: background-color 0.3s;
+            border: 1px solid transparent;
         }
         
-        .button:hover {
-            background-color: #e0e0e0;
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            border-color: var(--accent-color);
+        }
+        
+        .card-title {
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: var(--accent-color);
+        }
+        
+        .card-desc {
+            font-size: 14px;
+            opacity: 0.7;
         }
     </style>
 </head>
@@ -73,17 +131,38 @@
     
     <div class="separator"></div>
     
-    <input type="text" class="search-bar" placeholder="Pesquisar no Google...">
+    <div class="search-container">
+        <input type="text" class="search-bar" placeholder="Pesquisar no Google...">
+        <button class="search-button">Pesquisa Google</button>
+    </div>
     
     <div class="separator"></div>
     
-    <div class="buttons-grid">
-        <div class="button">Ver Meus Projetos</div>
-        <div class="button">Blog</div>
-        <div class="button">Portfólio</div>
-        <div class="button">Contato</div>
-        <div class="button">Sobre Mim</div>
-        <div class="button">Habilidades</div>
+    <div class="cards-grid">
+        <div class="card">
+            <div class="card-title">Projetos</div>
+            <div class="card-desc">Meus trabalhos e criações</div>
+        </div>
+        <div class="card">
+            <div class="card-title">Blog</div>
+            <div class="card-desc">Artigos e tutoriais</div>
+        </div>
+        <div class="card">
+            <div class="card-title">Portfólio</div>
+            <div class="card-desc">Cases e experiências</div>
+        </div>
+        <div class="card">
+            <div class="card-title">Contato</div>
+            <div class="card-desc">Entre em contato comigo</div>
+        </div>
+        <div class="card">
+            <div class="card-title">Sobre Mim</div>
+            <div class="card-desc">Minha jornada e habilidades</div>
+        </div>
+        <div class="card">
+            <div class="card-title">Habilidades</div>
+            <div class="card-desc">Tecnologias que domino</div>
+        </div>
     </div>
 </body>
 </html>
