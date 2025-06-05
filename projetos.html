@@ -206,6 +206,20 @@
             font-size: 0.9rem;
             line-height: 1.5;
         }
+
+        .card__image-container {
+    position: relative;
+    width: 100%;
+    height: 200px; /* Altura fixa ou conforme necessário */
+    overflow: hidden;
+}
+
+.card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Garante que a imagem cubra o container */
+    display: block; /* Remove espaço extra abaixo da imagem */
+}
         
         .tech-tag-container {
             display: flex;
@@ -298,23 +312,26 @@
             <div class="grid grid--projects">
                 <!-- Projeto 1 -->
                 <div class="card">
-                    <div class="card__image-container">
-                        <img src="assets/imagens/projects/meu-site-pessoal/thumb-card-meu-site-pessoal.png" alt="Site Pessoal" class="card__image">
-                        <div class="card__badge">Online</div>
-                    </div>
-                    <div class="card__content">
-                        <h2>Site Pessoal</h2>
-                        <p>Meu portfólio desenvolvido com HTML, CSS e JavaScript, apresentando meus trabalhos e habilidades.</p>
-                        <div class="tech-tag-container">
-                            <span class="tech-tag">HTML</span>
-                            <span class="tech-tag">CSS</span>
-                            <span class="tech-tag">JS</span>
-                        </div>
-                        <a href="https://rdgcz.github.io/meu-site-pessoal/" target="_blank" class="btn btn--primary">
-                            <i class="fas fa-external-link-alt"></i> Visitar Projeto
-                        </a>
-                    </div>
-                </div>
+    <div class="card__image-container">
+        <!-- Imagem com fallback -->
+        <img src="assets/imagens/projects/meu-site-pessoal/thumb-card-meu-site-pessoal.png" 
+             onerror="this.src='https://via.placeholder.com/400x200/0066ff/ffffff?text=Site+Pessoal'"
+             alt="Site Pessoal" class="card__image">
+        <div class="card__badge">Online</div>
+    </div>
+    <div class="card__content">
+        <h2>Site Pessoal</h2>
+        <p>Meu portfólio desenvolvido com HTML, CSS e JavaScript, apresentando meus trabalhos e habilidades.</p>
+        <div class="tech-tag-container">
+            <span class="tech-tag">HTML</span>
+            <span class="tech-tag">CSS</span>
+            <span class="tech-tag">JS</span>
+        </div>
+        <a href="https://rdgcz.github.io/meu-site-pessoal/" target="_blank" class="btn btn--primary">
+            <i class="fas fa-external-link-alt"></i> Visitar Projeto
+        </a>
+    </div>
+</div>
 
                 <!-- Projeto 2 -->
                 <div class="card">
