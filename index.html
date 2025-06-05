@@ -23,7 +23,6 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
             min-height: 100vh;
             margin: 0;
             padding: 15px;
@@ -31,50 +30,47 @@
             text-align: center;
             background-color: var(--bg-color);
             color: var(--text-color);
-            overflow: hidden;
             position: relative;
         }
         
-       h1 {
-    position: absolute;
-    top: 15px;
-    left: 30px;
-    margin: 0;
-    color: var(--accent-color); /* Mantém a cor original */
-    text-shadow: var(--glow-effect);
-    letter-spacing: 1px;
-    font-family: 'Orbitron', sans-serif;
-    font-weight: 600;
-    font-size: 1.6rem;
-    font-style: 'italic';       
-    padding-left: 30px;
-    
-   /* Novo efeito metálico */
-background: linear-gradient(
-    215deg,
-    rgba(255, 255, 255, 0.8) 0%,
-    rgba(255, 255, 255, 0.6) 16%,
-    rgba(255, 255, 255, 0.4) 33%,
-    rgba(255, 255, 255, 0.2) 50%,
-    rgba(255, 255, 255, 0.4) 68%,
-    rgba(255, 255, 255, 0.6) 85%,
-    rgba(255, 255, 255, 0.8) 100%
-);
--webkit-background-clip: text;
-background-clip: text;
--webkit-text-fill-color: transparent;
-text-fill-color: transparent;
-background-size: 200% 100%;
-animation: metallicShine 4s linear infinite;
-}
+        h1 {
+            position: absolute;
+            top: 15px;
+            left: 30px;
+            margin: 0;
+            color: var(--accent-color);
+            text-shadow: var(--glow-effect);
+            letter-spacing: 1px;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 600;
+            font-size: 1.6rem;
+            font-style: italic;
+            padding-left: 30px;
+            background: linear-gradient(
+                215deg,
+                rgba(255, 255, 255, 0.8) 0%,
+                rgba(255, 255, 255, 0.6) 16%,
+                rgba(255, 255, 255, 0.4) 33%,
+                rgba(255, 255, 255, 0.2) 50%,
+                rgba(255, 255, 255, 0.4) 68%,
+                rgba(255, 255, 255, 0.6) 85%,
+                rgba(255, 255, 255, 0.8) 100%
+            );
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-fill-color: transparent;
+            background-size: 200% 100%;
+            animation: metallicShine 4s linear infinite;
+        }
 
-@keyframes metallicShine {
-    0% {
-        background-position: 0% center;
-    }
-    100% {
-        background-position:-200% center;
-    }
+        @keyframes metallicShine {
+            0% {
+                background-position: 0% center;
+            }
+            100% {
+                background-position:-200% center;
+            }
         }
         
         .digital-clock {
@@ -249,11 +245,11 @@ animation: metallicShine 4s linear infinite;
         }
 
         .card-link {
-    text-decoration: none;
-    color: inherit;
-    display: block;
-    height: 100%;
-}
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            height: 100%;
+        }
 
         .sr-only {
             position: absolute;
@@ -268,9 +264,12 @@ animation: metallicShine 4s linear infinite;
         }
 
         footer {
-            margin-top: 30px;
+            margin-top: auto;
+            padding: 20px 0;
             font-size: 0.8rem;
             opacity: 0.7;
+            width: 100%;
+            text-align: center;
         }
     </style>
 </head>
@@ -296,13 +295,13 @@ animation: metallicShine 4s linear infinite;
     
     <div class="cards-grid">        
         <a href="projetos.html" class="card-link">
-    <div class="card">
-        <div class="card-content">
-            <div class="card-title">PROJETOS</div>
-            <div class="card-desc">Trabalhos e criações</div>
-        </div>
-    </div>
-</a>
+            <div class="card">
+                <div class="card-content">
+                    <div class="card-title">PROJETOS</div>
+                    <div class="card-desc">Trabalhos e criações</div>
+                </div>
+            </div>
+        </a>
         <div class="card">
             <div class="card-content">
                 <div class="card-title">BLOG</div>
@@ -334,65 +333,74 @@ animation: metallicShine 4s linear infinite;
             </div>
         </div>
     </div>
-<footer class="index-footer text-center">
-            <p>© <span id="current-year"></span> - RDGCZ - Todos os direitos reservados.</p>
-        </footer>
+
+    <footer class="index-footer">
+        <p>© <span id="current-year"></span> - RDGCZ - Todos os direitos reservados.</p>
+    </footer>
+
     <script>
-        // Atualiza o ano atual
         document.addEventListener('DOMContentLoaded', function() {
-            document.getElementById('current-year').textContent = new Date().getFullYear();
+            // Atualiza o ano no footer
+            const currentYearElement = document.getElementById('current-year');
+            if(currentYearElement) {
+                currentYearElement.textContent = new Date().getFullYear();
+            }
             
-        // Relógio digital
-        function updateClock() {
-            const now = new Date();
+            // Relógio digital
             const timeElement = document.getElementById('time');
             const dateElement = document.getElementById('date');
             
-            // Formata hora
-            const time = now.toLocaleTimeString('pt-BR', { hour12: false });
-            timeElement.textContent = time;
+            if(timeElement && dateElement) {
+                function updateClock() {
+                    const now = new Date();
+                    
+                    // Formata hora
+                    const time = now.toLocaleTimeString('pt-BR', { hour12: false });
+                    timeElement.textContent = time;
+                    
+                    // Formata data
+                    const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
+                    const date = now.toLocaleDateString('pt-BR', options);
+                    dateElement.textContent = date.charAt(0).toUpperCase() + date.slice(1);
+                }
+                
+                setInterval(updateClock, 1000);
+                updateClock();
+            }
             
-            // Formata data
-            const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
-            const date = now.toLocaleDateString('pt-BR', options);
-            dateElement.textContent = date.charAt(0).toUpperCase() + date.slice(1);
-        }
-        
-        // Atualiza a cada segundo
-        setInterval(updateClock, 1000);
-        updateClock(); // Chamada inicial
-        
-        // Efeito de digitação no slogan
-        const slogan = document.querySelector('.slogan');
-        const originalText = slogan.textContent;
-        slogan.textContent = '';
-        
-        let i = 0;
-        const typingEffect = setInterval(() => {
-            if (i < originalText.length) {
-                slogan.textContent += originalText.charAt(i);
-                i++;
-            } else {
-                clearInterval(typingEffect);
+            // Efeito de digitação no slogan
+            const slogan = document.querySelector('.slogan');
+            if(slogan) {
+                const originalText = slogan.textContent;
+                slogan.textContent = '';
+                
+                let i = 0;
+                const typingEffect = setInterval(() => {
+                    if (i < originalText.length) {
+                        slogan.textContent += originalText.charAt(i);
+                        i++;
+                    } else {
+                        clearInterval(typingEffect);
+                    }
+                }, 50);
             }
-        }, 50);
 
-        // Função para pesquisar no Google
-        function searchGoogle() {
-            const searchTerm = document.querySelector('.search-bar').value;
-            if (searchTerm.trim() !== '') {
-                window.open(`https://www.google.com/search?q=${encodeURIComponent(searchTerm)}`, '_blank');
+            // Função para pesquisar no Google
+            function searchGoogle() {
+                const searchTerm = document.querySelector('.search-bar').value;
+                if (searchTerm.trim() !== '') {
+                    window.open(`https://www.google.com/search?q=${encodeURIComponent(searchTerm)}`, '_blank');
+                }
             }
-        }
 
-        // Adiciona eventos de pesquisa
-        document.querySelector('.search-button').addEventListener('click', searchGoogle);
-        document.querySelector('.search-bar').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                searchGoogle();
-            }
+            // Adiciona eventos de pesquisa
+            document.querySelector('.search-button').addEventListener('click', searchGoogle);
+            document.querySelector('.search-bar').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    searchGoogle();
+                }
+            });
         });
     </script>
-
 </body>
 </html>
