@@ -218,6 +218,24 @@
             font-size: 0.8rem;
             opacity: 0.7;
         }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
+        footer {
+            margin-top: 30px;
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
     </style>
 </head>
 <body>
@@ -226,7 +244,6 @@
     <div class="digital-clock">
         <div class="time" id="time">HH:MM</div>
         <div class="date" id="date">1 de Janeiro de 2023</div>
-        </div>
     </div>
     
     <p class="slogan">Design + Código + Café = produtividade infinita (ou quase...)</p>
@@ -234,7 +251,8 @@
     <div class="separator"></div>
     
     <div class="search-container">
-        <input type="text" class="search-bar" placeholder="Pesquisar no Google...">
+        <label for="google-search" class="sr-only">Pesquisar no Google</label>
+        <input type="text" id="google-search" class="search-bar" placeholder="Pesquisar no Google...">
         <button class="search-button">PESQUISAR</button>
     </div>
     
@@ -280,7 +298,6 @@
     </div>
 
     <script>
-
         // Relógio digital
         function updateClock() {
             const now = new Date();
@@ -295,7 +312,6 @@
             const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
             const date = now.toLocaleDateString('pt-BR', options);
             dateElement.textContent = date.charAt(0).toUpperCase() + date.slice(1);
-            
         }
         
         // Atualiza a cada segundo
@@ -316,10 +332,26 @@
                 clearInterval(typingEffect);
             }
         }, 50);
+
+        // Função para pesquisar no Google
+        function searchGoogle() {
+            const searchTerm = document.querySelector('.search-bar').value;
+            if (searchTerm.trim() !== '') {
+                window.open(`https://www.google.com/search?q=${encodeURIComponent(searchTerm)}`, '_blank');
+            }
+        }
+
+        // Adiciona eventos de pesquisa
+        document.querySelector('.search-button').addEventListener('click', searchGoogle);
+        document.querySelector('.search-bar').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchGoogle();
+            }
+        });
     </script>
-</body>
-     <footer>
+
+    <footer>
         <p>&copy; 2025 Rodrigo Cezar. Todos os direitos reservados.</p>
     </footer>
-
+</body>
 </html>
