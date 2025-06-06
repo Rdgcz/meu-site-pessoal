@@ -112,6 +112,8 @@
         
         .projects-category {
             margin-bottom: 50px;
+            width: 100%;
+            overflow: hidden;
         }
         
         .projects-category__title {
@@ -132,12 +134,24 @@
             gap: 25px;
         }
         
+        /* FORÇA O GRID - GARANTIA */
+        .grid.grid--projects {
+            display: grid !important;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)) !important;
+            gap: 25px !important;
+            width: 100% !important;
+        }
+        
         .card {
             background: linear-gradient(135deg, rgba(0, 48, 73, 0.3), rgba(0, 20, 40, 0.5));
             border-radius: 8px;
             overflow: hidden;
             border: 2px solid rgba(0, 150, 255, 0.2);
             transition: all 0.3s;
+            float: none !important;
+            display: block !important;
+            width: 100% !important;
+            margin: 0 !important;
         }
         
         .card:hover {
