@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Animações | Rodrigo Cezar</title>
+    <title>Banner com Espectro de Áudio | Rodrigo Cezar</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Orbitron:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" href="assets/images/favicon/favicon-32x32.png" type="image/png">
@@ -81,7 +81,7 @@
         }
         
         .container {
-            max-width: 1200px;
+            max-width: 800px;
             margin: 80px auto 30px;
             padding: 0 20px;
         }
@@ -102,14 +102,6 @@
             font-size: 0.9rem;
         }
         
-        .video-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
         .video-frame {
             position: relative;
             border: 2px solid var(--accent-secondary);
@@ -118,6 +110,7 @@
             box-shadow: 0 4px 20px rgba(0, 102, 255, 0.2);
             overflow: hidden;
             transition: all 0.3s ease;
+            margin-bottom: 30px;
         }
         
         .video-frame:hover {
@@ -132,6 +125,9 @@
             border-bottom: 1px solid var(--separator-color);
             color: var(--accent-color);
             font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
         
         .video-container {
@@ -141,28 +137,26 @@
             overflow: hidden;
         }
         
-        .video-container iframe {
+        .video-container video {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            border: none;
+            object-fit: cover;
         }
         
-        .video-footer {
-            padding: 10px 15px;
-            font-size: 0.8rem;
-            opacity: 0.8;
-            border-top: 1px solid var(--separator-color);
+        /* Estilização personalizada dos controles do vídeo */
+        video::-webkit-media-controls-panel {
+            background: rgba(0, 48, 73, 0.7);
         }
-
-        .project-description-container {
-            max-width: 1030px; /* Largura dos dois vídeos + gap */
-            margin: 0 auto;
-            padding: 0 15px;
+        
+        video::-webkit-media-controls-play-button,
+        video::-webkit-media-controls-volume-slider,
+        video::-webkit-media-controls-mute-button {
+            filter: drop-shadow(0 0 2px var(--accent-color));
         }
-
+        
         .project-description {
             background: rgba(0, 48, 73, 0.3);
             padding: 20px;
@@ -174,6 +168,8 @@
         .project-description h3 {
             color: var(--accent-color);
             margin-top: 0;
+            border-bottom: 1px solid var(--separator-color);
+            padding-bottom: 8px;
         }
         
         .btn {
@@ -230,21 +226,25 @@
             }
         }
 
-        textarea {
-            width: 100%;
-            min-height: 100px;
-            background: rgba(0, 20, 40, 0.5);
-            border: 1px solid var(--accent-secondary);
-            color: var(--text-color);
-            padding: 10px;
-            font-family: 'Orbitron', sans-serif;
-            border-radius: 4px;
+        /* Estilos para créditos */
+        .credits {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px dashed var(--separator-color);
         }
 
-        textarea:focus {
-            outline: none;
-            border-color: var(--accent-color);
-            box-shadow: 0 0 8px rgba(0, 240, 255, 0.3);
+        .credits h4 {
+            color: var(--accent-secondary);
+            margin-bottom: 8px;
+        }
+
+        .credits a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .credits a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -261,58 +261,44 @@
             <a href="projetos.html" class="btn btn--primary">
                 <i class="fas fa-arrow-left"></i> Voltar para Projetos
             </a>
-            <h2>Banner de divulgação com efeito Audio Spectrum</h2>
-            <div class="meta">2018 • Adobe Premiere</div>
+            <h2>Banner com Espectro de Áudio</h2>
+            <div class="meta">Visualização de espectro de áudio animado</div>
         </header>
         
         <div class="separator"></div>
 
-        <div class="video-gallery">
-            <!-- Vídeo 1 -->
-            <div class="video-frame">
-                <div class="video-title">
-                    <i class="fas fa-play"></i> Animação Renderizada - Versão 2017
-                </div>
-                <div class="video-container">
-                <iframe
-        src="https://www.youtube.com/embed/dv9LAk5DCrY?modestbranding=1&rel=0&enablejsapi=1" 
-        frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-        allowfullscreen
-        loading="lazy"
-        title="Animação Simples - Wireframe">
-                </iframe>
-                </div>
-                <div class="video-footer">
-                    Criado com Adobe Premiere | Duração: 0:20
-                </div>
+        <!-- Container do vídeo único -->
+        <div class="video-frame">
+            <div class="video-title">
+                <i class="fas fa-music"></i> Espectro de Áudio Animado
             </div>
-            
-           
+            <div class="video-container">
+                <video controls muted loop playsinline>   
+                    <source src="assets/videos/proj-audio-spectrum/Audio Spectrum.mp4" type="video/mp4">
+                    Seu navegador não suporta o elemento de vídeo.
+                </video>
+            </div>
+        </div>
 
         <div class="separator"></div>
 
-        <!-- Área de informações sobre o vídeo - Centralizada com a largura dos vídeos -->
-        <div class="project-description-container">
-            <div class="project-description">
-                <h3>Sobre este Banner</h3>
-                <p>Banner criado para divulgação do lançamento de faixa musical do Produtor Musical Alexandre Basa, criada em 2018 para utilização em redes sociais.</p>
-                
-                <h4>Detalhes Técnicos:</h4>
-                <ul>
-                    <li>Criado com Adobe After Effects</li>
-                    <li>Trapcode Suite by Red Giant,LLC - Plugin Collection</li>
-                    <li>Duração: 41 segundos</li>
-                    <li>Resolução original: 1080p</li>
-                </ul>
-                
-                <h4>Observações:</h4>
-               <p>Animação preliminar simples, desenvolvida em 2017 para estudo de viabilidade de apresentações de projetos técnicos para a empresa No Fire Services.</p>
-    
-    <div class="credits">
-        <h4>Créditos</h4>
-        <p>Imagem de Fundo, Logomarca e Áudio: <span class="instagram-mention">@alebasa__</span></p>
-          </div>
+        <!-- Área de informações sobre o vídeo -->
+        <div class="project-description">
+            <h3>Sobre este Projeto</h3>
+            <p>Banner animado com visualização de espectro de áudio, criado para demonstrar a integração entre design visual e elementos de áudio.</p>
+            
+            <h4>Detalhes Técnicos:</h4>
+            <ul>
+                <li>Formato: MP4 com codec H.264</li>
+                <li>Duração: Variável conforme o áudio</li>
+                <li>Resolução: 1080p Full HD</li>
+                <li>Controles de áudio habilitados</li>
+            </ul>
+            
+            <div class="credits">
+                <p>Imagem de fundo, Logomarca e Áudio por <a href="https://www.instagram.com/alebasa__/" target="_blank">@alebasa__</a></p>
+                <h4>Ative o som!</h4>
+                <p>Clique no ícone de som no player para ativar o áudio. Use os controles padrão para ajustar volume e reprodução.</p>
             </div>
         </div>
 
@@ -345,16 +331,18 @@
         
         // Atualiza a cada segundo
         setInterval(updateClock, 1000);
-        updateClock(); // Chamada inicial
-        
-        // Adiciona efeito de hover dinâmico
-        document.querySelectorAll('.video-frame').forEach(frame => {
-            frame.addEventListener('mouseenter', () => {
-                frame.querySelector('.video-title').style.background = 'linear-gradient(90deg, rgba(0, 240, 255, 0.3), transparent)';
-            });
-            frame.addEventListener('mouseleave', () => {
-                frame.querySelector('.video-title').style.background = 'linear-gradient(90deg, rgba(0, 102, 255, 0.2), transparent)';
-            });
+        updateClock();
+
+        // Configuração do vídeo
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.querySelector('video');
+            
+            // Opcional: Desmutar após interação do usuário
+            document.addEventListener('click', function() {
+                if(video.muted) {
+                    video.muted = false;
+                }
+            }, { once: true });
         });
     </script>
 </body>
