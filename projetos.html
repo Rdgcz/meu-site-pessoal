@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projetos | Rodrigo Cezar</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Orbitron:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Orbitron:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" href="assets/images/favicon/favicon-32x32.png" type="image/png">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Rodrigo Cezar da Silva</h1>
+    <h1 class="header-title">Rodrigo Cezar da Silva</h1>
     
     <div class="digital-clock">
         <div class="time" id="time">HH:MM</div>
@@ -27,7 +27,7 @@
         <!-- CATEGORIA 1: Projetos em Andamento -->
         <section class="projects-category">
             <h2 class="projects-category__title">
-                <i class="fas fa-code-branch"></i>Projetos em Andamento
+                <i class="fas fa-code-branch"></i> Projetos em Andamento
             </h2>
             <div class="grid grid--projects">
                 <!-- Projeto 1 -->
@@ -36,7 +36,7 @@
                         <img src="assets/images/projects/meu-site-pessoal/thumb-card-meu-site-pessoal.png" 
                              onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg'"
                              alt="Site Pessoal" class="card__image">
-                        <div class="card__badge">Online</div>
+                        <div class="card__badge" data-categoria="design">Online</div>
                     </div>
                     <div class="card__content">
                         <h2>Site Pessoal</h2>
@@ -58,7 +58,7 @@
                         <img src="assets/images/projects/sitio-sabio-sabia/thumb-card-site-sitio-sabio-sabia.png" 
                              onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg'"
                              alt="Site Pessoal" class="card__image">
-                        <div class="card__badge">Em construção</div>
+                        <div class="card__badge" data-categoria="design">Em construção</div>
                     </div>
                     <div class="card__content">
                         <h2>Site do Sítio Sábio Sabiá</h2>
@@ -79,8 +79,8 @@
                     <div class="card__image-container">
                         <img src="assets/images/projects/DEFINIR" 
                              onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg'"
-                             alt="Site Pessoal" class="card__image">
-                        <div class="card__badge">Em breve</div>
+                             alt="Próximo projeto" class="card__image">
+                        <div class="card__badge" data-categoria="games">Em breve</div>
                     </div>
                     <div class="card__content">
                         <h2>Em Breve!</h2>
@@ -102,7 +102,7 @@
         <!-- CATEGORIA 2: Projetos Realizados -->
         <section class="projects-category">
             <h2 class="projects-category__title">
-                <i class="fas fa-check-circle"></i>Projetos Realizados
+                <i class="fas fa-check-circle"></i> Projetos Realizados
             </h2>
             <div class="grid grid--projects">
                 <!-- Projeto 1 -->
