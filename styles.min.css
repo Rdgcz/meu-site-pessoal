@@ -1,0 +1,337 @@
+/* Variáveis CSS */
+:root {
+    --bg-color: #0d0d1a;
+    --text-color: #e0f7fa;
+    --accent-color: #00f0ff;
+    --accent-secondary: #0066ff;
+    --card-bg: rgba(0, 48, 73, 0.3);
+    --separator-color: #003d66;
+    --search-border: #0066ff;
+    --glow-effect: 0 0 8px rgba(0, 240, 255, 0.7);
+    --transition: all 0.3s ease;
+}
+
+/* Reset e Base */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Orbitron', sans-serif;
+    min-height: 100vh;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* Tipografia */
+h1, h2, h3, h4 {
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+/* Layout */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.main-header {
+    padding: 15px 0;
+    position: relative;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.projects-header {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.page-title {
+    color: var(--accent-color);
+    font-size: 2.5rem;
+    margin: 20px 0;
+    text-shadow: var(--glow-effect);
+}
+
+.page-title .highlight {
+    color: var(--accent-secondary);
+}
+
+/* Componentes */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition);
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 1px;
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+
+.btn i {
+    margin-right: 8px;
+}
+
+.btn--primary {
+    background-color: rgba(0, 102, 255, 0.2);
+    border-color: var(--accent-secondary);
+    color: var(--accent-color);
+}
+
+.btn--primary:hover {
+    background-color: rgba(0, 102, 255, 0.4);
+    box-shadow: 0 0 10px rgba(0, 102, 255, 0.5);
+}
+
+.btn--small {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+}
+
+/* Relógio Digital */
+.digital-clock {
+    font-family: 'Orbitron', sans-serif;
+    text-align: center;
+    color: var(--accent-color);
+    text-shadow: var(--glow-effect);
+}
+
+.time {
+    font-size: 1.3rem;
+    letter-spacing: 2px;
+}
+
+.date {
+    opacity: 0.8;
+    font-size: 0.9rem;
+}
+
+/* Grid de Inspiração */
+.inspiration-grids-container {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.grid-section {
+    width: 100%;
+}
+
+.projects-category__title {
+    color: var(--accent-color);
+    border-bottom: 1px solid var(--separator-color);
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+    font-size: 1.8rem;
+}
+
+.projects-category__title i {
+    margin-right: 10px;
+}
+
+.grid--inspiration {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+/* Cards */
+.card {
+    background: linear-gradient(135deg, var(--card-bg), rgba(0, 20, 40, 0.5));
+    border-radius: 8px;
+    overflow: hidden;
+    border: 2px solid rgba(0, 150, 255, 0.2);
+    transition: var(--transition);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 240, 255, 0.3);
+    border-color: var(--accent-color);
+}
+
+.card__image-container {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.card:hover .card__image {
+    transform: scale(1.05);
+}
+
+.card__content {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card__content h3 {
+    margin: 0 0 10px;
+    color: var(--accent-color);
+    font-size: 1.2rem;
+}
+
+.card__content p {
+    margin: 0 0 15px;
+    opacity: 0.9;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    flex-grow: 1;
+}
+
+.card__credits {
+    font-size: 0.85rem;
+    opacity: 0.7;
+    margin-top: auto;
+    font-style: italic;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    overflow: auto;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.modal-content {
+    max-width: 90%;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 4px;
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
+}
+
+.modal-caption {
+    margin: 20px auto 0;
+    text-align: center;
+    color: var(--accent-color);
+    max-width: 80%;
+}
+
+.modal-caption h3 {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+.close {
+    position: absolute;
+    top: 25px;
+    right: 35px;
+    color: var(--accent-color);
+    font-size: 40px;
+    font-weight: bold;
+    transition: var(--transition);
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+.close:hover {
+    color: var(--accent-secondary);
+    transform: scale(1.1);
+}
+
+/* Footer */
+.projects-footer {
+    margin-top: 50px;
+    padding: 20px 0;
+    border-top: 1px solid var(--separator-color);
+    text-align: center;
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+/* Acessibilidade */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+    .grid--inspiration {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .page-title {
+        font-size: 2rem;
+    }
+    
+    .projects-category__title {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    .card__content {
+        padding: 15px;
+    }
+    
+    .modal-content {
+        max-width: 95%;
+    }
+    
+    .close {
+        top: 15px;
+        right: 15px;
+        font-size: 30px;
+    }
+}
