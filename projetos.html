@@ -7,294 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Orbitron:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" href="assets/images/favicon/favicon-32x32.png" type="image/png">
-    <style>
-        :root {
-            --bg-color: #0d0d1a;
-            --text-color: #e0f7fa;
-            --accent-color: #00f0ff;
-            --accent-secondary: #0066ff;
-            --card-bg: rgba(0, 48, 73, 0.3);
-            --separator-color: #003d66;
-            --search-border: #0066ff;
-            --glow-effect: 0 0 8px rgba(0, 240, 255, 0.7);
-        }
-        
-        body {
-            font-family: 'Orbitron', sans-serif;
-            min-height: 100vh;
-            margin: 0;
-            padding: 15px;
-            box-sizing: border-box;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            position: relative;
-        }
-        
-        h1 {
-            position: absolute;
-            top: 15px;
-            left: 30px;
-            margin: 0;
-            color: var(--accent-color);
-            text-shadow: var(--glow-effect);
-            letter-spacing: 1px;
-            font-family: 'Orbitron', sans-serif;
-            font-weight: 600;
-            font-size: 1.0rem;
-            padding-left: 15px;
-            
-            /* Efeito metálico */
-            background: linear-gradient(
-                90deg,
-                rgba(255, 255, 255, 0.8) 0%,
-                rgba(255, 255, 255, 0.5) 25%,
-                rgba(255, 255, 255, 0.2) 50%,
-                rgba(255, 255, 255, 0.5) 75%,
-                rgba(255, 255, 255, 0.8) 100%
-            );
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-fill-color: transparent;
-            background-size: 200% 100%;
-            animation: metallicShine 4s linear infinite;
-        }
-        
-        .digital-clock {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.9rem;
-            position: absolute;
-            top: 15px;
-            right: 25px;
-            text-align: center;
-            color: var(--accent-color);
-            text-shadow: var(--glow-effect);
-            line-height: 1.4;
-        }
-        
-        .time {
-            font-size: 1.1rem;
-            letter-spacing: 2px;
-        }
-        
-        .date {
-            opacity: 0.8;
-            font-size: 0.8rem;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 80px auto 30px;
-            padding: 0 20px;
-        }
-        
-        .projects-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-        
-        .projects-header h1 {
-            position: relative;
-            top: auto;
-            left: auto;
-            margin: 0;
-            color: var(--accent-color);
-            font-size: 2rem;
-        }
-        
-        .projects-header h1 .destaque {
-            color: var(--accent-secondary);
-        }
-        
-        .projects-category {
-            margin-bottom: 50px;
-            width: 100%;
-            overflow: hidden;
-        }
-        
-        .projects-category__title {
-            color: var(--accent-color);
-            border-bottom: 1px solid var(--separator-color);
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-            font-size: 1.5rem;
-        }
-        
-        .projects-category__title i {
-            margin-right: 10px;
-        }
-        
-        .grid--projects {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
-        }
-              
-        .card {
-            background: linear-gradient(135deg, rgba(0, 48, 73, 0.3), rgba(0, 20, 40, 0.5));
-            border-radius: 8px;
-            overflow: hidden;
-            border: 2px solid rgba(0, 150, 255, 0.2);
-            transition: all 0.3s;
-            float: none !important;
-            display: block !important;
-            width: 100% !important;
-            margin: 0 !important;
-        }
-        
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0, 240, 255, 0.3);
-            border-color: var(--accent-color);
-        }
-        
-        .card__image-container {
-            position: relative;
-            height: 200px;
-            overflow: hidden;
-        }
-        
-        .card__image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s;
-        }
-        
-        .card:hover .card__image {
-            transform: scale(1.05);
-        }
-        
-        .placeholder {
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background: rgba(0, 66, 100, 0.3);
-            color: var(--accent-color);
-        }
-        
-        .placeholder i {
-            font-size: 3rem;
-            margin-bottom: 15px;
-        }
-        
-        .card__badge {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: var(--accent-secondary);
-            color: white;
-            padding: 3px 10px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: bold;
-        }
-        
-        .card__content {
-            padding: 20px;
-        }
-        
-        .card__content h2 {
-            margin: 0 0 10px;
-            color: var(--accent-color);
-            font-size: 1.3rem;
-        }
-        
-        .card__content p {
-            margin: 0 0 15px;
-            opacity: 0.8;
-            font-size: 0.9rem;
-            line-height: 1.5;
-        }
-
-        .card__image-container {
-    position: relative;
-    width: 100%;
-    height: 200px; /* Altura fixa ou conforme necessário */
-    overflow: hidden;
-}
-
-.card__image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Garante que a imagem cubra o container */
-    display: block; /* Remove espaço extra abaixo da imagem */
-}
-        
-        .tech-tag-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 15px;
-        }
-        
-        .tech-tag {
-            background: rgba(0, 102, 255, 0.2);
-            border: 1px solid var(--accent-secondary);
-            color: var(--accent-color);
-            padding: 3px 10px;
-            border-radius: 4px;
-            font-size: 0.8rem;
-        }
-        
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 8px 16px;
-            border-radius: 4px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s;
-            font-family: 'Orbitron', sans-serif;
-            letter-spacing: 1px;
-        }
-        
-        .btn i {
-            margin-right: 8px;
-        }
-        
-        .btn--primary {
-            background-color: rgba(0, 102, 255, 0.2);
-            border: 1px solid var(--accent-secondary);
-            color: var(--accent-color);
-        }
-        
-        .btn--primary:hover {
-            background-color: rgba(0, 102, 255, 0.4);
-            box-shadow: 0 0 10px rgba(0, 102, 255, 0.5);
-        }
-        
-        .btn--disabled {
-            background-color: rgba(100, 100, 100, 0.2);
-            border: 1px solid #666;
-            color: #666;
-            cursor: not-allowed;
-        }
-        
-        .projects-footer {
-            margin-top: 50px;
-            padding-top: 20px;
-            border-top: 1px solid var(--separator-color);
-            font-size: 0.9rem;
-            opacity: 0.7;
-        }
-        
-        @keyframes metallicShine {
-            0% {
-                background-position: 0% center;
-            }
-            100% {
-                background-position: -200% center;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <h1>Rodrigo Cezar da Silva</h1>
@@ -304,165 +17,167 @@
         <div class="date" id="date">1 de Janeiro de 2023</div>
     </div>
 
-    <div class="separator"></div>
-    
     <div class="container">
         <header class="projects-header">
             <a href="index.html" class="btn btn--primary">
                 <i class="fas fa-arrow-left"></i> Voltar para Home
             </a>
-            <div class="separator"></div>
         </header>
 
         <!-- CATEGORIA 1: Projetos em Andamento -->
         <section class="projects-category">
-            <h2 class="projects-category__title">Projetos em Andamento
+            <h2 class="projects-category__title">
+                <i class="fas fa-code-branch"></i>Projetos em Andamento
             </h2>
             <div class="grid grid--projects">
                 <!-- Projeto 1 -->
                 <div class="card">
-    <div class="card__image-container">
-        <!-- Imagem com fallback -->
-        <img src="assets/images/projects/meu-site-pessoal/thumb-card-meu-site-pessoal.png" 
-             onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg'"
-             alt="Site Pessoal" class="card__image">
-        <div class="card__badge">Online</div>
-    </div>
-    <div class="card__content">
-        <h2>Site Pessoal</h2>
-        <p>Meu portfólio desenvolvido com HTML, CSS e JavaScript, apresentando meus trabalhos e habilidades.</p>
-        <div class="tech-tag-container">
-            <span class="tech-tag">HTML</span>
-            <span class="tech-tag">CSS</span>
-            <span class="tech-tag">JS</span>
-        </div>
-        <a href="https://rdgcz.github.io/meu-site-pessoal/" target="_blank" class="btn btn--primary">
-            <i class="fas fa-external-link-alt"></i> Visitar Projeto
-        </a>
-    </div>
-</div>
+                    <div class="card__image-container">
+                        <img src="assets/images/projects/meu-site-pessoal/thumb-card-meu-site-pessoal.png" 
+                             onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg'"
+                             alt="Site Pessoal" class="card__image">
+                        <div class="card__badge">Online</div>
+                    </div>
+                    <div class="card__content">
+                        <h2>Site Pessoal</h2>
+                        <p>Meu portfólio desenvolvido com HTML, CSS e JavaScript, apresentando meus trabalhos e habilidades.</p>
+                        <div class="tech-tag-container">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JS</span>
+                        </div>
+                        <a href="https://rdgcz.github.io/meu-site-pessoal/" target="_blank" class="btn btn--primary">
+                            <i class="fas fa-external-link-alt"></i> Visitar Projeto
+                        </a>
+                    </div>
+                </div>
+                
                 <!-- Projeto 2 -->              
-<div class="card">
-    <div class="card__image-container">
-        <!-- Imagem com fallback -->
-        <img src="assets/images/projects/sitio-sabio-sabia/thumb-card-site-sitio-sabio-sabia.png" 
-             onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg'"
-             alt="Site Pessoal" class="card__image">
-        <div class="card__badge">Em construção</div>
-    </div>
-    <div class="card__content">
-        <h2>Site do Sítio Sábio Sabiá</h2>
-        <p>Site do Sítio Sábio Sabiá, em desenvolvimento com HTML, CSS e JavaScript, apresentando informações sobre o local.</p>
-        <div class="tech-tag-container">
-            <span class="tech-tag">HTML</span>
-            <span class="tech-tag">CSS</span>
-            <span class="tech-tag">JS</span>
-        </div>
-        <a href="https://sitiosabiosabia.com.br" target="_blank" class="btn btn--primary">
-            <i class="fas fa-external-link-alt"></i> Visitar Projeto
-        </a>
-    </div>
-</div>
+                <div class="card">
+                    <div class="card__image-container">
+                        <img src="assets/images/projects/sitio-sabio-sabia/thumb-card-site-sitio-sabio-sabia.png" 
+                             onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg'"
+                             alt="Site Pessoal" class="card__image">
+                        <div class="card__badge">Em construção</div>
+                    </div>
+                    <div class="card__content">
+                        <h2>Site do Sítio Sábio Sabiá</h2>
+                        <p>Site do Sítio Sábio Sabiá, em desenvolvimento com HTML, CSS e JavaScript, apresentando informações sobre o local.</p>
+                        <div class="tech-tag-container">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JS</span>
+                        </div>
+                        <a href="https://sitiosabiosabia.com.br" target="_blank" class="btn btn--primary">
+                            <i class="fas fa-external-link-alt"></i> Visitar Projeto
+                        </a>
+                    </div>
+                </div>
+                
                 <!-- Projeto 3 -->
                 <div class="card">
-    <div class="card__image-container">
-        <!-- Imagem com fallback -->
-        <img src="assets/images/projects/DEFINIR" 
-             onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg'"
-             alt="Site Pessoal" class="card__image">
-        <div class="card__badge">Em breve</div>
-    </div>
-    <div class="card__content">
-        <h2>Em Breve!</h2>
-        <p>O que está por vir?</p>
-        <div class="tech-tag-container">
-            <span class="tech-tag">Suspense</span>
-            <span class="tech-tag">Mistério</span>
-            </div>
-        <a href="https://CORRIGIR" target="_blank" class="btn btn--primary">
-            <i class="fas fa-external-link-alt"></i> Ainda não tem nada...
-        </a>
-    </div>
-</div>
-                <div class="separator"></div>
-                
-<!-- CATEGORIA 2: Projetos Realizados -->
-<section class="projects-category">
-    <h2 class="projects-category__title">Projetos Realizados</h2>
-    <div class="grid grid--projects">
-        <!-- Projeto 1 -->
-        <div class="card">
-            <div class="card__image-container">
-                <!-- Imagem com fallback -->
-                <img src="assets/images/projects/animacao-simples/thumb-card-animacao-simples.png" 
-                     onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg'"
-                     alt="Animação Simples" class="card__image">
-                <div class="card__badge">2017</div>
-            </div>
-            <div class="card__content">
-                <h2>Animação Simples</h2>
-                <p>Animação preliminar simples, desenvolvida em 2017 para estudo de viabilidade de apresentações de projetos técnicos da empresa No Fire Services.</p>
-                <div class="tech-tag-container">
-                    <span class="tech-tag">Autocad</span>
+                    <div class="card__image-container">
+                        <img src="assets/images/projects/DEFINIR" 
+                             onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg'"
+                             alt="Site Pessoal" class="card__image">
+                        <div class="card__badge">Em breve</div>
+                    </div>
+                    <div class="card__content">
+                        <h2>Em Breve!</h2>
+                        <p>O que está por vir?</p>
+                        <div class="tech-tag-container">
+                            <span class="tech-tag">Suspense</span>
+                            <span class="tech-tag">Mistério</span>
+                        </div>
+                        <a href="#" class="btn btn--disabled">
+                            <i class="fas fa-external-link-alt"></i> Ainda não tem nada...
+                        </a>
+                    </div>
                 </div>
-                <a href="https://rdgcz.github.io/meu-site-pessoal/proj-animacao-simples.html" class="btn btn--primary">
-                    <i class="fas fa-external-link-alt"></i> Ver
-                </a>
             </div>
-        </div>
+        </section>
+
+        <div class="separator"></div>
         
-        <!-- Projeto 2 -->
-        <div class="card">
-            <div class="card__image-container">
-                <!-- Imagem com fallback -->
-                <img src="assets/images/projects/audio-spectrum/thumb-card-audio-spectrum.png" 
-                     onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg'"
-                     alt="Áudio Spectrum" class="card__image">
-                <div class="card__badge">2018</div>
-            </div>
-            <div class="card__content">
-                <h2>Banner com Espectro de Áudio</h2>
-                <p>Banner animado com visualização de espectro de áudio, criado para demonstrar a integração entre design visual e elementos de áudio.</p>
-                <div class="tech-tag-container">
-                    <span class="tech-tag">Adobe After Effects</span>
-                    <span class="tech-tag">Red Giant Trapcode Suite</span>
+        <!-- CATEGORIA 2: Projetos Realizados -->
+        <section class="projects-category">
+            <h2 class="projects-category__title">
+                <i class="fas fa-check-circle"></i>Projetos Realizados
+            </h2>
+            <div class="grid grid--projects">
+                <!-- Projeto 1 -->
+                <div class="card">
+                    <div class="card__image-container">
+                        <img src="assets/images/projects/animacao-simples/thumb-card-animacao-simples.png" 
+                             onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg'"
+                             alt="Animação Simples" class="card__image">
+                        <div class="card__badge">2017</div>
+                    </div>
+                    <div class="card__content">
+                        <h2>Animação Simples</h2>
+                        <p>Animação preliminar simples, desenvolvida em 2017 para estudo de viabilidade de apresentações de projetos técnicos da empresa No Fire Services.</p>
+                        <div class="tech-tag-container">
+                            <span class="tech-tag">Autocad</span>
+                        </div>
+                        <a href="https://rdgcz.github.io/meu-site-pessoal/proj-animacao-simples.html" class="btn btn--primary">
+                            <i class="fas fa-external-link-alt"></i> Ver
+                        </a>
+                    </div>
                 </div>
-                <a href="https://rdgcz.github.io/meu-site-pessoal/proj-banner-audio-spectrum.html" class="btn btn--primary">
-                    <i class="fas fa-external-link-alt"></i> Ver
-                </a>
-            </div>
-        </div>
-        <!-- Projeto 3 -->
-        <div class="card">
-            <div class="card__image-container">
-                <!-- Imagem com fallback -->
-                <img src="assets/images/projects/video-institucional/thumb-card-video-institucional.png" 
-                     onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg'"
-                     alt="Vídeo Institucional" class="card__image">
-                <div class="card__badge">2018</div>
-            </div>
-            <div class="card__content">
-                <h2>Vídeo Institucional</h2>
-                <p>Vídeo Institucional da Empresa No Fire para exibição em feiras e eventos.</p>
-                <div class="tech-tag-container">
-                    <span class="tech-tag">Premiere</span>
-                    <span class="tech-tag">After Effects</span>
+                
+                <!-- Projeto 2 -->
+                <div class="card">
+                    <div class="card__image-container">
+                        <img src="assets/images/projects/audio-spectrum/thumb-card-audio-spectrum.png" 
+                             onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg'"
+                             alt="Áudio Spectrum" class="card__image">
+                        <div class="card__badge">2018</div>
+                    </div>
+                    <div class="card__content">
+                        <h2>Banner com Espectro de Áudio</h2>
+                        <p>Banner animado com visualização de espectro de áudio, criado para demonstrar a integração entre design visual e elementos de áudio.</p>
+                        <div class="tech-tag-container">
+                            <span class="tech-tag">Adobe After Effects</span>
+                            <span class="tech-tag">Red Giant Trapcode Suite</span>
+                        </div>
+                        <a href="https://rdgcz.github.io/meu-site-pessoal/proj-banner-audio-spectrum.html" class="btn btn--primary">
+                            <i class="fas fa-external-link-alt"></i> Ver
+                        </a>
+                    </div>
                 </div>
-                <a href="https://rdgcz.github.io/meu-site-pessoal/video-institucional-nofire.html" class="btn btn--primary">
-                    <i class="fas fa-external-link-alt"></i> Ver
-                </a>
+                
+                <!-- Projeto 3 -->
+                <div class="card">
+                    <div class="card__image-container">
+                        <img src="assets/images/projects/video-institucional/thumb-card-video-institucional.png" 
+                             onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg'"
+                             alt="Vídeo Institucional" class="card__image">
+                        <div class="card__badge">2018</div>
+                    </div>
+                    <div class="card__content">
+                        <h2>Vídeo Institucional</h2>
+                        <p>Vídeo Institucional da Empresa No Fire para exibição em feiras e eventos.</p>
+                        <div class="tech-tag-container">
+                            <span class="tech-tag">Premiere</span>
+                            <span class="tech-tag">After Effects</span>
+                        </div>
+                        <a href="https://rdgcz.github.io/meu-site-pessoal/video-institucional-nofire.html" class="btn btn--primary">
+                            <i class="fas fa-external-link-alt"></i> Ver
+                        </a>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div> <!-- Fecha div.grid -->
-    <div class="separator"></div>
-</section> 
-            </div>                
+        </section>
+        
+        <footer class="projects-footer">
+            <p>© <span id="current-year"></span> - RDGCZ - Todos os direitos reservados.</p>
+        </footer>
+    </div>
+
     <script>
-        // Atualiza o ano atual
         document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('current-year').textContent = new Date().getFullYear();
             
-            // Relógio digital
             function updateClock() {
                 const now = new Date();
                 const timeElement = document.getElementById('time');
@@ -478,14 +193,9 @@
                 dateElement.textContent = date.charAt(0).toUpperCase() + date.slice(1);
             }
             
-            // Atualiza a cada segundo
             setInterval(updateClock, 1000);
-            updateClock(); // Chamada inicial
+            updateClock();
         });
     </script>
-            <div class="separator"></div>
 </body>
-              <footer class="projects-footer text-center">
-            <p>© <span id="current-year"></span> - RDGCZ - Todos os direitos reservados.</p>
-        </footer>
 </html>
