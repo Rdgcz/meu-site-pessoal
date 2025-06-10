@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Coleção de inspirações e pensamentos motivacionais de Rodrigo Cezar">
+    <title>Me Inspira | Rodrigo Cezar</title>
+    
+    <!-- Pré-conexão para recursos externos -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Carregamento assíncrono de fontes e ícones -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Orbitron:wght@400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Favicon com versões para diferentes dispositivos -->
+    <link rel="icon" href="assets/images/favicon/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" href="assets/images/favicon/favicon-192x192.png" sizes="192x192">
+    <link rel="apple-touch-icon" href="assets/images/favicon/apple-touch-icon.png">
+    
+    <!-- CSS otimizado -->
+    <link rel="stylesheet" href="css/styles.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="css/styles.min.css"></noscript>
+    
+    <!-- CSS inline crítico -->
+    <style>
+        /* CSS crítico para renderização inicial */
+        :root {
+            --bg-color: #0d0d1a;
+            --text-color: #e0f7fa;
+            --accent-color: #00f0ff;
+            --accent-secondary: #0066ff;
+        }
+        
+        body {
+            font-family: 'Orbitron', sans-serif;
+            min-height: 100vh;
+            margin: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 80px auto 30px;
+            padding: 0 20px;
+        }
+        
+        /* Garantir que o conteúdo principal seja visível enquanto o CSS carrega */
+        main {
+            display: block;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+        
+        .js-loading main {
+            opacity: 0;
+        }
+    </style>
+</head>
+<body class="js-loading">
+    <header class="main-header">
+        <h1 class="sr-only">Rodrigo Cezar da Silva</h1>
+        
+        <div class="header-content">
+            <a href="index.html" class="btn btn--primary" aria-label="Voltar para página inicial">
+                <i class="fas fa-arrow-left" aria-hidden="true"></i> Voltar
+            </a>
+            
+            <div class="digital-clock" aria-live="polite">
+                <div class="time" id="time">HH:MM</div>
+                <div class="date" id="date">1 de Janeiro de 2023</div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <header class="projects-header">
+            <h2 class="page-title">Me <span class="highlight">Inspira</span></h2>
+        </header>
+        
+        <div class="inspiration-grids-container">
+            <!-- Grid de Frases e Pensamentos -->
+            <section class="grid-section" aria-labelledby="quotes-heading">
+                <h2 id="quotes-heading" class="projects-category__title">
+                    <i class="fas fa-quote-left" aria-hidden="true"></i> Frases e Pensamentos
+                </h2>
+                
+                <div class="grid grid--inspiration">
+                    <!-- Item 1 -->
+                    <article class="card">
+                        <figure class="card__image-container">
+                            <img src="https://source.unsplash.com/random/600x400/?quote,motivation" 
+                                 alt="Frase motivacional sobre persistência"
+                                 class="card__image lazy"
+                                 loading="lazy"
+                                 data-src="https://source.unsplash.com/random/600x400/?quote,motivation">
+                            <figcaption class="sr-only">Frase motivacional sobre persistência</figcaption>
+                        </figure>
+                        <div class="card__content">
+                            <h3>Persistência é o caminho</h3>
+                            <p>"O sucesso é a soma de pequenos esforços repetidos dia após dia."</p>
+                            <p class="card__credits">Robert Collier</p>
+                            <button class="btn btn--primary btn--small" aria-label="Ver detalhes da frase">
+                                <i class="fas fa-expand" aria-hidden="true"></i> Ampliar
+                            </button>
+                        </div>
+                    </article>
+                    
+                    <!-- Item 2 -->
+                    <article class="card">
+                        <figure class="card__image-container">
+                            <img src="https://source.unsplash.com/random/600x400/?wisdom,book" 
+                                 alt="Livro aberto com texto inspirador"
+                                 class="card__image lazy"
+                                 loading="lazy"
+                                 data-src="https://source.unsplash.com/random/600x400/?wisdom,book">
+                            <figcaption class="sr-only">Livro aberto com texto inspirador</figcaption>
+                        </figure>
+                        <div class="card__content">
+                            <h3>Sabedoria literária</h3>
+                            <p>"Conhece-te a ti mesmo e conhecerás o universo e os deuses."</p>
+                            <p class="card__credits">Inscrição no Oráculo de Delfos</p>
+                            <button class="btn btn--primary btn--small" aria-label="Ver detalhes da frase">
+                                <i class="fas fa-expand" aria-hidden="true"></i> Ampliar
+                            </button>
+                        </div>
+                    </article>
+                    
+                    <!-- Item 3 -->
+                    <article class="card">
+                        <figure class="card__image-container">
+                            <img src="https://source.unsplash.com/random/600x400/?success,mountain" 
+                                 alt="Alpinista alcançando o topo de uma montanha"
+                                 class="card__image lazy"
+                                 loading="lazy"
+                                 data-src="https://source.unsplash.com/random/600x400/?success,mountain">
+                            <figcaption class="sr-only">Alpinista alcançando o topo de uma montanha</figcaption>
+                        </figure>
+                        <div class="card__content">
+                            <h3>Lição de vida</h3>
+                            <p>"A jornada de mil milhas começa com um único passo."</p>
+                            <p class="card__credits">Lao Tzu</p>
+                            <button class="btn btn--primary btn--small" aria-label="Ver detalhes da frase">
+                                <i class="fas fa-expand" aria-hidden="true"></i> Ampliar
+                            </button>
+                        </div>
+                    </article>
+                </div>
+            </section>
+            
+            <!-- Grid de Imagens Inspiradoras -->
+            <section class="grid-section" aria-labelledby="images-heading">
+                <h2 id="images-heading" class="projects-category__title">
+                    <i class="fas fa-image" aria-hidden="true"></i> Imagens Inspiradoras
+                </h2>
+                
+                <div class="grid grid--inspiration">
+                    <!-- Item 1 -->
+                    <article class="card">
+                        <figure class="card__image-container">
+                            <img src="https://source.unsplash.com/random/600x400/?nature,waterfall" 
+                                 alt="Cachoeira em floresta tropical"
+                                 class="card__image lazy"
+                                 loading="lazy"
+                                 data-src="https://source.unsplash.com/random/600x400/?nature,waterfall">
+                            <figcaption class="sr-only">Cachoeira em floresta tropical</figcaption>
+                        </figure>
+                        <div class="card__content">
+                            <h3>Beleza Natural</h3>
+                            <p>A natureza é a maior obra de arte, sempre em transformação.</p>
+                            <p class="card__credits">Fotógrafo: Anônimo</p>
+                            <button class="btn btn--primary btn--small" aria-label="Ampliar imagem da cachoeira">
+                                <i class="fas fa-expand" aria-hidden="true"></i> Ampliar
+                            </button>
+                        </div>
+                    </article>
+                    
+                    <!-- Item 2 -->
+                    <article class="card">
+                        <figure class="card__image-container">
+                            <img src="https://source.unsplash.com/random/600x400/?architecture,modern" 
+                                 alt="Edifício moderno com design inovador"
+                                 class="card__image lazy"
+                                 loading="lazy"
+                                 data-src="https://source.unsplash.com/random/600x400/?architecture,modern">
+                            <figcaption class="sr-only">Edifício moderno com design inovador</figcaption>
+                        </figure>
+                        <div class="card__content">
+                            <h3>Design Moderno</h3>
+                            <p>A arquitetura é a música congelada em espaço e tempo.</p>
+                            <p class="card__credits">Arquiteto: Desconhecido</p>
+                            <button class="btn btn--primary btn--small" aria-label="Ampliar imagem do edifício">
+                                <i class="fas fa-expand" aria-hidden="true"></i> Ampliar
+                            </button>
+                        </div>
+                    </article>
+                    
+                    <!-- Item 3 -->
+                    <article class="card">
+                        <figure class="card__image-container">
+                            <img src="https://source.unsplash.com/random/600x400/?art,painting" 
+                                 alt="Pintura abstrata colorida"
+                                 class="card__image lazy"
+                                 loading="lazy"
+                                 data-src="https://source.unsplash.com/random/600x400/?art,painting">
+                            <figcaption class="sr-only">Pintura abstrata colorida</figcaption>
+                        </figure>
+                        <div class="card__content">
+                            <h3>Expressão Artística</h3>
+                            <p>A arte lava da alma a poeira da vida cotidiana.</p>
+                            <p class="card__credits">Artista: Diversos</p>
+                            <button class="btn btn--primary btn--small" aria-label="Ampliar imagem da pintura">
+                                <i class="fas fa-expand" aria-hidden="true"></i> Ampliar
+                            </button>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Modal para imagem ampliada -->
+    <div id="imageModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalDesc">
+        <button class="close" onclick="closeModal()" aria-label="Fechar modal">&times;</button>
+        <img class="modal-content" id="modalImage" alt="">
+        <div id="modalCaption" class="modal-caption">
+            <h3 id="modalTitle"></h3>
+            <p id="modalDesc"></p>
+        </div>
+    </div>
+
+    <footer class="projects-footer">
+        <p>© <span id="current-year"></span> - RDGCZ - Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- JavaScript otimizado -->
+    <script>
+        // Remover classe de loading quando o DOM estiver pronto
+        document.addEventListener('DOMContentLoaded', function() {
+            document.body.classList.remove('js-loading');
+            
+            // Atualizar ano no footer
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+            
+            // Carregar imagens lazy
+            if ('loading' in HTMLImageElement.prototype) {
+                const lazyImages = document.querySelectorAll('img.lazy');
+                lazyImages.forEach(img => {
+                    img.src = img.dataset.src;
+                });
+            }
+        });
+
+        // Relógio digital
+        function updateClock() {
+            const now = new Date();
+            const timeElement = document.getElementById('time');
+            const dateElement = document.getElementById('date');
+            
+            // Formatar hora
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            timeElement.textContent = `${hours}:${minutes}`;
+            
+            // Formatar data
+            const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
+            const date = now.toLocaleDateString('pt-BR', options);
+            dateElement.textContent = date.charAt(0).toUpperCase() + date.slice(1);
+        }
+        
+        // Iniciar relógio
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        // Modal functions
+        function openModal(card) {
+            const modal = document.getElementById("imageModal");
+            const modalImg = document.getElementById("modalImage");
+            const modalTitle = document.getElementById("modalTitle");
+            const modalDesc = document.getElementById("modalDesc");
+            
+            const img = card.querySelector('.card__image');
+            const title = card.parentElement.querySelector('h3').textContent;
+            const description = card.parentElement.querySelector('p:not(.card__credits)').textContent;
+            
+            modal.style.display = "flex";
+            modalImg.src = img.src;
+            modalImg.alt = img.alt;
+            modalTitle.textContent = title;
+            modalDesc.textContent = description;
+            
+            // Focar no modal para acessibilidade
+            modal.focus();
+        }
+
+        function closeModal() {
+            document.getElementById("imageModal").style.display = "none";
+        }
+
+        // Fechar modal com ESC
+        document.addEventListener('keydown', function(event) {
+            const modal = document.getElementById("imageModal");
+            if (event.key === "Escape" && modal.style.display === "flex") {
+                closeModal();
+            }
+        });
+
+        // Fechar modal ao clicar fora
+        window.addEventListener('click', function(event) {
+            const modal = document.getElementById("imageModal");
+            if (event.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Adicionar event listeners para os botões de ampliar
+        document.querySelectorAll('.card__image-container, .btn--small').forEach(button => {
+            button.addEventListener('click', function() {
+                const card = this.closest('.card');
+                openModal(card.querySelector('.card__image-container'));
+            });
+        });
+    </script>
+</body>
+</html>
