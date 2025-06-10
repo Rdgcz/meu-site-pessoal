@@ -1,1 +1,360 @@
 <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vídeo Institucional | Rodrigo Cezar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Orbitron:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="assets/images/favicon/favicon-32x32.png" type="image/png">
+    <style>
+        :root {
+            --bg-color: #0d0d1a;
+            --text-color: #e0f7fa;
+            --accent-color: #00f0ff;
+            --accent-secondary: #0066ff;
+            --card-bg: rgba(0, 48, 73, 0.3);
+            --separator-color: #003d66;
+            --glow-effect: 0 0 8px rgba(0, 240, 255, 0.7);
+        }
+        
+        body {
+            font-family: 'Orbitron', sans-serif;
+            min-height: 100vh;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        h1 {
+            position: absolute;
+            top: 15px;
+            left: 30px;
+            margin: 0;
+            color: var(--accent-color);
+            text-shadow: var(--glow-effect);
+            letter-spacing: 1px;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 600;
+            font-size: 1.8rem;
+            padding-left: 15px;
+            
+            background: linear-gradient(
+                90deg,
+                rgba(255, 255, 255, 0.8) 0%,
+                rgba(255, 255, 255, 0.5) 25%,
+                rgba(255, 255, 255, 0.2) 50%,
+                rgba(255, 255, 255, 0.5) 75%,
+                rgba(255, 255, 255, 0.8) 100%
+            );
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-fill-color: transparent;
+            background-size: 200% 100%;
+            animation: metallicShine 4s linear infinite;
+        }
+        
+        .digital-clock {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            text-align: center;
+            color: var(--accent-color);
+            text-shadow: var(--glow-effect);
+            line-height: 1.4;
+        }
+        
+        .time {
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+        }
+        
+        .date {
+            opacity: 0.8;
+            font-size: 0.8rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 80px auto 30px;
+            padding: 0 20px;
+        }
+        
+        .project-header {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .project-header h2 {
+            color: var(--accent-color);
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        .project-header .meta {
+            color: var(--accent-secondary);
+            font-size: 0.9rem;
+        }
+        
+        .video-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .video-frame {
+            position: relative;
+            border: 2px solid var(--accent-secondary);
+            border-radius: 8px;
+            background: var(--card-bg);
+            box-shadow: 0 4px 20px rgba(0, 102, 255, 0.2);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .video-frame:hover {
+            border-color: var(--accent-color);
+            box-shadow: var(--glow-effect);
+            transform: translateY(-5px);
+        }
+        
+        .video-title {
+            padding: 15px;
+            background: linear-gradient(90deg, rgba(0, 102, 255, 0.2), transparent);
+            border-bottom: 1px solid var(--separator-color);
+            color: var(--accent-color);
+            font-size: 1.2rem;
+        }
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .video-footer {
+            padding: 10px 15px;
+            font-size: 0.8rem;
+            opacity: 0.8;
+            border-top: 1px solid var(--separator-color);
+        }
+
+        .project-description-container {
+            max-width: 1030px; /* Largura dos dois vídeos + gap */
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .project-description {
+            background: rgba(0, 48, 73, 0.3);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid var(--accent-secondary);
+            margin: 30px 0;
+        }
+        
+        .project-description h3 {
+            color: var(--accent-color);
+            margin-top: 0;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
+        }
+        
+        .btn i {
+            margin-right: 8px;
+        }
+        
+        .btn--primary {
+            background-color: rgba(0, 102, 255, 0.2);
+            border: 1px solid var(--accent-secondary);
+            color: var(--accent-color);
+        }
+        
+        .btn--primary:hover {
+            background-color: rgba(0, 102, 255, 0.4);
+            box-shadow: 0 0 10px rgba(0, 102, 255, 0.5);
+        }
+        
+        .separator {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+            margin: 20px 0;
+            opacity: 0.5;
+        }
+        
+        footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--separator-color);
+            font-size: 0.9rem;
+            opacity: 0.7;
+            text-align: center;
+        }
+        
+        @keyframes metallicShine {
+            0% {
+                background-position: 0% center;
+            }
+            100% {
+                background-position: -200% center;
+            }
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 100px;
+            background: rgba(0, 20, 40, 0.5);
+            border: 1px solid var(--accent-secondary);
+            color: var(--text-color);
+            padding: 10px;
+            font-family: 'Orbitron', sans-serif;
+            border-radius: 4px;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 8px rgba(0, 240, 255, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <h1>Rodrigo Cezar da Silva</h1>
+    
+    <div class="digital-clock">
+        <div class="time" id="time">HH:MM</div>
+        <div class="date" id="date">1 de Janeiro de 2023</div>
+    </div>
+    
+    <div class="container">
+        <header class="project-header">
+            <a href="projetos.html" class="btn btn--primary">
+                <i class="fas fa-arrow-left"></i> Voltar para Projetos
+            </a>
+            <h2>Vídeo Institucional da Empresa No Fire</h2>
+            <div class="meta">2018 • Premiere</div>
+        </header>
+        
+        <div class="separator"></div>
+
+        <div class="video-gallery">
+            <!-- Vídeo 1 -->
+            <div class="video-frame">
+                <div class="video-title">
+                    <i class="fas fa-play"></i> Vídeo Institucional
+                </div>
+                <div class="video-container">
+                <iframe
+        src="https://www.youtube.com/embed/V94U1_4mCLY?modestbranding=1&rel=0&enablejsapi=1" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        allowfullscreen
+        loading="lazy"
+        title="Vídeo Institucional - No Fire - 2018">
+                </iframe>
+                </div>
+                <div class="video-footer">
+                    Criado com Adobe Premiere e After Effects | Duração: 01:37
+                </div>
+            </div>
+            
+           
+        <div class="separator"></div>
+
+        <!-- Área de informações sobre o vídeo - Centralizada com a largura dos vídeos -->
+        <div class="project-description-container">
+            <div class="project-description">
+                <h3>Sobre esta Vídeo</h3>
+                <p>Vídeo Institucional da Empresa No Fire para exibição em feiras e eventos, produzido em 2018.</p>
+                <p>PRODUZIDO E EDITADO POR: Rodrigo Cezar</p>
+                <p>FILMADO POR: Rodrigo Cezar</p>
+                <p>CLIENTE: NO FIRE</p>
+                
+                <h4>Detalhes Técnicos:</h4>
+                <ul>
+                    <li>Criado com Adobe Premiere e After Effects</li>
+                    <li>Duração: 1:37 minutos</li>
+                    <li>Resolução original: 1080p</li>
+                </ul>
+                
+                               
+    <div class="credits">
+        <h4>Créditos</h4>
+        <p>Logomarca: <a href="https://www.nofire.com.br" target="_blank" rel="noopener noreferrer">No Fire Services</a></p>
+          </div>
+            </div>
+        </div>
+
+        <div class="separator"></div>
+    </div>
+
+    <footer>
+        <p>© <span id="current-year"></span> - RDGCZ - Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        // Atualiza o ano atual
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+        
+        // Relógio digital
+        function updateClock() {
+            const now = new Date();
+            const timeElement = document.getElementById('time');
+            const dateElement = document.getElementById('date');
+            
+            // Formata hora
+            const time = now.toLocaleTimeString('pt-BR', { hour12: false });
+            timeElement.textContent = time;
+            
+            // Formata data
+            const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
+            const date = now.toLocaleDateString('pt-BR', options);
+            dateElement.textContent = date.charAt(0).toUpperCase() + date.slice(1);
+        }
+        
+        // Atualiza a cada segundo
+        setInterval(updateClock, 1000);
+        updateClock(); // Chamada inicial
+        
+        // Adiciona efeito de hover dinâmico
+        document.querySelectorAll('.video-frame').forEach(frame => {
+            frame.addEventListener('mouseenter', () => {
+                frame.querySelector('.video-title').style.background = 'linear-gradient(90deg, rgba(0, 240, 255, 0.3), transparent)';
+            });
+            frame.addEventListener('mouseleave', () => {
+                frame.querySelector('.video-title').style.background = 'linear-gradient(90deg, rgba(0, 102, 255, 0.2), transparent)';
+            });
+        });
+    </script>
+</body>
+</html>
