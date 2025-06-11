@@ -1,370 +1,260 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seletor de Cores Interativo</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        /* Reset e base */
-        body {
-            margin: 0;
-            padding: var(--space-md);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .container {
-            max-width: 500px;
-            margin: 0 auto;
-            width: 100%;
-            flex: 1;
-        }
-        
-        h1 {
-            margin-top: 0;
-            color: var(--accent-color);
-        }
-        
-        /* Card do color picker */
-        .color-picker-card {
-            background: var(--card-bg);
-            border-radius: var(--radius-md);
-            padding: var(--space-md);
-            border: 1px solid var(--separator-color);
-            box-shadow: var(--shadow-md);
-        }
-        
-        /* Área interativa do color picker */
-        .color-picker-area {
-            width: 100%;
-            height: 200px;
-            border-radius: var(--radius-md);
-            margin-bottom: var(--space-md);
-            cursor: crosshair;
-            position: relative;
-            overflow: hidden;
-            border: 2px solid var(--separator-color);
-            background: linear-gradient(to bottom, 
-                #ff0000, #ff00ff, #0000ff, #00ffff, #00ff00, #ffff00, #ff0000);
-        }
-        
-        .color-picker-selector {
-            position: absolute;
-            width: 16px;
-            height: 16px;
-            border: 2px solid white;
-            border-radius: 50%;
-            box-shadow: 0 0 3px rgba(0,0,0,0.8);
-            pointer-events: none;
-            transform: translate(-8px, -8px);
-        }
-        
-        /* Visualização da cor selecionada */
-        .color-preview {
-            width: 100%;
-            height: 80px;
-            border-radius: var(--radius-md);
-            margin: var(--space-md) 0;
-            border: 2px solid var(--separator-color);
-        }
-        
-        /* Controles RGB e HEX */
-        .controls {
-            margin-top: var(--space-md);
-        }
-        
-        .slider-container {
-            display: flex;
-            align-items: center;
-            margin-bottom: var(--space-sm);
-        }
-        
-        .slider-container label {
-            width: 70px;
-            color: var(--accent-color);
-            font-size: 0.9rem;
-        }
-        
-        input[type="range"] {
-            flex: 1;
-            height: 6px;
-            -webkit-appearance: none;
-            background: linear-gradient(90deg, var(--bg-color), var(--separator-color));
-            border-radius: var(--radius-sm);
-            margin: 0 var(--space-sm);
-        }
-        
-        input[type="range"]::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            background: var(--accent-color);
-            cursor: pointer;
-            box-shadow: var(--glow-effect);
-        }
-        
-        .value-display {
-            width: 50px;
-            text-align: center;
-            background: var(--card-bg);
-            border: 1px solid var(--separator-color);
-            border-radius: var(--radius-sm);
-            padding: var(--space-xs);
-            color: var(--accent-color);
-            font-family: 'Orbitron', sans-serif;
-        }
-        
-        .hex-container {
-            display: flex;
-            align-items: center;
-            margin-top: var(--space-md);
-        }
-        
-        .hex-container label {
-            color: var(--accent-color);
-            margin-right: var(--space-sm);
-        }
-        
-        .hex-input {
-            flex: 1;
-            background: var(--card-bg);
-            border: 1px solid var(--separator-color);
-            border-radius: var(--radius-sm);
-            padding: var(--space-sm);
-            color: var(--accent-color);
-            font-family: 'Orbitron', sans-serif;
-        }
-        
-        .copy-btn {
-            background: rgba(0, 102, 255, 0.2);
-            border: 1px solid var(--accent-secondary);
-            color: var(--accent-color);
-            padding: var(--space-sm) var(--space-md);
-            border-radius: var(--radius-sm);
-            margin-left: var(--space-sm);
-            cursor: pointer;
-            transition: var(--transition-normal);
-        }
-        
-        .copy-btn:hover {
-            background: rgba(0, 102, 255, 0.4);
-            box-shadow: var(--glow-effect);
-        }
-        
-        footer {
-            text-align: center;
-            margin-top: var(--space-xl);
-            padding: var(--space-md) 0;
-            color: var(--accent-color);
-            opacity: 0.8;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seletor de Cores Interativo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #0d0d1a;
+      --text-color: #e0f7fa;
+      --accent-color: #00f0ff;
+      --accent-secondary: #0066ff;
+      --card-bg: rgba(0, 48, 73, 0.3);
+      --separator-color: #003d66;
+      --search-border: #0066ff;
+      --glow-effect: 0 0 8px rgba(0, 240, 255, 0.7);
+      --space-xs: 0.2rem;
+      --space-sm: 0.5rem;
+      --space-md: 1.0rem;
+      --space-lg: 1.5rem;
+      --space-xl: 2rem;
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --shadow-md: 0 5px 15px rgba(0,0,0,0.3);
+      --transition-normal: 0.3s ease;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Orbitron', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      min-height: 100vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-md);
+    }
+    .container { max-width: 600px; width: 100%; }
+    h1 { color: var(--accent-color); text-align: center; margin-bottom: var(--space-md); }
+    .color-picker-card {
+      background: var(--card-bg);
+      border-radius: var(--radius-md);
+      padding: var(--space-md);
+      border: 1px solid var(--separator-color);
+      box-shadow: var(--shadow-md);
+    }
+    .color-picker-area {
+      width: 100%; height: 150px; border-radius: var(--radius-md);
+      margin-bottom: var(--space-md); cursor: crosshair; position: relative;
+      overflow: hidden; border: 2px solid var(--separator-color);
+      background: linear-gradient(to right, #ff0000, #ff00ff, #0000ff, #00ffff, #00ff00, #ffff00, #ff0000);
+    }
+    .color-picker-selector {
+      position: absolute; width: 16px; height: 16px;
+      border: 2px solid white; border-radius: 50%; box-shadow: 0 0 3px rgba(0,0,0,0.8);
+      pointer-events: none; transform: translate(-8px, -8px);
+    }
+    .color-preview {
+      width: 100%; height: 30px; border-radius: var(--radius-md);
+      margin: var(--space-md) 0; border: 2px solid var(--separator-color);
+    }
+    .controls { margin-top: var(--space-md); }
+    .slider-container {
+      display: flex; align-items: center; margin-bottom: var(--space-sm);
+    }
+    .slider-container label {
+      width: 80px; color: var(--accent-color); font-size: 0.9rem;
+    }
+    input[type="range"] {
+      flex: 1; height: 6px; -webkit-appearance: none;
+      background: linear-gradient(90deg, var(--bg-color), var(--separator-color));
+      border-radius: var(--radius-sm); margin: 0 var(--space-sm);
+    }
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none; width: 18px; height: 18px;
+      border-radius: 50%; background: var(--accent-color);
+      cursor: pointer; box-shadow: var(--glow-effect);
+    }
+    .value-display {
+      width: 60px; text-align: center; background: var(--card-bg);
+      border: 1px solid var(--separator-color);
+      border-radius: var(--radius-sm); padding: var(--space-xs);
+      color: var(--accent-color);
+    }
+    .hex-container {
+      display: flex; align-items: center; margin-top: var(--space-md);
+    }
+    .hex-container label {
+      color: var(--accent-color); margin-right: var(--space-sm);
+    }
+    .hex-input {
+      flex: 1; background: var(--card-bg);
+      border: 1px solid var(--separator-color); border-radius: var(--radius-sm);
+      padding: var(--space-sm); color: var(--accent-color);
+      font-family: 'Orbitron', sans-serif;
+    }
+    .copy-btn {
+      background: rgba(0, 102, 255, 0.2);
+      border: 1px solid var(--accent-secondary);
+      color: var(--accent-color);
+      padding: var(--space-sm) var(--space-md);
+      border-radius: var(--radius-sm);
+      margin-left: var(--space-sm);
+      cursor: pointer;
+      transition: var(--transition-normal);
+    }
+    .copy-btn:hover {
+      background: rgba(0, 102, 255, 0.4);
+      box-shadow: var(--glow-effect);
+    }
+    footer {
+      text-align: center;
+      margin-top: var(--space-lg);
+      font-size: 0.8rem;
+      color: var(--accent-color);
+      opacity: 0.8;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Seletor de Cores Interativo</h1>
-        
-        <div class="color-picker-card">
-            <div class="color-picker-area" id="colorPickerArea">
-                <div class="color-picker-selector" id="colorSelector"></div>
-            </div>
-            
-            <div class="color-preview" id="colorPreview"></div>
-            
-            <div class="controls">
-                <div class="slider-container">
-                    <label>Vermelho</label>
-                    <input type="range" id="redSlider" min="0" max="255" value="255">
-                    <span class="value-display" id="redValue">255</span>
-                </div>
-                
-                <div class="slider-container">
-                    <label>Verde</label>
-                    <input type="range" id="greenSlider" min="0" max="255" value="0">
-                    <span class="value-display" id="greenValue">0</span>
-                </div>
-                
-                <div class="slider-container">
-                    <label>Azul</label>
-                    <input type="range" id="blueSlider" min="0" max="255" value="0">
-                    <span class="value-display" id="blueValue">0</span>
-                </div>
-                
-                <div class="hex-container">
-                    <label>HEX:</label>
-                    <input type="text" id="hexInput" class="hex-input" value="#ff0000">
-                    <button id="copyBtn" class="copy-btn">Copiar</button>
-                </div>
-            </div>
+  <div class="container">
+    <h1>Seletor de Cores Interativo</h1>
+    <div class="color-picker-card">
+      <div class="color-picker-area" id="colorPickerArea">
+        <div class="color-picker-selector" id="colorSelector"></div>
+      </div>
+      <div class="color-preview" id="colorPreview"></div>
+      <div class="controls">
+        <div class="slider-container">
+          <label>Vermelho</label>
+          <input type="range" id="redSlider" min="0" max="255" value="255">
+          <span class="value-display" id="redValue">255</span>
         </div>
+        <div class="slider-container">
+          <label>Verde</label>
+          <input type="range" id="greenSlider" min="0" max="255" value="0">
+          <span class="value-display" id="greenValue">0</span>
+        </div>
+        <div class="slider-container">
+          <label>Azul</label>
+          <input type="range" id="blueSlider" min="0" max="255" value="0">
+          <span class="value-display" id="blueValue">0</span>
+        </div>
+        <div class="hex-container">
+          <label>HEX:</label>
+          <input type="text" id="hexInput" class="hex-input" value="#ff0000">
+          <button id="copyBtn" class="copy-btn">Copiar</button>
+        </div>
+      </div>
     </div>
-    
-    <footer>
-        © <span id="current-year"></span> - RDGCZ - Todos os direitos reservados.
-    </footer>
+  </div>
+  <footer>
+    © <span id="current-year"></span> - RDGCZ - Todos os direitos reservados.
+  </footer>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const area = document.getElementById('colorPickerArea');
+      const selector = document.getElementById('colorSelector');
+      const preview = document.getElementById('colorPreview');
+      const redSlider = document.getElementById('redSlider');
+      const greenSlider = document.getElementById('greenSlider');
+      const blueSlider = document.getElementById('blueSlider');
+      const redValue = document.getElementById('redValue');
+      const greenValue = document.getElementById('greenValue');
+      const blueValue = document.getElementById('blueValue');
+      const hexInput = document.getElementById('hexInput');
+      const copyBtn = document.getElementById('copyBtn');
+      document.getElementById('current-year').textContent = new Date().getFullYear();
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Elementos DOM
-            const colorPickerArea = document.getElementById('colorPickerArea');
-            const colorSelector = document.getElementById('colorSelector');
-            const colorPreview = document.getElementById('colorPreview');
-            const redSlider = document.getElementById('redSlider');
-            const greenSlider = document.getElementById('greenSlider');
-            const blueSlider = document.getElementById('blueSlider');
-            const redValue = document.getElementById('redValue');
-            const greenValue = document.getElementById('greenValue');
-            const blueValue = document.getElementById('blueValue');
-            const hexInput = document.getElementById('hexInput');
-            const copyBtn = document.getElementById('copyBtn');
-            
-            // Atualiza o ano no footer
-            document.getElementById('current-year').textContent = new Date().getFullYear();
-            
-            // Cores iniciais
-            let currentColor = {
-                r: 255,
-                g: 0,
-                b: 0
-            };
-            
-            // Atualiza a interface com a cor atual
-            function updateUI() {
-                colorPreview.style.backgroundColor = `rgb(${currentColor.r}, ${currentColor.g}, ${currentColor.b})`;
-                redSlider.value = currentColor.r;
-                greenSlider.value = currentColor.g;
-                blueSlider.value = currentColor.b;
-                redValue.textContent = currentColor.r;
-                greenValue.textContent = currentColor.g;
-                blueValue.textContent = currentColor.b;
-                hexInput.value = rgbToHex(currentColor.r, currentColor.g, currentColor.b);
-            }
-            
-            // Converte RGB para HEX
-            function rgbToHex(r, g, b) {
-                return "#" + [r, g, b].map(x => {
-                    const hex = x.toString(16);
-                    return hex.length === 1 ? "0" + hex : hex;
-                }).join('');
-            }
-            
-            // Converte HEX para RGB
-            function hexToRgb(hex) {
-                hex = hex.replace('#', '');
-                
-                if (hex.length === 3) {
-                    hex = hex.split('').map(c => c + c).join('');
-                }
-                
-                const r = parseInt(hex.substring(0, 2), 16);
-                const g = parseInt(hex.substring(2, 4), 16);
-                const b = parseInt(hex.substring(4, 6), 16);
-                
-                return { r, g, b };
-            }
-            
-            // Obtém a cor da posição no color picker
-            function getColorAtPosition(x, y) {
-                const rect = colorPickerArea.getBoundingClientRect();
-                const relX = x - rect.left;
-                const relY = y - rect.top;
-                
-                const ctx = document.createElement('canvas').getContext('2d');
-                ctx.canvas.width = rect.width;
-                ctx.canvas.height = rect.height;
-                
-                // Cria um gradiente semelhante ao do color picker
-                const gradient = ctx.createLinearGradient(0, 0, ctx.canvas.width, 0);
-                gradient.addColorStop(0, '#ff0000');
-                gradient.addColorStop(0.16, '#ff00ff');
-                gradient.addColorStop(0.32, '#0000ff');
-                gradient.addColorStop(0.48, '#00ffff');
-                gradient.addColorStop(0.64, '#00ff00');
-                gradient.addColorStop(0.80, '#ffff00');
-                gradient.addColorStop(1, '#ff0000');
-                ctx.fillStyle = gradient;
-                ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-                
-                // Adiciona gradiente de brilho
-                const brightnessGradient = ctx.createLinearGradient(0, 0, 0, ctx.canvas.height);
-                brightnessGradient.addColorStop(0, 'rgba(255,255,255,1)');
-                brightnessGradient.addColorStop(0.5, 'rgba(255,255,255,0)');
-                brightnessGradient.addColorStop(0.5, 'rgba(0,0,0,0)');
-                brightnessGradient.addColorStop(1, 'rgba(0,0,0,1)');
-                ctx.fillStyle = brightnessGradient;
-                ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-                
-                // Obtém o pixel na posição clicada
-                const pixel = ctx.getImageData(relX, relY, 1, 1).data;
-                return {
-                    r: pixel[0],
-                    g: pixel[1],
-                    b: pixel[2]
-                };
-            }
-            
-            // Evento de clique no color picker
-            colorPickerArea.addEventListener('click', function(e) {
-                const color = getColorAtPosition(e.clientX, e.clientY);
-                currentColor = color;
-                updateUI();
-                
-                // Move o seletor para a posição clicada
-                const rect = this.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                colorSelector.style.left = x + 'px';
-                colorSelector.style.top = y + 'px';
-            });
-            
-            // Eventos dos sliders
-            redSlider.addEventListener('input', function() {
-                currentColor.r = parseInt(this.value);
-                updateUI();
-            });
-            
-            greenSlider.addEventListener('input', function() {
-                currentColor.g = parseInt(this.value);
-                updateUI();
-            });
-            
-            blueSlider.addEventListener('input', function() {
-                currentColor.b = parseInt(this.value);
-                updateUI();
-            });
-            
-            // Evento do input HEX
-            hexInput.addEventListener('input', function() {
-                if (this.value.length === 7 || this.value.length === 4) {
-                    try {
-                        const rgb = hexToRgb(this.value);
-                        currentColor = rgb;
-                        updateUI();
-                    } catch (e) {
-                        console.error("Cor HEX inválida");
-                    }
-                }
-            });
-            
-            // Botão copiar
-            copyBtn.addEventListener('click', function() {
-                hexInput.select();
-                document.execCommand('copy');
-                
-                const originalText = this.textContent;
-                this.textContent = 'Copiado!';
-                setTimeout(() => {
-                    this.textContent = originalText;
-                }, 2000);
-            });
-            
-            // Inicialização
+      let currentColor = { r: 255, g: 0, b: 0 };
+
+      function updateUI() {
+        preview.style.backgroundColor = `rgb(${currentColor.r}, ${currentColor.g}, ${currentColor.b})`;
+        redSlider.value = currentColor.r;
+        greenSlider.value = currentColor.g;
+        blueSlider.value = currentColor.b;
+        redValue.textContent = currentColor.r;
+        greenValue.textContent = currentColor.g;
+        blueValue.textContent = currentColor.b;
+        hexInput.value = rgbToHex(currentColor.r, currentColor.g, currentColor.b);
+      }
+
+      function rgbToHex(r, g, b) {
+        return "#" + [r, g, b].map(x => x.toString(16).padStart(2, '0')).join('');
+      }
+
+      function hexToRgb(hex) {
+        hex = hex.replace('#', '');
+        if (hex.length === 3) hex = hex.split('').map(c => c + c).join('');
+        const r = parseInt(hex.substr(0, 2), 16);
+        const g = parseInt(hex.substr(2, 2), 16);
+        const b = parseInt(hex.substr(4, 2), 16);
+        return { r, g, b };
+      }
+
+      function getColorAtPosition(x, y) {
+        const rect = area.getBoundingClientRect();
+        const relX = x - rect.left;
+        const relY = y - rect.top;
+        const ctx = document.createElement('canvas').getContext('2d');
+        ctx.canvas.width = rect.width;
+        ctx.canvas.height = rect.height;
+        const grad = ctx.createLinearGradient(0, 0, ctx.canvas.width, 0);
+        grad.addColorStop(0, '#ff0000');
+        grad.addColorStop(0.16, '#ff00ff');
+        grad.addColorStop(0.32, '#0000ff');
+        grad.addColorStop(0.48, '#00ffff');
+        grad.addColorStop(0.64, '#00ff00');
+        grad.addColorStop(0.80, '#ffff00');
+        grad.addColorStop(1, '#ff0000');
+        ctx.fillStyle = grad;
+        ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+        const brightGrad = ctx.createLinearGradient(0, 0, 0, ctx.canvas.height);
+        brightGrad.addColorStop(0, 'rgba(255,255,255,1)');
+        brightGrad.addColorStop(0.5, 'rgba(255,255,255,0)');
+        brightGrad.addColorStop(0.5, 'rgba(0,0,0,0)');
+        brightGrad.addColorStop(1, 'rgba(0,0,0,1)');
+        ctx.fillStyle = brightGrad;
+        ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+        const pixel = ctx.getImageData(relX, relY, 1, 1).data;
+        return { r: pixel[0], g: pixel[1], b: pixel[2] };
+      }
+
+      area.addEventListener('click', function(e) {
+        const color = getColorAtPosition(e.clientX, e.clientY);
+        currentColor = color;
+        updateUI();
+        const rect = area.getBoundingClientRect();
+        selector.style.left = (e.clientX - rect.left) + 'px';
+        selector.style.top = (e.clientY - rect.top) + 'px';
+      });
+
+      redSlider.addEventListener('input', () => { currentColor.r = +redSlider.value; updateUI(); });
+      greenSlider.addEventListener('input', () => { currentColor.g = +greenSlider.value; updateUI(); });
+      blueSlider.addEventListener('input', () => { currentColor.b = +blueSlider.value; updateUI(); });
+
+      hexInput.addEventListener('input', () => {
+        if (hexInput.value.length === 7 || hexInput.value.length === 4) {
+          try {
+            currentColor = hexToRgb(hexInput.value);
             updateUI();
-        });
-    </script>
+          } catch (e) { console.error("HEX inválido"); }
+        }
+      });
+
+      copyBtn.addEventListener('click', () => {
+        hexInput.select();
+        document.execCommand('copy');
+        copyBtn.textContent = 'Copiado!';
+        setTimeout(() => copyBtn.textContent = 'Copiar', 2000);
+      });
+
+      updateUI();
+    });
+  </script>
 </body>
 </html>
