@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Seletor de Cores Hexadecimal</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="assets/images/favicon/favicon-32x32.png" type="image/png">
     <style>
         /* Estilos específicos para o color picker */
         .color-picker-card {
@@ -146,8 +149,18 @@
             </div>
         </div>
     </div>
+
+    <footer class="index-footer">
+        <p>© <span id="current-year"></span> - RDGCZ - Todos os direitos reservados.</p>
+    </footer>
     
     <script>
+         document.addEventListener('DOMContentLoaded', function() {
+            // Atualiza o ano no footer
+            const currentYearElement = document.getElementById('current-year');
+            if(currentYearElement) {
+                currentYearElement.textContent = new Date().getFullYear();
+            }
         // Elementos DOM
         const redSlider = document.getElementById('redSlider');
         const greenSlider = document.getElementById('greenSlider');
