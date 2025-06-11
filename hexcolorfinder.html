@@ -13,6 +13,7 @@
             max-width: 500px;
             margin: 0 auto;
             padding: var(--space-md);
+            overflow: hidden; /* Previne vazamento de conteúdo */
         }
         
         .color-preview {
@@ -22,6 +23,7 @@
             margin: var(--space-md) 0;
             border: 2px solid var(--separator-color);
             transition: var(--transition-normal);
+            background-color: #ff0000; /* Cor inicial garantida */
         }
         
         .sliders {
@@ -61,7 +63,7 @@
         }
         
         .value-display {
-            width: 40px;
+            min-width: 40px; /* Alterado de width para min-width */
             text-align: center;
             background-color: var(--card-bg);
             border: 1px solid var(--separator-color);
@@ -69,6 +71,7 @@
             padding: var(--space-xs);
             color: var(--accent-color);
             font-family: 'Orbitron', sans-serif;
+            box-sizing: border-box; /* Garante que padding não aumente o tamanho */
         }
         
         .hex-input-container {
@@ -107,11 +110,23 @@
             border-radius: var(--radius-sm);
             cursor: pointer;
             transition: var(--transition-normal);
+            white-space: nowrap; /* Evita quebra de texto */
         }
         
         .copy-btn:hover {
             background-color: rgba(0, 102, 255, 0.4);
             box-shadow: var(--glow-effect);
+        }
+        
+        /* Correção para a barra de rolagem */
+        html, body {
+            overflow-x: hidden; /* Remove barra de rolagem horizontal */
+            width: 100%;
+        }
+        
+        .container {
+            padding: 0 var(--space-sm); /* Reduz padding em telas pequenas */
+            box-sizing: border-box; /* Garante que padding não cause overflow */
         }
     </style>
 </head>
@@ -155,125 +170,130 @@
     </footer>
     
     <script>
-         document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function() {
             // Atualiza o ano no footer
             const currentYearElement = document.getElementById('current-year');
             if(currentYearElement) {
                 currentYearElement.textContent = new Date().getFullYear();
             }
-        // Elementos DOM
-        const redSlider = document.getElementById('redSlider');
-        const greenSlider = document.getElementById('greenSlider');
-        const blueSlider = document.getElementById('blueSlider');
-        const redValue = document.getElementById('redValue');
-        const greenValue = document.getElementById('greenValue');
-        const blueValue = document.getElementById('blueValue');
-        const hexInput = document.getElementById('hexInput');
-        const colorPreview = document.getElementById('colorPreview');
-        const copyBtn = document.getElementById('copyBtn');
-        
-        // Atualiza a cor quando os sliders mudam
-        function updateColorFromSliders() {
-            const red = parseInt(redSlider.value);
-            const green = parseInt(greenSlider.value);
-            const blue = parseInt(blueSlider.value);
             
-            // Atualiza os valores numéricos
-            redValue.textContent = red;
-            greenValue.textContent = green;
-            blueValue.textContent = blue;
+            // Elementos DOM
+            const redSlider = document.getElementById('redSlider');
+            const greenSlider = document.getElementById('greenSlider');
+            const blueSlider = document.getElementById('blueSlider');
+            const redValue = document.getElementById('redValue');
+            const greenValue = document.getElementById('greenValue');
+            const blueValue = document.getElementById('blueValue');
+            const hexInput = document.getElementById('hexInput');
+            const colorPreview = document.getElementById('colorPreview');
+            const copyBtn = document.getElementById('copyBtn');
             
-            // Converte para hexadecimal
-            const hex = rgbToHex(red, green, blue);
-            hexInput.value = hex;
+            // Garante que a cor inicial seja exibida
+            colorPreview.style.backgroundColor = '#ff0000';
             
-            // Atualiza a visualização da cor
-            colorPreview.style.backgroundColor = hex;
-        }
-        
-        // Converte RGB para HEX
-        function rgbToHex(r, g, b) {
-            return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
-        }
-        
-        function componentToHex(c) {
-            const hex = c.toString(16);
-            return hex.length == 1 ? "0" + hex : hex;
-        }
-        
-        // Valida e converte HEX para RGB
-        function hexToRgb(hex) {
-            // Remove o # se existir
-            hex = hex.replace('#', '');
-            
-            // Converte shorthand para full form (ex: #f00 -> #ff0000)
-            if (hex.length === 3) {
-                hex = hex.split('').map(c => c + c).join('');
-            }
-            
-            // Verifica se é um HEX válido
-            if (!/^[0-9A-F]{6}$/i.test(hex)) return null;
-            
-            // Converte para RGB
-            const r = parseInt(hex.substring(0, 2), 16);
-            const g = parseInt(hex.substring(2, 4), 16);
-            const b = parseInt(hex.substring(4, 6), 16);
-            
-            return { r, g, b };
-        }
-        
-        // Atualiza os sliders quando o HEX é alterado manualmente
-        function updateColorFromHex() {
-            const hex = hexInput.value;
-            const rgb = hexToRgb(hex);
-            
-            if (rgb) {
-                redSlider.value = rgb.r;
-                greenSlider.value = rgb.g;
-                blueSlider.value = rgb.b;
+            // Atualiza a cor quando os sliders mudam
+            function updateColorFromSliders() {
+                const red = parseInt(redSlider.value);
+                const green = parseInt(greenSlider.value);
+                const blue = parseInt(blueSlider.value);
                 
-                redValue.textContent = rgb.r;
-                greenValue.textContent = rgb.g;
-                blueValue.textContent = rgb.b;
+                // Atualiza os valores numéricos
+                redValue.textContent = red;
+                greenValue.textContent = green;
+                blueValue.textContent = blue;
                 
+                // Converte para hexadecimal
+                const hex = rgbToHex(red, green, blue);
+                hexInput.value = hex;
+                
+                // Atualiza a visualização da cor
                 colorPreview.style.backgroundColor = hex;
             }
-        }
-        
-        // Copia o HEX para a área de transferência
-        function copyToClipboard() {
-            hexInput.select();
-            document.execCommand('copy');
             
-            // Feedback visual
-            const originalText = copyBtn.textContent;
-            copyBtn.textContent = 'Copiado!';
-            setTimeout(() => {
-                copyBtn.textContent = originalText;
-            }, 2000);
-        }
-        
-        // Adiciona listeners
-        redSlider.addEventListener('input', updateColorFromSliders);
-        greenSlider.addEventListener('input', updateColorFromSliders);
-        blueSlider.addEventListener('input', updateColorFromSliders);
-        
-        hexInput.addEventListener('input', function() {
-            // Adiciona automaticamente o # se não existir
-            if (this.value.length === 1 && this.value !== '#') {
-                this.value = '#' + this.value;
+            // Converte RGB para HEX
+            function rgbToHex(r, g, b) {
+                return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
             }
             
-            // Atualiza a cor quando o HEX for válido
-            if (this.value.length === 7 || this.value.length === 4) {
-                updateColorFromHex();
+            function componentToHex(c) {
+                const hex = c.toString(16);
+                return hex.length == 1 ? "0" + hex : hex;
             }
+            
+            // Valida e converte HEX para RGB
+            function hexToRgb(hex) {
+                // Remove o # se existir
+                hex = hex.replace('#', '');
+                
+                // Converte shorthand para full form (ex: #f00 -> #ff0000)
+                if (hex.length === 3) {
+                    hex = hex.split('').map(c => c + c).join('');
+                }
+                
+                // Verifica se é um HEX válido
+                if (!/^[0-9A-F]{6}$/i.test(hex)) return null;
+                
+                // Converte para RGB
+                const r = parseInt(hex.substring(0, 2), 16);
+                const g = parseInt(hex.substring(2, 4), 16);
+                const b = parseInt(hex.substring(4, 6), 16);
+                
+                return { r, g, b };
+            }
+            
+            // Atualiza os sliders quando o HEX é alterado manualmente
+            function updateColorFromHex() {
+                const hex = hexInput.value;
+                const rgb = hexToRgb(hex);
+                
+                if (rgb) {
+                    redSlider.value = rgb.r;
+                    greenSlider.value = rgb.g;
+                    blueSlider.value = rgb.b;
+                    
+                    redValue.textContent = rgb.r;
+                    greenValue.textContent = rgb.g;
+                    blueValue.textContent = rgb.b;
+                    
+                    colorPreview.style.backgroundColor = hex;
+                }
+            }
+            
+            // Copia o HEX para a área de transferência
+            function copyToClipboard() {
+                hexInput.select();
+                document.execCommand('copy');
+                
+                // Feedback visual
+                const originalText = copyBtn.textContent;
+                copyBtn.textContent = 'Copiado!';
+                setTimeout(() => {
+                    copyBtn.textContent = originalText;
+                }, 2000);
+            }
+            
+            // Adiciona listeners
+            redSlider.addEventListener('input', updateColorFromSliders);
+            greenSlider.addEventListener('input', updateColorFromSliders);
+            blueSlider.addEventListener('input', updateColorFromSliders);
+            
+            hexInput.addEventListener('input', function() {
+                // Adiciona automaticamente o # se não existir
+                if (this.value.length === 1 && this.value !== '#') {
+                    this.value = '#' + this.value;
+                }
+                
+                // Atualiza a cor quando o HEX for válido
+                if (this.value.length === 7 || this.value.length === 4) {
+                    updateColorFromHex();
+                }
+            });
+            
+            copyBtn.addEventListener('click', copyToClipboard);
+            
+            // Inicializa
+            updateColorFromSliders();
         });
-        
-        copyBtn.addEventListener('click', copyToClipboard);
-        
-        // Inicializa
-        updateColorFromSliders();
     </script>
 </body>
 </html>
