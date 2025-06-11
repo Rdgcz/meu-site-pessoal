@@ -1,1 +1,201 @@
-a
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ferramentas | Rodrigo Cezar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Orbitron:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="assets/images/favicon/favicon-32x32.png" type="image/png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1 class="header-title">Rodrigo Cezar da Silva</h1>
+    
+    <div class="digital-clock">
+        <div class="time" id="time">HH:MM</div>
+        <div class="date" id="date">1 de Janeiro de 2023</div>
+    </div>
+
+    <div class="container">
+        <header class="projects-header">
+            <a href="index.html" class="btn btn--primary">
+                <i class="fas fa-arrow-left"></i> Voltar para Home
+            </a>
+        </header>
+
+        <!-- CATEGORIA 1: Projetos em Andamento -->
+        <section class="projects-category">
+            <h2 class="projects-category__title">
+                <i class="fas fa-code-branch"></i> Diversos
+            </h2>
+            <div class="grid grid--projects">
+                <!-- Projeto 1 -->
+                <div class="card">
+                    <div class="card__image-container">
+                        <img src="assets/images/projects/meu-site-pessoal/thumb-card-hex-color-finder.png" 
+                             onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg'"
+                             alt="Site Pessoal" class="card__image">
+                        <div class="card__badge" data-categoria="design">Online</div>
+                    </div>
+                    <div class="card__content">
+                        <h2>HEX Color Finder</h2>
+                        <p>Ferramenta para identificar cor a partir do código HEX ou identificar o HEX selecionando uma cor na tela.</p>
+                        <div class="tech-tag-container">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">HEX Color Finder</span>
+                        </div>
+                        <a href="https://rdgcz.github.io/meu-site-pessoal/hex-color-finder.html" target="_blank" class="btn btn--primary">
+                            <i class="fas fa-external-link-alt"></i> Visitar Projeto
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Projeto 2 -->              
+                <div class="card">
+                    <div class="card__image-container">
+                        <img src="assets/images/projects/sitio-sabio-sabia/thumb-card-site-sitio-sabio-sabia.png" 
+                             onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg'"
+                             alt="Site Pessoal" class="card__image">
+                        <div class="card__badge" data-categoria="design">Em construção</div>
+                    </div>
+                    <div class="card__content">
+                        <h2>Site do Sítio Sábio Sabiá</h2>
+                        <p>Site do Sítio Sábio Sabiá, em desenvolvimento com HTML, CSS e JavaScript, apresentando informações sobre o local.</p>
+                        <div class="tech-tag-container">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JS</span>
+                        </div>
+                        <a href="https://sitiosabiosabia.com.br" target="_blank" class="btn btn--primary">
+                            <i class="fas fa-external-link-alt"></i> Visitar Projeto
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Projeto 3 -->
+                <div class="card">
+                    <div class="card__image-container">
+                        <img src="assets/images/projects/DEFINIR" 
+                             onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg'"
+                             alt="Próximo projeto" class="card__image">
+                        <div class="card__badge" data-categoria="games">Em breve</div>
+                    </div>
+                    <div class="card__content">
+                        <h2>Em Breve!</h2>
+                        <p>O que está por vir?</p>
+                        <div class="tech-tag-container">
+                            <span class="tech-tag">Suspense</span>
+                            <span class="tech-tag">Mistério</span>
+                        </div>
+                        <a href="#" class="btn btn--disabled">
+                            <i class="fas fa-external-link-alt"></i> Ainda não tem nada...
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="separator"></div>
+        
+        <!-- CATEGORIA 2: Projetos Realizados -->
+        <section class="projects-category">
+            <h2 class="projects-category__title">
+                <i class="fas fa-check-circle"></i> Projetos Realizados
+            </h2>
+            <div class="grid grid--projects">
+                <!-- Projeto 1 -->
+                <div class="card">
+                    <div class="card__image-container">
+                        <img src="assets/images/projects/animacao-simples/thumb-card-animacao-simples.png" 
+                             onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg'"
+                             alt="Animação Simples" class="card__image">
+                        <div class="card__badge">2017</div>
+                    </div>
+                    <div class="card__content">
+                        <h2>Animação Simples</h2>
+                        <p>Animação preliminar simples, desenvolvida em 2017 para estudo de viabilidade de apresentações de projetos técnicos da empresa No Fire Services.</p>
+                        <div class="tech-tag-container">
+                            <span class="tech-tag">Autocad</span>
+                        </div>
+                        <a href="https://rdgcz.github.io/meu-site-pessoal/proj-animacao-simples.html" class="btn btn--primary">
+                            <i class="fas fa-external-link-alt"></i> Ver
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Projeto 2 -->
+                <div class="card">
+                    <div class="card__image-container">
+                        <img src="assets/images/projects/audio-spectrum/thumb-card-audio-spectrum.png" 
+                             onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg'"
+                             alt="Áudio Spectrum" class="card__image">
+                        <div class="card__badge">2018</div>
+                    </div>
+                    <div class="card__content">
+                        <h2>Banner com Espectro de Áudio</h2>
+                        <p>Banner animado com visualização de espectro de áudio, criado para demonstrar a integração entre design visual e elementos de áudio.</p>
+                        <div class="tech-tag-container">
+                            <span class="tech-tag">Adobe After Effects</span>
+                            <span class="tech-tag">Red Giant Trapcode Suite</span>
+                        </div>
+                        <a href="https://rdgcz.github.io/meu-site-pessoal/proj-banner-audio-spectrum.html" class="btn btn--primary">
+                            <i class="fas fa-external-link-alt"></i> Ver
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Projeto 3 -->
+                <div class="card">
+                    <div class="card__image-container">
+                        <img src="assets/images/projects/video-institucional/thumb-card-video-institucional.png" 
+                             onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg'"
+                             alt="Vídeo Institucional" class="card__image">
+                        <div class="card__badge">2018</div>
+                    </div>
+                    <div class="card__content">
+                        <h2>Vídeo Institucional</h2>
+                        <p>Vídeo Institucional da Empresa No Fire para exibição em feiras e eventos.</p>
+                        <div class="tech-tag-container">
+                            <span class="tech-tag">Premiere</span>
+                            <span class="tech-tag">After Effects</span>
+                        </div>
+                        <a href="https://rdgcz.github.io/meu-site-pessoal/video-institucional-nofire.html" class="btn btn--primary">
+                            <i class="fas fa-external-link-alt"></i> Ver
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <footer class="projects-footer">
+            <p>© <span id="current-year"></span> - RDGCZ - Todos os direitos reservados.</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+            
+            function updateClock() {
+                const now = new Date();
+                const timeElement = document.getElementById('time');
+                const dateElement = document.getElementById('date');
+                
+                // Formata hora
+                const time = now.toLocaleTimeString('pt-BR', { hour12: false });
+                timeElement.textContent = time;
+                
+                // Formata data
+                const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
+                const date = now.toLocaleDateString('pt-BR', options);
+                dateElement.textContent = date.charAt(0).toUpperCase() + date.slice(1);
+            }
+            
+            setInterval(updateClock, 1000);
+            updateClock();
+        });
+    </script>
+</body>
+</html>
