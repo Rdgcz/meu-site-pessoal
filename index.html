@@ -37,11 +37,37 @@
       min-height: 100vh;
       margin: 0;
       padding: var(--space-md);
+      padding-top: 4rem; /* espaço para barra de notícias */
       background-color: var(--bg-color);
       color: var(--text-color);
       text-align: center;
     }
+      /* === BARRA DE NOTÍCIAS === */
+    #news-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: var(--accent-secondary);
+      color: #fff;
+      font-size: 0.9rem;
+      z-index: 1000;
+      padding: 0.5rem 1rem;
+      white-space: nowrap;
+      overflow: hidden;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    }
+    #news-bar span {
+      animation: scroll-left 20s linear infinite;
+      display: inline-block;
+      padding-left: 100%;
+    }
+    @keyframes scroll-left {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
 
+    
     h1 {
       position: absolute;
       top: var(--space-md);
@@ -63,6 +89,8 @@
       0% { background-position: 0% center; }
       100% { background-position: -200% center; }
     }
+
+    
 
     .digital-clock {
       position: absolute;
@@ -194,12 +222,19 @@
   </style>
 </head>
 <body>
+  <div id="news-bar"><span>Carregando notícias...</span></div>
   <h1>Rodrigo Cezar da Silva</h1>
   <div class="digital-clock">
     <div class="time" id="time">HH:MM</div>
     <div class="date" id="date">Data</div>
   </div>
   <p class="slogan">Design + Código + Café = produtividade infinita (ou quase...)</p>
+  <div class="separator"></div>
+  <!-- Previsão do tempo -->
+  <div id="weather-card" style="max-width:300px;margin:0 auto;padding:1rem;background:var(--card-bg);border-radius:var(--radius-md);box-shadow:0 0 10px var(--accent-color);">
+    <h3 style="color:var(--accent-color);">Clima agora</h3>
+    <p id="weather-info">Carregando...</p>
+  </div>
   <div class="separator"></div>
   <div class="search-container">
     <label for="google-search" class="sr-only">Pesquisar no Google</label>
@@ -232,6 +267,41 @@
       }
       setInterval(updateClock, 1000);
       updateClock();
+      });
+    // === Barra de notícias com NewsAPI ===
+    const apiKeyNews = 'ecbc180e09ec43b799df2a477f0c1180';
+    fetch(`https://newsapi.org/v2/top-headlines?country=br&pageSize=5&apiKey=${apiKeyNews}`)
+      .then(r => r.json())
+      .then(data => {
+        if (data.articles) {
+          const headlines = data.articles.map(a => a.title).join(' • ');
+          document.querySelector('#news-bar span').textContent = headlines;
+        } else {
+          document.querySelector('#news-bar span').textContent = 'Falha ao carregar notícias.';
+        }
+      })
+      .catch(() => {
+        document.querySelector('#news-bar span').textContent = 'Falha na conexão.';
+      });
+    
+    // NewsAPI: top headlines via /v2/top-headlines?country=br :contentReference[oaicite:4]{index=4}
+
+    // === Previsão do tempo com OpenWeatherMap ===
+    const apiKeyWeather = '0b131b1aaf37593cc5face6043a670b9';
+    const cidade = 'Cunha,BR';
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cidade}&units=metric&lang=pt_br&appid=${apiKeyWeather}`)
+      .then(r => r.json())
+      .then(w => {
+        const desc = w.weather[0].description;
+        const temp = Math.round(w.main.temp);
+        const city = w.name;
+        document.getElementById('weather-info').textContent =
+          `${city}: ${temp}°C, ${desc}`;
+      })
+      .catch(() => {
+        document.getElementById('weather-info').textContent = 'Não foi possível carregar o clima.';
+      });
+    // OpenWeatherMap: uso do endpoint current weather :contentReference[oaicite:5]{index=5}
       document.querySelector('.search-button').addEventListener('click', () => {
         const term = document.getElementById('google-search').value.trim();
         if (term) window.open(`https://www.google.com/search?q=${encodeURIComponent(term)}`, '_blank');
