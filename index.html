@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rodrigo Cezar da Silva</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Orbitron:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="icon" href="assets/images/favicon/favicon-32x32.png" type="image/png">
   <style>
     :root {
@@ -143,6 +144,18 @@
       box-shadow: 0 0 10px rgba(0, 102, 255, 0.5);
     }
 
+.sr-only { /* Oculta texto para leitores de tela */
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+    
     .cards-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -197,7 +210,7 @@
   <header>
     <div class="search-container">
     <input type="text" id="google-search" class="search-bar" aria-label="Google search bar"  placeholder="Pesquisar no Google...">
-    <button class="search-button"><i src="fa-fas-search"></i></button>
+    <button type="button" class="search-button"><i class="fas fa-search"></i><span class="sr-only">Buscar</span></button>
   </div>
   </header>
   <main>
