@@ -37,38 +37,9 @@
       min-height: 100vh;
       margin: 0;
       padding: var(--space-md);
-      padding-top: 5rem; /* espaço para barra de notícias */
       background-color: var(--bg-color);
       color: var(--text-color);
       text-align: center;
-      overflow-x: hidden; /* Evita barras de rolagem horizontais */
-    }
-
-    /* === BARRA DE NOTÍCIAS === */
-    #news-bar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: var(--accent-secondary);
-      color: #fff;
-      font-size: 0.9rem;
-      z-index: 1000;
-      padding: 0.5rem 1rem;
-      white-space: nowrap;
-      overflow: hidden;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.5);
-    }
-    
-    #news-ticker {
-      display: inline-block;
-      padding-left: 100%;
-      animation: scroll-left 20s linear infinite;
-    }
-    
-    @keyframes scroll-left {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-100%); }
     }
 
     h1 {
@@ -174,7 +145,7 @@
 
     .cards-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: var(--space-md);
       max-width: 1200px;
       margin: var(--space-md) auto;
@@ -192,7 +163,7 @@
     }
 
     .card:hover {
-      transform: scale(1.05);
+      transform: scale(1.3);
       box-shadow: 0 5px 15px rgba(0, 240, 255, 0.3);
       border-color: var(--accent-color);
     }
@@ -213,20 +184,6 @@
       color: inherit;
     }
 
-    .weather-container {
-      max-width: 300px;
-      margin: 0 auto;
-      padding: 1rem;
-      background: var(--card-bg);
-      border-radius: var(--radius-md);
-      box-shadow: 0 0 10px var(--accent-color);
-    }
-
-    .weather-title {
-      color: var(--accent-color);
-      margin-bottom: 0.5rem;
-    }
-
     footer {
       margin-top: auto;
       padding: var(--space-md) 0;
@@ -234,65 +191,22 @@
       opacity: 0.7;
       text-align: center;
     }
-
-    @media (max-width: 768px) {
-      h1 {
-        position: static;
-        margin-top: 1rem;
-        text-align: center;
-      }
-      
-      .digital-clock {
-        position: static;
-        margin: 1rem auto;
-      }
-      
-      .slogan {
-        margin-top: 2rem;
-        font-size: 1.2rem;
-      }
-      
-      .cards-grid {
-        grid-template-columns: 1fr;
-      }
-    }
   </style>
 </head>
 <body>
-  <div id="news-bar">
-    <div id="news-ticker">Carregando notícias...</div>
-  </div>
-  
   <h1>Rodrigo Cezar da Silva</h1>
-  
   <div class="digital-clock">
     <div class="time" id="time">HH:MM</div>
     <div class="date" id="date">Data</div>
   </div>
-  
   <p class="slogan">Design + Código + Café = produtividade infinita (ou quase...)</p>
-  
   <div class="separator"></div>
-  
-  <!-- Previsão do tempo -->
-  <div class="weather-container">
-    <h3 class="weather-title">Clima em Cunha-SP</h3>
-    <div id="weather-info">
-      <div id="weather-icon"></div>
-      <div id="weather-details">Carregando...</div>
-    </div>
-  </div>
-  
-  <div class="separator"></div>
-  
   <div class="search-container">
     <label for="google-search" class="sr-only">Pesquisar no Google</label>
     <input type="text" id="google-search" class="search-bar" placeholder="Pesquisar no Google...">
     <button class="search-button">PESQUISAR</button>
   </div>
-  
   <div class="separator"></div>
-  
   <div class="cards-grid">
     <a href="projetos.html" class="card-link"><div class="card"><div class="card-title">PROJETOS</div><div class="card-desc">Trabalhos e criações</div></div></a>
     <a href="ferramentas.html" class="card-link"><div class="card"><div class="card-title">FERRAMENTAS</div><div class="card-desc">Desenvolvimento WEB</div></div></a>
@@ -301,108 +215,27 @@
     <div class="card"><div class="card-title">SOBRE MIM</div><div class="card-desc">Jornada profissional</div></div>
     <a href="me-inspira.html" class="card-link"><div class="card"><div class="card-title">ME INSPIRA</div><div class="card-desc">Frases, pensamentos e imagens</div></div></a>
   </div>
-  
   <footer>
     <p>© <span id="current-year"></span> - RDGCZ - Todos os direitos reservados.</p>
   </footer>
-  
   <script>
-    // Função para atualizar data e hora
-    function updateClock() {
-      const now = new Date();
+    document.addEventListener('DOMContentLoaded', function () {
+      document.getElementById('current-year').textContent = new Date().getFullYear();
       const timeElement = document.getElementById('time');
       const dateElement = document.getElementById('date');
-      
-      timeElement.textContent = now.toLocaleTimeString('pt-BR', { hour12: false });
-      
-      const options = { 
-        weekday: 'long', 
-        day: 'numeric', 
-        month: 'long', 
-        year: 'numeric' 
-      };
-      
-      dateElement.textContent = now.toLocaleDateString('pt-BR', options)
-        .replace(/^./, str => str.toUpperCase())
-        .replace(/-/g, ' ');
-    }
-    
-    // Função para carregar notícias
-    async function loadNews() {
-      try {
-        const apiKeyNews = 'ecbc180e09ec43b799df2a477f0c1180';
-        const response = await fetch(`https://newsapi.org/v2/top-headlines?country=br&pageSize=5&apiKey=${apiKeyNews}`);
-        const data = await response.json();
-        
-        if (data.articles && data.articles.length > 0) {
-          const headlines = data.articles.map(a => a.title).join(' • ');
-          document.querySelector('#news-ticker').textContent = headlines;
-        } else {
-          document.querySelector('#news-ticker').textContent = 'Sem notícias no momento. Atualize a página mais tarde.';
-        }
-      } catch (error) {
-        console.error('Erro ao carregar notícias:', error);
-        document.querySelector('#news-ticker').textContent = 'Falha na conexão com o serviço de notícias.';
+      function updateClock() {
+        const now = new Date();
+        timeElement.textContent = now.toLocaleTimeString('pt-BR', { hour12: false });
+        dateElement.textContent = now.toLocaleDateString('pt-BR', {
+          weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'
+        }).replace(/^./, str => str.toUpperCase());
       }
-    }
-    
-    // Função para carregar previsão do tempo
-    async function loadWeather() {
-      try {
-        const apiKeyWeather = '0b131b1aaf37593cc5face6043a670b9';
-        const cidade = 'Cunha,BR';
-        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cidade}&units=metric&lang=pt_br&appid=${apiKeyWeather}`);
-        const weatherData = await response.json();
-        
-        if (weatherData.main && weatherData.weather) {
-          const desc = weatherData.weather[0].description;
-          const temp = Math.round(weatherData.main.temp);
-          const feelsLike = Math.round(weatherData.main.feels_like);
-          const humidity = weatherData.main.humidity;
-          const iconCode = weatherData.weather[0].icon;
-          
-          document.getElementById('weather-details').innerHTML = `
-            <div><strong>Temperatura:</strong> ${temp}°C</div>
-            <div><strong>Sensação:</strong> ${feelsLike}°C</div>
-            <div><strong>Umidade:</strong> ${humidity}%</div>
-            <div><strong>Condição:</strong> ${desc.charAt(0).toUpperCase() + desc.slice(1)}</div>
-          `;
-          
-          // Adiciona ícone do tempo se disponível
-          if (iconCode) {
-            document.getElementById('weather-icon').innerHTML = 
-              `<img src="https://openweathermap.org/img/wn/${iconCode}@2x.png" alt="${desc}" style="width:60px;height:60px;">`;
-          }
-        } else {
-          document.getElementById('weather-details').textContent = 'Dados meteorológicos indisponíveis.';
-        }
-      } catch (error) {
-        console.error('Erro ao carregar previsão do tempo:', error);
-        document.getElementById('weather-details').textContent = 'Não foi possível carregar o clima.';
-      }
-    }
-    
-    // Função para inicializar tudo quando o DOM estiver pronto
-    document.addEventListener('DOMContentLoaded', function() {
-      // Atualiza o ano atual no footer
-      document.getElementById('current-year').textContent = new Date().getFullYear();
-      
-      // Inicia o relógio
-      updateClock();
       setInterval(updateClock, 1000);
-      
-      // Carrega notícias
-      loadNews();
-      
-      // Carrega previsão do tempo
-      loadWeather();
-      
-      // Configura o buscador do Google
+      updateClock();
       document.querySelector('.search-button').addEventListener('click', () => {
         const term = document.getElementById('google-search').value.trim();
         if (term) window.open(`https://www.google.com/search?q=${encodeURIComponent(term)}`, '_blank');
       });
-      
       document.getElementById('google-search').addEventListener('keypress', e => {
         if (e.key === 'Enter') {
           const term = e.target.value.trim();
