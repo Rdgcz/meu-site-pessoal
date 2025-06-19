@@ -1,370 +1,456 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sobre | Seu Nome</title>
-    <style>
-        /* Reset and Base Styles */
-        :root {
-            --cor-primaria: #2c3e50;
-            --cor-secundaria: #3498db;
-            --cor-texto: #333;
-            --cor-fundo: #f9f9f9;
-            --cor-fundo-card: #fff;
-            --cor-destaque: #e74c3c;
-            --sombra: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--cor-texto);
-            background-color: var(--cor-fundo);
-            margin: 0;
-            padding: 0;
-        }
-        
-        /* Header Styles */
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 2rem;
-            background-color: var(--cor-primaria);
-            color: white;
-            box-shadow: var(--sombra);
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-        
-        .logo img {
-            height: 30px;
-        }
-        
-        .time-date {
-            display: flex;
-            gap: 1rem;
-            font-family: monospace;
-        }
-        
-        /* Main Content Styles */
-        .about-container {
-            max-width: 900px;
-            margin: 2rem auto;
-            padding: 0 1.5rem;
-        }
-        
-        .hero {
-            text-align: center;
-            margin-bottom: 3rem;
-            padding: 2rem 0;
-        }
-        
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            color: var(--cor-primaria);
-        }
-        
-        .highlight {
-            color: var(--cor-destaque);
-        }
-        
-        .subtitle {
-            font-size: 1.2rem;
-            color: var(--cor-secundaria);
-            margin-bottom: 1.5rem;
-        }
-        
-        .profile-photo {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-top: 1rem;
-            border: 3px solid var(--cor-destaque);
-            box-shadow: var(--sombra);
-        }
-        
-        /* Section Styles */
-        section {
-            margin-bottom: 3rem;
-            background-color: var(--cor-fundo-card);
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: var(--sombra);
-        }
-        
-        h2 {
-            color: var(--cor-primaria);
-            margin-top: 0;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--cor-secundaria);
-        }
-        
-        /* Timeline/Experience Styles */
-        .timeline, .jobs {
-            display: grid;
-            gap: 1.5rem;
-        }
-        
-        .timeline-item, .job {
-            background-color: rgba(52, 152, 219, 0.05);
-            padding: 1.5rem;
-            border-radius: 8px;
-            border-left: 3px solid var(--cor-secundaria);
-        }
-        
-        .institution, .company {
-            font-weight: bold;
-            color: var(--cor-secundaria);
-            margin: 0.3rem 0;
-        }
-        
-        .period {
-            color: #666;
-            font-style: italic;
-            margin: 0.3rem 0;
-        }
-        
-        ul {
-            padding-left: 1.2rem;
-        }
-        
-        /* Skills Styles */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-        }
-        
-        .skill-category h3 {
-            color: var(--cor-secundaria);
-        }
-        
-        /* Contact Styles */
-        .contact-methods {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-        
-        .contact-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.5rem 1rem;
-            background-color: var(--cor-secundaria);
-            color: white;
-            text-decoration: none;
-            border-radius: 4px;
-            transition: background-color 0.3s;
-        }
-        
-        .contact-link:hover {
-            background-color: var(--cor-primaria);
-        }
-        
-        /* Footer Styles */
-        .footer {
-            text-align: center;
-            padding: 1.5rem;
-            background-color: var(--cor-primaria);
-            color: white;
-            margin-top: 2rem;
-        }
-        
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-        
-        .social-links img {
-            height: 24px;
-            opacity: 0.8;
-            transition: opacity 0.3s;
-        }
-        
-        .social-links img:hover {
-            opacity: 1;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sobre | RDGCZ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Orbitron:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --bg-color: #0d0d1a;
+      --text-color: #e0f7fa;
+      --accent-color: #00f0ff;
+      --accent-secondary: #0066ff;
+      --card-bg: rgba(0, 48, 73, 0.3);
+      --separator-color: #003d66;
+      --search-border: #0066ff;
+      --glow-effect: 0 0 8px rgba(0, 240, 255, 0.7);
+      --space-xs: 0.5rem;
+      --space-sm: 1rem;
+      --space-md: 1.5rem;
+      --space-lg: 2rem;
+      --space-xl: 3rem;
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --transition-normal: 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Orbitron', sans-serif;
+      min-height: 100vh;
+      margin: 0;
+      padding: var(--space-md);
+      background-color: var(--bg-color);
+      color: var(--text-color);
+    }
+
+    h1 {
+      position: absolute;
+      top: var(--space-md);
+      left: var(--space-lg);
+      color: var(--accent-color);
+      text-shadow: var(--glow-effect);
+      font-size: 2.5rem;
+      padding-left: var(--space-sm);
+      background: linear-gradient(90deg, rgba(255,255,255,0.8), rgba(255,255,255,0.2), rgba(255,255,255,0.8));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-fill-color: var(--text-color);
+      background-size: 200% 100%;
+      animation: metallicShine 6s linear infinite;
+    }
+
+    @keyframes metallicShine {
+      0% { background-position: 0% center; }
+      100% { background-position: -200% center; }
+    }
+
+    .digital-clock {
+      position: absolute;
+      top: var(--space-md);
+      right: var(--space-lg);
+      text-align: center;
+      color: var(--accent-color);
+      text-shadow: var(--glow-effect);
+      font-size: 0.9rem;
+    }
+
+    .time {
+      font-size: 1.1rem;
+      letter-spacing: 2px;
+    }
+
+    .date {
+      opacity: 0.8;
+      font-size: 0.8rem;
+    }
+
+    .separator {
+      height: 1px;
+      background-color: var(--separator-color);
+      margin: var(--space-md) auto;
+      width: 100%;
+      max-width:1200px;
+      opacity: 0.5;
+    }
+
+    /* About Page Specific Styles */
+    .about-container {
+      max-width: 1000px;
+      margin: 80px auto 0;
+      padding: 0 var(--space-md);
+    }
+
+    .profile-header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-lg);
+      margin-bottom: var(--space-xl);
+    }
+
+    .profile-image {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 3px solid var(--accent-color);
+      object-fit: cover;
+      box-shadow: var(--glow-effect);
+    }
+
+    .profile-title {
+      color: var(--accent-color);
+      font-size: 1.8rem;
+      margin-bottom: var(--space-sm);
+      text-shadow: var(--glow-effect);
+    }
+
+    .profile-subtitle {
+      font-style: italic;
+      opacity: 0.8;
+      margin-bottom: var(--space-md);
+    }
+
+    .section {
+      background: var(--card-bg);
+      border: 1px solid rgba(0, 150, 255, 0.2);
+      border-radius: var(--radius-md);
+      padding: var(--space-md);
+      margin-bottom: var(--space-lg);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .section-title {
+      color: var(--accent-color);
+      font-size: 1.3rem;
+      margin-bottom: var(--space-md);
+      border-bottom: 1px solid var(--separator-color);
+      padding-bottom: var(--space-sm);
+    }
+
+    .about-text {
+      line-height: 1.6;
+      margin-bottom: var(--space-sm);
+    }
+
+    .detail-list {
+      list-style-type: none;
+    }
+
+    .detail-list li {
+      margin-bottom: var(--space-xs);
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+
+    .detail-list i {
+      color: var(--accent-color);
+      width: 20px;
+      text-align: center;
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: var(--space-lg);
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 7px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--accent-secondary);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: var(--space-lg);
+      padding-bottom: var(--space-md);
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -23px;
+      top: 5px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent-color);
+      box-shadow: var(--glow-effect);
+    }
+
+    .timeline-period {
+      color: var(--accent-color);
+      font-size: 0.9rem;
+      margin-bottom: var(--space-xs);
+    }
+
+    .timeline-title {
+      font-weight: bold;
+      margin-bottom: var(--space-xs);
+    }
+
+    .timeline-subtitle {
+      opacity: 0.8;
+      font-size: 0.9rem;
+      margin-bottom: var(--space-sm);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: var(--space-md);
+    }
+
+    .skill-category {
+      margin-bottom: var(--space-md);
+    }
+
+    .skill-category h4 {
+      color: var(--accent-color);
+      margin-bottom: var(--space-sm);
+    }
+
+    .skill-list {
+      list-style-type: none;
+    }
+
+    .skill-list li {
+      margin-bottom: var(--space-xs);
+      display: flex;
+      align-items: center;
+    }
+
+    .skill-list i {
+      color: var(--accent-color);
+      margin-right: var(--space-xs);
+      font-size: 0.8rem;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-md);
+      margin-top: var(--space-md);
+    }
+
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      padding: var(--space-xs) var(--space-sm);
+      background: rgba(0, 102, 255, 0.2);
+      border: 1px solid var(--accent-secondary);
+      border-radius: var(--radius-sm);
+      color: var(--text-color);
+      text-decoration: none;
+      transition: var(--transition-normal);
+    }
+
+    .contact-link:hover {
+      background: rgba(0, 102, 255, 0.4);
+      border-color: var(--accent-color);
+      box-shadow: var(--glow-effect);
+    }
+
+    footer {
+      margin-top: var(--space-xl);
+      padding: var(--space-md) 0;
+      font-size: 0.8rem;
+      opacity: 0.7;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
-    <!-- Header with logo and clock -->
-    <header class="header">
-        <div class="logo">
-            <img src="assets/logo.svg" alt="Logo">
-            <span>Seu Nome</span>
+  <header>
+    <div class="search-container">
+      <input type="text" id="google-search" class="search-bar" aria-label="Google search bar" placeholder="Pesquisar no Google...">
+      <button type="button" class="search-button"><i class="fas fa-search"></i><span class="sr-only">Buscar</span></button>
+    </div>
+  </header>
+
+  <main class="about-container">
+    <h1>RDGCZ</h1>
+    
+    <div class="digital-clock">
+      <div class="time" id="time">HH:MM</div>
+      <div class="date" id="date">Data</div>
+    </div>
+
+    <div class="separator"></div>
+
+    <div class="profile-header">
+      <img src="assets/profile.jpg" alt="Foto de perfil" class="profile-image">
+      <div>
+        <h2 class="profile-title">Rodrigo Cezar</h2>
+        <p class="profile-subtitle">Desenvolvedor Front-End | Designer UX/UI</p>
+        <p class="about-text">Criando experiências digitais que unem tecnologia e design com propósito.</p>
+      </div>
+    </div>
+
+    <section class="section">
+      <h3 class="section-title">Sobre Mim</h3>
+      <p class="about-text">
+        Profissional multidisciplinar com formação em Design e transição para Desenvolvimento Front-End. 
+        Apaixonado por criar soluções que equilibram estética, usabilidade e performance técnica.
+      </p>
+      <ul class="detail-list">
+        <li><i class="fas fa-map-marker-alt"></i> Curitiba, PR - Brasil</li>
+        <li><i class="fas fa-language"></i> Português (nativo), Inglês (avançado)</li>
+        <li><i class="fas fa-heart"></i> Música, Fotografia, Trekking</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h3 class="section-title">Formação Acadêmica</h3>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-period">2020 - 2023</div>
+          <h4 class="timeline-title">Análise e Desenvolvimento de Sistemas</h4>
+          <p class="timeline-subtitle">Universidade Positivo</p>
+          <p class="about-text">Ênfase em desenvolvimento web e mobile, com projetos práticos em React e Node.js.</p>
         </div>
-        <div class="time-date">
-            <span id="current-time">00:00:00</span>
-            <span id="current-date">01/01/2024</span>
+        <div class="timeline-item">
+          <div class="timeline-period">2015 - 2018</div>
+          <h4 class="timeline-title">Design Gráfico</h4>
+          <p class="timeline-subtitle">Escola de Belas Artes</p>
         </div>
-    </header>
+      </div>
+    </section>
 
-    <main class="about-container">
-        <!-- Hero Section -->
-        <section class="hero">
-            <h1>Olá, eu sou <span class="highlight">Seu Nome</span>!</h1>
-            <p class="subtitle">Desenvolvedor Front-End | Apaixonado por UX e Inovação</p>
-            <img src="assets/profile-photo.jpg" alt="Foto de perfil" class="profile-photo">
-        </section>
-
-        <!-- About Me -->
-        <section class="about-section">
-            <h2>Sobre Mim</h2>
-            <div class="about-content">
-                <p>
-                    Sou um profissional de tecnologia com formação em Ciência da Computação. 
-                    Atualmente moro em São Paulo, Brasil e falo português (nativo) e inglês (avançado). 
-                    Quando não estou codando, você me encontra tocando violão ou explorando novas trilhas de hiking.
-                </p>
-                <ul class="personal-details">
-                    <li>📍 Localização: São Paulo, Brasil</li>
-                    <li>🗣️ Idiomas: Português (nativo), Inglês (avançado)</li>
-                    <li>🎯 Interesses: UX Design, IoT, Música Indie</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Education -->
-        <section class="education-section">
-            <h2>Formação Acadêmica</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <h3>Bacharelado em Ciência da Computação</h3>
-                    <p class="institution">Universidade XYZ</p>
-                    <p class="period">2020 - 2024</p>
-                    <ul class="highlights">
-                        <li>TCC: "Sistema de recomendação com Machine Learning" (Nota 9.5)</li>
-                        <li>Monitoria em Algoritmos (2022-2023)</li>
-                    </ul>
-                </div>
-                <div class="timeline-item">
-                    <h3>Bootcamp em Desenvolvimento Web Fullstack</h3>
-                    <p class="institution">Digital House</p>
-                    <p class="period">2023 (300 horas)</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Professional Experience -->
-        <section class="experience-section">
-            <h2>Experiência Profissional</h2>
-            <div class="jobs">
-                <article class="job">
-                    <h3>Desenvolvedor Front-End Pleno</h3>
-                    <p class="company">Tech Solutions SA</p>
-                    <p class="period">Jan 2023 - Presente</p>
-                    <ul class="achievements">
-                        <li>Liderança no redesign da plataforma principal, aumentando a retenção de usuários em 40%</li>
-                        <li>Implementação de testes automatizados (Jest), reduzindo bugs em produção em 25%</li>
-                    </ul>
-                </article>
-                <article class="job">
-                    <h3>Estagiário em Desenvolvimento</h3>
-                    <p class="company">Startup ABC</p>
-                    <p class="period">Mar 2021 - Dez 2022</p>
-                    <ul class="achievements">
-                        <li>Desenvolvimento de 10+ componentes reutilizáveis em React</li>
-                        <li>Integração com API REST para o produto flagship</li>
-                    </ul>
-                </article>
-            </div>
-        </section>
-
-        <!-- Skills -->
-        <section class="skills-section">
-            <h2>Habilidades</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Técnicas</h3>
-                    <ul>
-                        <li>HTML5/CSS3 (SASS)</li>
-                        <li>JavaScript (ES6+)</li>
-                        <li>React.js</li>
-                        <li>Git/GitHub</li>
-                        <li>Node.js (Básico)</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3>Comportamentais</h3>
-                    <ul>
-                        <li>Trabalho em equipe</li>
-                        <li>Resolução de problemas</li>
-                        <li>Comunicação clara</li>
-                        <li>Gestão de tempo</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact -->
-        <section class="contact-section">
-            <h2>Vamos Conversar?</h2>
-            <div class="contact-methods">
-                <a href="mailto:seuemail@provedor.com" class="contact-link">✉️ seuemail@provedor.com</a>
-                <a href="https://linkedin.com/in/seuuser" target="_blank" class="contact-link">🔗 LinkedIn</a>
-                <a href="https://github.com/seuuser" target="_blank" class="contact-link">🐙 GitHub</a>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <p>© <span id="current-year">2024</span> Seu Nome. Todos os direitos reservados.</p>
-        <div class="social-links">
-            <a href="#"><img src="assets/icon-github.svg" alt="GitHub"></a>
-            <a href="#"><img src="assets/icon-linkedin.svg" alt="LinkedIn"></a>
+    <section class="section">
+      <h3 class="section-title">Experiência Profissional</h3>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-period">2021 - Presente</div>
+          <h4 class="timeline-title">Desenvolvedor Front-End</h4>
+          <p class="timeline-subtitle">Tech Solutions Brasil</p>
+          <p class="about-text">
+            Desenvolvimento de interfaces responsivas com React.js, otimização de performance 
+            (redução de 40% no tempo de carregamento) e implementação de design systems.
+          </p>
         </div>
-    </footer>
+        <div class="timeline-item">
+          <div class="timeline-period">2018 - 2021</div>
+          <h4 class="timeline-title">UI Designer</h4>
+          <p class="timeline-subtitle">Agência Digital Criativa</p>
+          <p class="about-text">
+            Criação de interfaces para 15+ projetos web e mobile, trabalhando diretamente com 
+            desenvolvedores no handoff de design.
+          </p>
+        </div>
+      </div>
+    </section>
 
-    <script>
-        // Clock and Date Functionality
-        function updateTimeAndDate() {
-            const now = new Date();
-            
-            // Format time (HH:MM:SS)
-            const time = now.toLocaleTimeString('pt-BR', {
-                hour: '2-digit',
-                minute: '2-digit',
-                second: '2-digit'
-            });
-            
-            // Format date (DD/MM/YYYY)
-            const date = now.toLocaleDateString('pt-BR');
-            
-            // Update elements
-            document.getElementById('current-time').textContent = time;
-            document.getElementById('current-date').textContent = date;
-            
-            // Update year in footer
-            document.getElementById('current-year').textContent = now.getFullYear();
+    <section class="section">
+      <h3 class="section-title">Habilidades</h3>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h4>Técnicas</h4>
+          <ul class="skill-list">
+            <li><i class="fas fa-code"></i> HTML5/CSS3</li>
+            <li><i class="fab fa-js"></i> JavaScript (ES6+)</li>
+            <li><i class="fab fa-react"></i> React.js</li>
+            <li><i class="fab fa-git-alt"></i> Git</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h4>Design</h4>
+          <ul class="skill-list">
+            <li><i class="fas fa-pencil-ruler"></i> UI/UX Design</li>
+            <li><i class="fas fa-mobile-alt"></i> Responsive Design</li>
+            <li><i class="fab fa-figma"></i> Figma</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h4>Comportamentais</h4>
+          <ul class="skill-list">
+            <li><i class="fas fa-users"></i> Trabalho em equipe</li>
+            <li><i class="fas fa-lightbulb"></i> Resolução criativa</li>
+            <li><i class="fas fa-comments"></i> Comunicação clara</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h3 class="section-title">Contato</h3>
+      <p class="about-text">
+        Interessado em colaborar ou conversar sobre projetos? Entre em contato:
+      </p>
+      <div class="contact-links">
+        <a href="mailto:contato@rdgcz.com" class="contact-link">
+          <i class="fas fa-envelope"></i> Email
+        </a>
+        <a href="https://linkedin.com/in/rdgcz" target="_blank" class="contact-link">
+          <i class="fab fa-linkedin"></i> LinkedIn
+        </a>
+        <a href="https://github.com/rdgcz" target="_blank" class="contact-link">
+          <i class="fab fa-github"></i> GitHub
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="current-year"></span> - RDGCZ - Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Update year in footer
+      document.getElementById('current-year').textContent = new Date().getFullYear();
+      
+      // Digital clock functionality
+      const timeElement = document.getElementById('time');
+      const dateElement = document.getElementById('date');
+      
+      function updateClock() {
+        const now = new Date();
+        timeElement.textContent = now.toLocaleTimeString('pt-BR', { hour12: false });
+        dateElement.textContent = now.toLocaleDateString('pt-BR', {
+          weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'
+        }).replace(/^./, str => str.toUpperCase());
+      }
+      
+      setInterval(updateClock, 1000);
+      updateClock();
+      
+      // Search functionality
+      document.querySelector('.search-button').addEventListener('click', () => {
+        const term = document.getElementById('google-search').value.trim();
+        if (term) window.open(`https://www.google.com/search?q=${encodeURIComponent(term)}`, '_blank');
+      });
+      
+      document.getElementById('google-search').addEventListener('keypress', e => {
+        if (e.key === 'Enter') {
+          const term = e.target.value.trim();
+          if (term) window.open(`https://www.google.com/search?q=${encodeURIComponent(term)}`, '_blank');
         }
-        
-        // Update immediately and then every second
-        updateTimeAndDate();
-        setInterval(updateTimeAndDate, 1000);
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
+      });
+    });
+  </script>
 </body>
 </html>
