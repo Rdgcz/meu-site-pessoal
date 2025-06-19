@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre | Seu Nome</title>
+    <style>
+        /* Reset and Base Styles */
+        :root {
+            --cor-primaria: #2c3e50;
+            --cor-secundaria: #3498db;
+            --cor-texto: #333;
+            --cor-fundo: #f9f9f9;
+            --cor-fundo-card: #fff;
+            --cor-destaque: #e74c3c;
+            --sombra: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--cor-texto);
+            background-color: var(--cor-fundo);
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Header Styles */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background-color: var(--cor-primaria);
+            color: white;
+            box-shadow: var(--sombra);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .logo img {
+            height: 30px;
+        }
+        
+        .time-date {
+            display: flex;
+            gap: 1rem;
+            font-family: monospace;
+        }
+        
+        /* Main Content Styles */
+        .about-container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+        
+        .hero {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem 0;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--cor-primaria);
+        }
+        
+        .highlight {
+            color: var(--cor-destaque);
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--cor-secundaria);
+            margin-bottom: 1.5rem;
+        }
+        
+        .profile-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-top: 1rem;
+            border: 3px solid var(--cor-destaque);
+            box-shadow: var(--sombra);
+        }
+        
+        /* Section Styles */
+        section {
+            margin-bottom: 3rem;
+            background-color: var(--cor-fundo-card);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: var(--sombra);
+        }
+        
+        h2 {
+            color: var(--cor-primaria);
+            margin-top: 0;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--cor-secundaria);
+        }
+        
+        /* Timeline/Experience Styles */
+        .timeline, .jobs {
+            display: grid;
+            gap: 1.5rem;
+        }
+        
+        .timeline-item, .job {
+            background-color: rgba(52, 152, 219, 0.05);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--cor-secundaria);
+        }
+        
+        .institution, .company {
+            font-weight: bold;
+            color: var(--cor-secundaria);
+            margin: 0.3rem 0;
+        }
+        
+        .period {
+            color: #666;
+            font-style: italic;
+            margin: 0.3rem 0;
+        }
+        
+        ul {
+            padding-left: 1.2rem;
+        }
+        
+        /* Skills Styles */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        
+        .skill-category h3 {
+            color: var(--cor-secundaria);
+        }
+        
+        /* Contact Styles */
+        .contact-methods {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background-color: var(--cor-secundaria);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        .contact-link:hover {
+            background-color: var(--cor-primaria);
+        }
+        
+        /* Footer Styles */
+        .footer {
+            text-align: center;
+            padding: 1.5rem;
+            background-color: var(--cor-primaria);
+            color: white;
+            margin-top: 2rem;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-links img {
+            height: 24px;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+        
+        .social-links img:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with logo and clock -->
+    <header class="header">
+        <div class="logo">
+            <img src="assets/logo.svg" alt="Logo">
+            <span>Seu Nome</span>
+        </div>
+        <div class="time-date">
+            <span id="current-time">00:00:00</span>
+            <span id="current-date">01/01/2024</span>
+        </div>
+    </header>
+
+    <main class="about-container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Olá, eu sou <span class="highlight">Seu Nome</span>!</h1>
+            <p class="subtitle">Desenvolvedor Front-End | Apaixonado por UX e Inovação</p>
+            <img src="assets/profile-photo.jpg" alt="Foto de perfil" class="profile-photo">
+        </section>
+
+        <!-- About Me -->
+        <section class="about-section">
+            <h2>Sobre Mim</h2>
+            <div class="about-content">
+                <p>
+                    Sou um profissional de tecnologia com formação em Ciência da Computação. 
+                    Atualmente moro em São Paulo, Brasil e falo português (nativo) e inglês (avançado). 
+                    Quando não estou codando, você me encontra tocando violão ou explorando novas trilhas de hiking.
+                </p>
+                <ul class="personal-details">
+                    <li>📍 Localização: São Paulo, Brasil</li>
+                    <li>🗣️ Idiomas: Português (nativo), Inglês (avançado)</li>
+                    <li>🎯 Interesses: UX Design, IoT, Música Indie</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section class="education-section">
+            <h2>Formação Acadêmica</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>Bacharelado em Ciência da Computação</h3>
+                    <p class="institution">Universidade XYZ</p>
+                    <p class="period">2020 - 2024</p>
+                    <ul class="highlights">
+                        <li>TCC: "Sistema de recomendação com Machine Learning" (Nota 9.5)</li>
+                        <li>Monitoria em Algoritmos (2022-2023)</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <h3>Bootcamp em Desenvolvimento Web Fullstack</h3>
+                    <p class="institution">Digital House</p>
+                    <p class="period">2023 (300 horas)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Professional Experience -->
+        <section class="experience-section">
+            <h2>Experiência Profissional</h2>
+            <div class="jobs">
+                <article class="job">
+                    <h3>Desenvolvedor Front-End Pleno</h3>
+                    <p class="company">Tech Solutions SA</p>
+                    <p class="period">Jan 2023 - Presente</p>
+                    <ul class="achievements">
+                        <li>Liderança no redesign da plataforma principal, aumentando a retenção de usuários em 40%</li>
+                        <li>Implementação de testes automatizados (Jest), reduzindo bugs em produção em 25%</li>
+                    </ul>
+                </article>
+                <article class="job">
+                    <h3>Estagiário em Desenvolvimento</h3>
+                    <p class="company">Startup ABC</p>
+                    <p class="period">Mar 2021 - Dez 2022</p>
+                    <ul class="achievements">
+                        <li>Desenvolvimento de 10+ componentes reutilizáveis em React</li>
+                        <li>Integração com API REST para o produto flagship</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <!-- Skills -->
+        <section class="skills-section">
+            <h2>Habilidades</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Técnicas</h3>
+                    <ul>
+                        <li>HTML5/CSS3 (SASS)</li>
+                        <li>JavaScript (ES6+)</li>
+                        <li>React.js</li>
+                        <li>Git/GitHub</li>
+                        <li>Node.js (Básico)</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Comportamentais</h3>
+                    <ul>
+                        <li>Trabalho em equipe</li>
+                        <li>Resolução de problemas</li>
+                        <li>Comunicação clara</li>
+                        <li>Gestão de tempo</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section class="contact-section">
+            <h2>Vamos Conversar?</h2>
+            <div class="contact-methods">
+                <a href="mailto:seuemail@provedor.com" class="contact-link">✉️ seuemail@provedor.com</a>
+                <a href="https://linkedin.com/in/seuuser" target="_blank" class="contact-link">🔗 LinkedIn</a>
+                <a href="https://github.com/seuuser" target="_blank" class="contact-link">🐙 GitHub</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© <span id="current-year">2024</span> Seu Nome. Todos os direitos reservados.</p>
+        <div class="social-links">
+            <a href="#"><img src="assets/icon-github.svg" alt="GitHub"></a>
+            <a href="#"><img src="assets/icon-linkedin.svg" alt="LinkedIn"></a>
+        </div>
+    </footer>
+
+    <script>
+        // Clock and Date Functionality
+        function updateTimeAndDate() {
+            const now = new Date();
+            
+            // Format time (HH:MM:SS)
+            const time = now.toLocaleTimeString('pt-BR', {
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit'
+            });
+            
+            // Format date (DD/MM/YYYY)
+            const date = now.toLocaleDateString('pt-BR');
+            
+            // Update elements
+            document.getElementById('current-time').textContent = time;
+            document.getElementById('current-date').textContent = date;
+            
+            // Update year in footer
+            document.getElementById('current-year').textContent = now.getFullYear();
+        }
+        
+        // Update immediately and then every second
+        updateTimeAndDate();
+        setInterval(updateTimeAndDate, 1000);
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
