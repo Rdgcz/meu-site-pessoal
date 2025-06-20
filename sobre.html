@@ -3,7 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sobre | RDGCZ</title>
+  <meta name="description" content="Portfólio de Rodrigo Cezar - Desenvolvedor Front-End e Designer">
+  <meta name="keywords" content="frontend, design, ux, ui, desenvolvimento web">
+  <meta name="author" content="Rodrigo Cezar da Silva">
+  <title>Sobre | RDGCZ - Desenvolvedor Front-End</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Orbitron:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
@@ -15,7 +18,7 @@
       --card-bg: rgba(0, 48, 73, 0.3);
       --separator-color: #003d66;
       --search-border: #0066ff;
-      --glow-effect: 0 0 8px rgba(0, 240, 255, 0.7);
+      --glow-effect: 0 0 8px rgba(0, 240, 255, 0.5);
       --space-xs: 0.5rem;
       --space-sm: 1rem;
       --space-md: 1.5rem;
@@ -40,46 +43,48 @@
       background-color: var(--bg-color);
       color: var(--text-color);
       overflow-x: hidden;
+      line-height: 1.6;
     }
 
     /* === EFETO SCANLINE NO BACKGROUND === */
-body::after {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(
-        transparent 95%, 
-        rgba(0, 240, 255, 0.03) 95.5%,
-        transparent 96%
-    );
-    background-size: 100% 8px;
-    animation: scanline 6s linear infinite;
-    pointer-events: none;
-    z-index: -1;
-}
+    body::after {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(
+          transparent 95%, 
+          rgba(0, 240, 255, 0.03) 95.5%,
+          transparent 96%
+      );
+      background-size: 100% 8px;
+      animation: scanline 8s linear infinite;
+      pointer-events: none;
+      z-index: -1;
+      opacity: 0.5;
+    }
     
- @keyframes scanline {
+    @keyframes scanline {
       0% { top: 0; }
       100% { top: 100%; }
     }
+
     h1 {
       position: absolute;
       top: var(--space-md);
       left: var(--space-lg);
       color: var(--accent-color);
       text-shadow: var(--glow-effect);
-      font-size: 2.5rem;
+      font-size: clamp(1.5rem, 4vw, 2.5rem);
       padding-left: var(--space-sm);
       background: linear-gradient(90deg, rgba(255,255,255,0.8), rgba(255,255,255,0.2), rgba(255,255,255,0.8));
       -webkit-background-clip: text;
       background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-fill-color: var(--text-color);
+      color: transparent;
       background-size: 200% 100%;
-      animation: metallicShine 6s linear infinite;
+      animation: metallicShine 8s linear infinite;
     }
 
     @keyframes metallicShine {
@@ -112,58 +117,52 @@ body::after {
       background-color: var(--separator-color);
       margin: var(--space-md) auto;
       width: 100%;
-      max-width:1200px;
+      max-width: 1200px;
       opacity: 0.5;
     }
 
     .breadcrumb {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 0.8rem;
-  margin-bottom: var(--space-md);
-  color: var(--text-color);
-}
-
-.breadcrumb ol {
-  display: flex;
-  flex-wrap: wrap;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.breadcrumb li {
-  display: flex;
-  align-items: center;
-}
-
-.breadcrumb a {
-  color: var(--accent-color);
-  text-decoration: none;
-  transition: var(--transition-normal);
-}
-
-.breadcrumb a:hover {
-  text-shadow: 0 0 5px var(--accent-color), 0 0 15px var(--accent-color);
-    animation: glitch-effect 0.5s infinite;
-}
-
-.breadcrumb li:not(:last-child)::after {
-  content: ">";
-  margin: 0 var(--space-xs);
-  color: var(--accent-secondary);
-}
-
-/* Página atual (sem link) */
-.breadcrumb li:last-child span {
-  opacity: 0.7;
-}
-
-    @media (max-width: 768px) {
-    .breadcrumb {
-        font-size: 0.7rem;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.8rem;
+      margin-bottom: var(--space-md);
+      color: var(--text-color);
     }
-}
-    
+
+    .breadcrumb ol {
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .breadcrumb li {
+      display: flex;
+      align-items: center;
+    }
+
+    .breadcrumb a {
+      color: var(--accent-color);
+      text-decoration: none;
+      transition: var(--transition-normal);
+    }
+
+    .breadcrumb a:hover,
+    .breadcrumb a:focus {
+      text-shadow: 0 0 5px var(--accent-color);
+      outline: none;
+    }
+
+    .breadcrumb li:not(:last-child)::after {
+      content: ">";
+      margin: 0 var(--space-xs);
+      color: var(--accent-secondary);
+    }
+
+    .breadcrumb li:last-child span {
+      opacity: 0.7;
+    }
+
     /* About Page Specific Styles */
     .about-container {
       max-width: 1000px;
@@ -173,36 +172,45 @@ body::after {
 
     .profile-header {
       display: flex;
+      flex-direction: column;
       align-items: center;
       gap: var(--space-lg);
       margin-bottom: var(--space-xl);
     }
 
+    @media (min-width: 768px) {
+      .profile-header {
+        flex-direction: row;
+        align-items: center;
+      }
+    }
+
     .profile-image {
-      width: 150px;
-      height: 150px;
+      width: 120px;
+      height: 120px;
       border-radius: 50%;
       border: 3px solid var(--accent-color);
       object-fit: cover;
       box-shadow: var(--glow-effect);
-      animation: glitch-effect 8s infinite alternate, pulse 4s ease-in-out infinite;
+      animation: pulse 4s ease-in-out infinite;
+      image-rendering: optimizeQuality;
     }
 
-    @keyframes glitch-effect {
-      0%, 100% { filter: drop-shadow(0 0 5px var(--accent-color)); }
-      2%, 60% { transform: translate(0); }
-      62% { transform: translate(-2px, 2px); opacity: 0.8; }
-      64% { transform: translate(2px, -1px); }
+    @media (min-width: 768px) {
+      .profile-image {
+        width: 150px;
+        height: 150px;
+      }
     }
 
     @keyframes pulse {
       0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.02); }
+      50% { transform: scale(1.03); }
     }
 
     .profile-title {
       color: var(--accent-color);
-      font-size: 1.8rem;
+      font-size: clamp(1.3rem, 4vw, 1.8rem);
       margin-bottom: var(--space-sm);
       text-shadow: var(--glow-effect);
     }
@@ -211,7 +219,7 @@ body::after {
       font-style: italic;
       opacity: 0.8;
       margin-bottom: var(--space-md);
-      min-height: 1.5em; /* Para evitar saltos durante o efeito de digitação */
+      min-height: 1.5em;
     }
 
     .section {
@@ -225,7 +233,7 @@ body::after {
       overflow: hidden;
     }
 
-       .section-title {
+    .section-title {
       color: var(--accent-color);
       font-size: 1.3rem;
       margin-bottom: var(--space-md);
@@ -276,12 +284,7 @@ body::after {
       bottom: 0;
       width: 2px;
       background: var(--accent-secondary);
-      animation: pulse-opacity 2s infinite alternate;
-    }
-
-    @keyframes pulse-opacity {
-      0% { opacity: 0.3; }
-      100% { opacity: 0.8; }
+      opacity: 0.5;
     }
 
     .timeline-item {
@@ -416,70 +419,96 @@ body::after {
       100% { transform: translateX(100%) rotate(30deg); }
     }
 
-    .contact-link:hover {
+    .contact-link:hover,
+    .contact-link:focus {
       background: rgba(0, 102, 255, 0.4);
       border-color: var(--accent-color);
       box-shadow: var(--glow-effect);
+      outline: none;
     }
 
     footer {
-    margin-top: var(--space-xl);
-    padding: var(--space-md) 0;
-    font-size: 0.8rem;
-    color: var(--text-color);
-    text-align: center;
-    opacity: 0.7;
+      margin-top: var(--space-xl);
+      padding: var(--space-md) 0;
+      font-size: 0.8rem;
+      color: var(--text-color);
+      text-align: center;
+      opacity: 0.7;
+      position: relative;
+    }
+
+    /* Acessibilidade - reduzir movimento */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation: none !important;
+        transition: none !important;
+      }
+      
+      body::after {
+        display: none;
+      }
+    }
+
+    /* Focus styles para acessibilidade */
+    a:focus,
+    button:focus {
+      outline: 2px solid var(--accent-color);
+      outline-offset: 2px;
     }
   </style>
 </head>
 <body>
   <header>
-
-  </header>
-  <main class="about-container">
     <h1>RDGCZ</h1>
     
-    <div class="digital-clock">
+    <div class="digital-clock" aria-live="polite">
       <div class="time" id="time">HH:MM</div>
       <div class="date" id="date">Data</div>
-    </div><br>
-     <section class="breadcrumb" aria-label="Navegação estrutural">
-        <ol itemscope itemtype="https://schema.org/BreadcrumbList">
-          <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-            <a href="index.html" itemprop="item"><span itemprop="name">Home</span></a>
-          <meta itemprop="position" content="1">
-          </li>
-          <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-            <span itemprop="name">Sobre</span>
-            <meta itemprop="position" content="2" />
-          </li>
-         </ol>
-      </section>
-    <div class="separator"></div>
-    <div class="profile-header">
-      <img src="assets/images/rdgczProfilePic.gif" alt="Foto de perfil" class="profile-image" style="image-rendering: pixelated;" /* Efeito retrô! */>
-      <div>
-        <h2 class="profile-title">Rodrigo Cezar da Silva</h2>
-        <p class="profile-subtitle" id="typing-subtitle"></p>
-        <p class="about-text">Criando experiências digitais que unem tecnologia e design com propósito.</p>
-      </div>
     </div>
+  </header>
+  
+  <main class="about-container">
+    <nav class="breadcrumb" aria-label="Navegação estrutural">
+      <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="index.html" itemprop="item"><span itemprop="name">Home</span></a>
+          <meta itemprop="position" content="1">
+        </li>
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <span itemprop="name">Sobre</span>
+          <meta itemprop="position" content="2">
+        </li>
+      </ol>
+    </nav>
+    
+    <div class="separator" role="separator"></div>
+    
+    <section aria-labelledby="profile-heading">
+      <div class="profile-header">
+        <img src="assets/images/rdgczProfilePic.webp" alt="Foto de perfil de Rodrigo Cezar" class="profile-image" width="150" height="150" loading="lazy">
+        <div>
+          <h2 id="profile-heading" class="profile-title">Rodrigo Cezar da Silva</h2>
+          <p class="profile-subtitle" id="typing-subtitle" aria-live="polite"></p>
+          <p class="about-text">Criando experiências digitais que unem tecnologia e design com propósito.</p>
+        </div>
+      </div>
+    </section>
 
-    <section class="section">
-      <h3 class="section-title">Sobre Mim</h3>
+    <section class="section" aria-labelledby="about-heading">
+      <h3 id="about-heading" class="section-title">Sobre Mim</h3>
       <p class="about-text">
         Profissional multidisciplinar com formação em Design e em transição para Desenvolvimento Front-End. 
         Apaixonado por criar soluções que equilibram estética, usabilidade e performance técnica.
       </p>
       <ul class="detail-list">
-        <li><i class="fas fa-map-marker-alt"></i> Cunha, SP - Brasil</li>
-        <li><i class="fas fa-language"></i> Português (nativo), Inglês (avançado)</li>
-        <li><i class="fas fa-heart"></i> WebDev, Música, Fotografia, Modelismo, Mecânica, Marcenaria, entre muitos outros</li>
+        <li><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Cunha, SP - Brasil</li>
+        <li><i class="fas fa-language" aria-hidden="true"></i> Português (nativo), Inglês (avançado)</li>
+        <li><i class="fas fa-heart" aria-hidden="true"></i> WebDev, Música, Fotografia, Modelismo, Mecânica, Marcenaria</li>
       </ul>
     </section>
 
-    <section class="section">
-      <h3 class="section-title">Formação Acadêmica</h3>
+    <section class="section" aria-labelledby="education-heading">
+      <h3 id="education-heading" class="section-title">Formação Acadêmica</h3>
       <div class="timeline">
         <div class="timeline-item">
           <div class="timeline-period">2002 - 2006</div>
@@ -490,8 +519,8 @@ body::after {
       </div>
     </section>
 
-    <section class="section">
-      <h3 class="section-title">Experiência Profissional</h3>
+    <section class="section" aria-labelledby="experience-heading">
+      <h3 id="experience-heading" class="section-title">Experiência Profissional</h3>
       <div class="timeline">
         <div class="timeline-item">
           <div class="timeline-period">2013 - 2018</div>
@@ -512,27 +541,27 @@ body::after {
       </div>
     </section>
 
-    <section class="section">
-      <h3 class="section-title">Habilidades</h3>
+    <section class="section" aria-labelledby="skills-heading">
+      <h3 id="skills-heading" class="section-title">Habilidades</h3>
       <div class="skills-grid">
         <div class="skill-category">
           <h4>Técnicas</h4>
           <ul class="skill-list">
             <li>
               <span class="skill-name">HTML5/CSS3</span>
-              <div class="skill-bar" style="--progress: 40%;" data-progress="40%"></div>
+              <div class="skill-bar" style="--progress: 40%;" data-progress="40%" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
             </li>
             <li>
               <span class="skill-name">Git</span>
-              <div class="skill-bar" style="--progress: 20%;" data-progress="20%"></div>
+              <div class="skill-bar" style="--progress: 20%;" data-progress="20%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
             </li>
             <li>
               <span class="skill-name">Photoshop</span>
-              <div class="skill-bar" style="--progress: 60%;" data-progress="60%"></div>
+              <div class="skill-bar" style="--progress: 60%;" data-progress="60%" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
             </li>
             <li>
               <span class="skill-name">Autocad</span>
-              <div class="skill-bar" style="--progress: 60%;" data-progress="60%"></div>
+              <div class="skill-bar" style="--progress: 60%;" data-progress="60%" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
             </li>
           </ul>
         </div>
@@ -541,15 +570,15 @@ body::after {
           <ul class="skill-list">
             <li>
               <span class="skill-name">UI/UX Design</span>
-              <div class="skill-bar" style="--progress: 20%;" data-progress="20%"></div>
+              <div class="skill-bar" style="--progress: 20%;" data-progress="20%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
             </li>
             <li>
               <span class="skill-name">Responsive Design</span>
-              <div class="skill-bar" style="--progress: 20%;" data-progress="20%"></div>
+              <div class="skill-bar" style="--progress: 20%;" data-progress="20%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
             </li>
             <li>
               <span class="skill-name">Figma</span>
-              <div class="skill-bar" style="--progress: 5%;" data-progress="5%"></div>
+              <div class="skill-bar" style="--progress: 5%;" data-progress="5%" role="progressbar" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100"></div>
             </li>
           </ul>
         </div>
@@ -558,38 +587,36 @@ body::after {
           <ul class="skill-list">
             <li>
               <span class="skill-name">Trabalho em equipe</span>
-              <div class="skill-bar" style="--progress: 95%;" data-progress="95%"></div>
+              <div class="skill-bar" style="--progress: 95%;" data-progress="95%" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
             </li>
             <li>
               <span class="skill-name">Resolução criativa</span>
-              <div class="skill-bar" style="--progress: 90%;" data-progress="90%"></div>
+              <div class="skill-bar" style="--progress: 90%;" data-progress="90%" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
             </li>
             <li>
               <span class="skill-name">Comunicação clara</span>
-              <div class="skill-bar" style="--progress: 85%;" data-progress="85%"></div>
+              <div class="skill-bar" style="--progress: 85%;" data-progress="85%" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
             </li>
           </ul>
         </div>
       </div>
     </section>
 
-    <section class="section">
-      <h3 class="section-title">Contato</h3>
+    <section class="section" aria-labelledby="contact-heading">
+      <h3 id="contact-heading" class="section-title">Contato</h3>
       <p class="about-text">
         Estou começando, mas tenho muito interesse em participar no seu projeto. Vamos conversar! Entre em contato:
       </p>
       <div class="contact-links">
-        <a href="mailto:rdgcz10@gmail.com" class="contact-link">
-          <i class="fas fa-envelope"></i> Email
-         <!--
+        <a href="mailto:rdgcz10@gmail.com" class="contact-link" aria-label="Enviar email para Rodrigo">
+          <i class="fas fa-envelope" aria-hidden="true"></i> Email
         </a>
-        <a href="#" class="contact-link">
-          <i class="fab fa-linkedin"></i> LinkedIn
+        <a href="https://linkedin.com/in/seu-perfil" class="contact-link" aria-label="Perfil no LinkedIn" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn
         </a>
-        <a href="#" class="contact-link">
-          <i class="fab fa-github"></i> GitHub
+        <a href="https://github.com/seu-usuario" class="contact-link" aria-label="Perfil no GitHub" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-github" aria-hidden="true"></i> GitHub
         </a>
-          -->
       </div>
     </section>
   </main>
@@ -615,9 +642,10 @@ body::after {
         }).replace(/^./, str => str.toUpperCase());
       }
       
-      setInterval(updateClock, 1000);
+      // Update immediately and then every second
       updateClock();
-
+      const clockInterval = setInterval(updateClock, 1000);
+      
       // Typing effect for subtitle
       const subtitle = document.getElementById('typing-subtitle');
       const texts = [
@@ -629,6 +657,7 @@ body::after {
       let charIndex = 0;
       let isDeleting = false;
       let typingSpeed = 100;
+      let typingTimeout;
 
       function type() {
         const currentText = texts[textIndex];
@@ -652,34 +681,31 @@ body::after {
           typingSpeed = 500; // Pause before typing next
         }
 
-        setTimeout(type, typingSpeed);
+        typingTimeout = setTimeout(type, typingSpeed);
       }
 
       // Start typing effect after a delay
-      setTimeout(type, 1000);
+      const typingDelay = setTimeout(type, 1000);
 
-      // Matrix rain effect for fun (optional)
-      const chars = "01";
-      const footer = document.querySelector('footer');
-      
-      function createMatrixChar() {
-        const span = document.createElement('span');
-        span.textContent = chars[Math.floor(Math.random() * chars.length)];
-        span.style.position = 'absolute';
-        span.style.top = '0';
-        span.style.left = Math.random() * 100 + '%';
-        span.style.color = 'var(--accent-color)';
-        span.style.opacity = Math.random() * 0.5 + 0.1;
-        span.style.animation = `matrix-fall ${Math.random() * 3 + 2}s linear forwards`;
-        footer.appendChild(span);
-        
-        setTimeout(() => {
-          span.remove();
-        }, 5000);
+      // Cleanup function for animations
+      function cleanupAnimations() {
+        clearInterval(clockInterval);
+        clearTimeout(typingTimeout);
+        clearTimeout(typingDelay);
       }
 
-      // Uncomment to enable matrix rain
-      // setInterval(createMatrixChar, 100);
+      // Cleanup on page hide to save resources
+      document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+          cleanupAnimations();
+        } else {
+          updateClock();
+          clockInterval = setInterval(updateClock, 1000);
+        }
+      });
+
+      // Cleanup before page unload
+      window.addEventListener('beforeunload', cleanupAnimations);
     });
   </script>
 </body>
