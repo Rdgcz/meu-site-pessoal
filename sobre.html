@@ -93,6 +93,47 @@
       opacity: 0.5;
     }
 
+    .breadcrumb {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.8rem;
+  margin-bottom: var(--space-md);
+  color: var(--text-color);
+}
+
+.breadcrumb ol {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.breadcrumb li {
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumb a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: var(--transition-normal);
+}
+
+.breadcrumb a:hover {
+  text-shadow: var(--glow-effect);
+}
+
+.breadcrumb li:not(:last-child)::after {
+  content: ">";
+  margin: 0 var(--space-xs);
+  color: var(--accent-secondary);
+}
+
+/* Página atual (sem link) */
+.breadcrumb li:last-child span {
+  opacity: 0.7;
+}
+    
     /* About Page Specific Styles */
     .about-container {
       max-width: 1000px;
@@ -417,6 +458,29 @@
   </style>
 </head>
 <body>
+  <header>
+    <nav class="breadcrumb" aria-label="Navegação estrutural">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <a href="https://seusite.com" itemprop="item">
+        <span itemprop="name">Sobre</span>
+      </a>
+      <meta itemprop="position" content="1" />
+    </li>
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <a href="https://seusite.com/sobre" itemprop="item">
+        <span itemprop="name">Sobre</span>
+      </a>
+      <meta itemprop="position" content="2" />
+    </li>
+    <!-- Página atual (sem link) -->
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <span itemprop="name">Experiência</span>
+      <meta itemprop="position" content="3" />
+    </li>
+  </ol>
+</nav>
+  </header>
   <main class="about-container">
     <h1>RDGCZ</h1>
     
@@ -439,13 +503,13 @@
     <section class="section">
       <h3 class="section-title">Sobre Mim</h3>
       <p class="about-text">
-        Profissional multidisciplinar com formação em Design e transição para Desenvolvimento Front-End. 
+        Profissional multidisciplinar com formação em Design e em transição para Desenvolvimento Front-End. 
         Apaixonado por criar soluções que equilibram estética, usabilidade e performance técnica.
       </p>
       <ul class="detail-list">
         <li><i class="fas fa-map-marker-alt"></i> Cunha, SP - Brasil</li>
         <li><i class="fas fa-language"></i> Português (nativo), Inglês (avançado)</li>
-        <li><i class="fas fa-heart"></i> Música, Fotografia, Modelismo, Mecânica, Marcenaria, entre muitos outros</li>
+        <li><i class="fas fa-heart"></i> WebDev, Música, Fotografia, Modelismo, Mecânica, Marcenaria, entre muitos outros</li>
       </ul>
     </section>
 
@@ -491,19 +555,19 @@
           <ul class="skill-list">
             <li>
               <span class="skill-name">HTML5/CSS3</span>
-              <div class="skill-bar" style="--progress: 90%;" data-progress="90%"></div>
+              <div class="skill-bar" style="--progress: 40%;" data-progress="40%"></div>
             </li>
             <li>
               <span class="skill-name">Git</span>
-              <div class="skill-bar" style="--progress: 80%;" data-progress="80%"></div>
+              <div class="skill-bar" style="--progress: 20%;" data-progress="20%"></div>
             </li>
             <li>
               <span class="skill-name">Photoshop</span>
-              <div class="skill-bar" style="--progress: 85%;" data-progress="85%"></div>
+              <div class="skill-bar" style="--progress: 60%;" data-progress="60%"></div>
             </li>
             <li>
               <span class="skill-name">Autocad</span>
-              <div class="skill-bar" style="--progress: 75%;" data-progress="75%"></div>
+              <div class="skill-bar" style="--progress: 60%;" data-progress="60%"></div>
             </li>
           </ul>
         </div>
@@ -512,15 +576,15 @@
           <ul class="skill-list">
             <li>
               <span class="skill-name">UI/UX Design</span>
-              <div class="skill-bar" style="--progress: 88%;" data-progress="88%"></div>
+              <div class="skill-bar" style="--progress: 20%;" data-progress="20%"></div>
             </li>
             <li>
               <span class="skill-name">Responsive Design</span>
-              <div class="skill-bar" style="--progress: 92%;" data-progress="92%"></div>
+              <div class="skill-bar" style="--progress: 20%;" data-progress="20%"></div>
             </li>
             <li>
               <span class="skill-name">Figma</span>
-              <div class="skill-bar" style="--progress: 95%;" data-progress="95%"></div>
+              <div class="skill-bar" style="--progress: 5%;" data-progress="5%"></div>
             </li>
           </ul>
         </div>
@@ -547,11 +611,12 @@
     <section class="section">
       <h3 class="section-title">Contato</h3>
       <p class="about-text">
-        Interessado em conversar sobre projetos? Entre em contato:
+        Estou começando, mas tenho muito interesse em participar no seu projeto. Vamos conversar! Entre em contato:
       </p>
       <div class="contact-links">
         <a href="mailto:rdgcz10@gmail.com" class="contact-link">
           <i class="fas fa-envelope"></i> Email
+         <!--
         </a>
         <a href="#" class="contact-link">
           <i class="fab fa-linkedin"></i> LinkedIn
@@ -559,6 +624,7 @@
         <a href="#" class="contact-link">
           <i class="fab fa-github"></i> GitHub
         </a>
+          -->
       </div>
     </section>
   </main>
