@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Seletor de Cores Interativo</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
+  <meta name="description" content="Seletor de Cores Interativo - Ferramenta para identificar e manipular cores HEX e RGB">
+  <meta name="keywords" content="seletor de cores, color picker, HEX, RGB, ferramentas web, RDGCZ">
+  <meta name="author" content="Rodrigo Cezar da Silva">
+  <title>Seletor de Cores Interativo | RDGCZ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
       --bg-color: #0d0d1a;
@@ -15,9 +19,9 @@
       --separator-color: #003d66;
       --search-border: #0066ff;
       --glow-effect: 0 0 8px rgba(0, 240, 255, 0.7);
-      --space-xs: 0.2rem;
+      --space-xs: 0.25rem;
       --space-sm: 0.5rem;
-      --space-md: 1.0rem;
+      --space-md: 1rem;
       --space-lg: 1.5rem;
       --space-xl: 2rem;
       --radius-sm: 4px;
@@ -25,78 +29,360 @@
       --shadow-md: 0 5px 15px rgba(0,0,0,0.3);
       --transition-normal: 0.3s ease;
     }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    * { 
+      margin: 0; 
+      padding: 0; 
+      box-sizing: border-box; 
+    }
+    
     body {
       font-family: 'Orbitron', sans-serif;
       background-color: var(--bg-color);
       color: var(--text-color);
       min-height: 100vh;
-      overflow: hidden;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       padding: var(--space-md);
+      line-height: 1.6;
     }
-    .container { max-width: 600px; width: 100%; }
-    h1 { color: var(--accent-color); text-align: center; margin-bottom: var(--space-md); }
+
+    h2 {
+    color: var(--accent-color);
+    text-shadow: var(--glow-effect);
+    font-size: clamp(1.25rem, 3.5vw, 1.75rem);
+    margin: 0 0 var(--space-lg);
+    text-align: center;
+    padding-bottom: var(--space-sm);
+    border-bottom: 1px solid var(--separator-color);
+}
+    
+    /* === EFEITO SCANLINE === */
+    body::after {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(
+        transparent 95%, 
+        rgba(0, 240, 255, 0.03) 95.5%,
+        transparent 96%
+      );
+      background-size: 100% 8px;
+      animation: scanline 8s linear infinite;
+      pointer-events: none;
+      z-index: -1;
+      opacity: 0.5;
+    }
+    
+    @keyframes scanline {
+      0% { top: 0; }
+      100% { top: 100%; }
+    }
+
+    /* === HEADER TOP === */
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-sm);
+    width: 100%;
+}
+
+.header-brand {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xl);
+}
+
+.header-title {
+    color: var(--accent-color);
+    text-shadow: var(--glow-effect);
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    background: linear-gradient(90deg, rgba(255,255,255,0.8), rgba(255,255,255,0.2), rgba(255,255,255,0.8));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    background-size: 200% 100%;
+    animation: metallicShine 8s linear infinite;
+    margin: 0;
+}
+
+.digital-clock {
+    text-align: right;
+    color: var(--accent-color);
+    text-shadow: var(--glow-effect);
+    font-size: 0.9rem;
+}
+
+.time {
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+
+.date {
+    opacity: 0.8;
+    font-size: 0.8rem;
+}
+
+/* === BREADCRUMB === */
+.breadcrumb {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.8rem;
+    margin: var(--space-sm) 0 var(--space-md);
+    color: var(--text-color);
+}
+
+.breadcrumb ol {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.breadcrumb li {
+    display: flex;
+    align-items: center;
+}
+
+.breadcrumb a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: var(--transition-normal);
+}
+
+.breadcrumb a:hover,
+.breadcrumb a:focus {
+    text-shadow: 0 0 5px var(--accent-color);
+    outline: none;
+}
+
+.breadcrumb li:not(:last-child)::after {
+    content: ">";
+    margin: 0 var(--space-xs);
+    color: var(--accent-secondary);
+}
+
+.breadcrumb li:last-child span {
+    opacity: 0.7;
+}
+
+.separator {
+    height: 1px;
+    background-color: var(--separator-color);
+    margin: 0 auto var(--space-lg);
+    width: 100%;
+    max-width: 1200px;
+    opacity: 0.5;
+}
+
+/* === RESPONSIVIDADE === */
+@media (max-width: 768px) {
+    .header-top {
+        flex-direction: column;
+        gap: var(--space-sm);
+    }
+    
+    .header-brand {
+        width: 100%;
+        justify-content: space-between;
+        gap: var(--space-md);
+    }
+    
+    .breadcrumb {
+        align-self: flex-start;
+    }
+}
+    .container { 
+      max-width: 600px; 
+      width: 100%;
+      margin: 0 auto;
+    }
+    
+    /* === TÍTULOS === */
+    h1 {
+      color: var(--accent-color);
+      text-align: center;
+      margin-bottom: var(--space-md);
+      text-shadow: var(--glow-effect);
+      font-size: clamp(1.5rem, 4vw, 2.25rem);
+      background: linear-gradient(90deg, rgba(255,255,255,0.8), rgba(255,255,255,0.2), rgba(255,255,255,0.8));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      background-size: 200% 100%;
+      animation: metallicShine 8s linear infinite;
+    }
+    
+    @keyframes metallicShine {
+      0% { background-position: 0% center; }
+      100% { background-position: -200% center; }
+    }
+    
+    /* === CARD PRINCIPAL === */
     .color-picker-card {
       background: var(--card-bg);
       border-radius: var(--radius-md);
-      padding: var(--space-md);
-      border: 1px solid var(--separator-color);
+      padding: var(--space-lg);
+      border: 1px solid rgba(0, 150, 255, 0.2);
       box-shadow: var(--shadow-md);
+      transition: var(--transition-normal);
     }
+    
+    .color-picker-card:hover {
+      border-color: var(--accent-color);
+      box-shadow: var(--glow-effect);
+    }
+    
+    /* === ÁREA DE SELEÇÃO DE COR === */
     .color-picker-area {
-      width: 100%; height: 150px; border-radius: var(--radius-md);
-      margin-bottom: var(--space-md); cursor: crosshair; position: relative;
-      overflow: hidden; border: 2px solid var(--separator-color);
+      width: 100%; 
+      height: 150px; 
+      border-radius: var(--radius-md);
+      margin-bottom: var(--space-md); 
+      cursor: crosshair; 
+      position: relative;
+      overflow: hidden; 
+      border: 2px solid var(--separator-color);
       background: linear-gradient(to right, #ff0000, #ff00ff, #0000ff, #00ffff, #00ff00, #ffff00, #ff0000);
+      transition: var(--transition-normal);
     }
+    
+    .color-picker-area:hover {
+      border-color: var(--accent-color);
+    }
+    
     .color-picker-selector {
-      position: absolute; width: 16px; height: 16px;
-      border: 2px solid white; border-radius: 50%; box-shadow: 0 0 3px rgba(0,0,0,0.8);
-      pointer-events: none; transform: translate(-8px, -8px);
+      position: absolute; 
+      width: 16px; 
+      height: 16px;
+      border: 2px solid white; 
+      border-radius: 50%; 
+      box-shadow: 0 0 3px rgba(0,0,0,0.8), 0 0 6px var(--accent-color);
+      pointer-events: none; 
+      transform: translate(-8px, -8px);
     }
+    
+    /* === VISUALIZADOR DE COR === */
     .color-preview {
-      width: 100%; height: 30px; border-radius: var(--radius-md);
-      margin: var(--space-md) 0; border: 2px solid var(--separator-color);
+      width: 100%; 
+      height: 40px; 
+      border-radius: var(--radius-md);
+      margin: var(--space-md) 0; 
+      border: 2px solid var(--separator-color);
+      transition: var(--transition-normal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-shadow: 0 0 4px rgba(0,0,0,0.7);
     }
-    .controls { margin-top: var(--space-md); }
+    
+    .color-preview:hover {
+      border-color: var(--accent-color);
+      box-shadow: var(--glow-effect);
+    }
+    
+    /* === CONTROLES === */
+    .controls { 
+      margin-top: var(--space-md); 
+    }
+    
     .slider-container {
-      display: flex; align-items: center; margin-bottom: var(--space-sm);
+      display: flex; 
+      align-items: center; 
+      margin-bottom: var(--space-sm);
     }
+    
     .slider-container label {
-      width: 80px; color: var(--accent-color); font-size: 0.9rem;
+      width: 80px; 
+      color: var(--accent-color); 
+      font-size: 0.9rem;
+      text-shadow: 0 0 4px rgba(0, 240, 255, 0.3);
     }
+    
     input[type="range"] {
-      flex: 1; height: 6px; -webkit-appearance: none;
+      flex: 1; 
+      height: 6px; 
+      -webkit-appearance: none;
       background: linear-gradient(90deg, var(--bg-color), var(--separator-color));
-      border-radius: var(--radius-sm); margin: 0 var(--space-sm);
+      border-radius: var(--radius-sm); 
+      margin: 0 var(--space-sm);
+      cursor: pointer;
     }
+    
+    input[type="range"]:hover {
+      background: linear-gradient(90deg, var(--bg-color), var(--accent-secondary));
+    }
+    
     input[type="range"]::-webkit-slider-thumb {
-      -webkit-appearance: none; width: 18px; height: 18px;
-      border-radius: 50%; background: var(--accent-color);
-      cursor: pointer; box-shadow: var(--glow-effect);
+      -webkit-appearance: none; 
+      width: 18px; 
+      height: 18px;
+      border-radius: 50%; 
+      background: var(--accent-color);
+      cursor: pointer; 
+      box-shadow: var(--glow-effect);
+      transition: var(--transition-normal);
     }
+    
+    input[type="range"]::-webkit-slider-thumb:hover {
+      transform: scale(1.1);
+    }
+    
     .value-display {
-      width: 60px; text-align: center; background: var(--card-bg);
+      width: 60px; 
+      text-align: center; 
+      background: var(--card-bg);
       border: 1px solid var(--separator-color);
-      border-radius: var(--radius-sm); padding: var(--space-xs);
+      border-radius: var(--radius-sm); 
+      padding: var(--space-xs);
       color: var(--accent-color);
-    }
-    .hex-container {
-      display: flex; align-items: center; margin-top: var(--space-md);
-    }
-    .hex-container label {
-      color: var(--accent-color); margin-right: var(--space-sm);
-    }
-    .hex-input {
-      flex: 1; background: var(--card-bg);
-      border: 1px solid var(--separator-color); border-radius: var(--radius-sm);
-      padding: var(--space-sm); color: var(--accent-color);
       font-family: 'Orbitron', sans-serif;
+      transition: var(--transition-normal);
     }
+    
+    .value-display:hover {
+      border-color: var(--accent-color);
+      box-shadow: var(--glow-effect);
+    }
+    
+    /* === INPUT HEX === */
+    .hex-container {
+      display: flex; 
+      align-items: center; 
+      margin-top: var(--space-lg);
+    }
+    
+    .hex-container label {
+      color: var(--accent-color); 
+      margin-right: var(--space-sm);
+      text-shadow: 0 0 4px rgba(0, 240, 255, 0.3);
+    }
+    
+    .hex-input {
+      flex: 1; 
+      background: var(--card-bg);
+      border: 1px solid var(--separator-color); 
+      border-radius: var(--radius-sm);
+      padding: var(--space-sm); 
+      color: var(--accent-color);
+      font-family: 'Orbitron', sans-serif;
+      transition: var(--transition-normal);
+    }
+    
+    .hex-input:focus {
+      outline: none;
+      border-color: var(--accent-color);
+      box-shadow: var(--glow-effect);
+    }
+    
     .copy-btn {
       background: rgba(0, 102, 255, 0.2);
       border: 1px solid var(--accent-secondary);
@@ -106,28 +392,101 @@
       margin-left: var(--space-sm);
       cursor: pointer;
       transition: var(--transition-normal);
+      font-family: 'Orbitron', sans-serif;
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
     }
+    
     .copy-btn:hover {
       background: rgba(0, 102, 255, 0.4);
+      border-color: var(--accent-color);
       box-shadow: var(--glow-effect);
     }
+    
+    /* === FOOTER === */
     footer {
       text-align: center;
-      margin-top: var(--space-lg);
+      margin-top: var(--space-xl);
       font-size: 0.8rem;
       color: var(--accent-color);
       opacity: 0.8;
+      padding: var(--space-md) 0;
+    }
+    
+    /* === ACESSIBILIDADE === */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation: none !important;
+        transition: none !important;
+      }
+      
+      body::after {
+        display: none;
+      }
+    }
+    
+    /* === RESPONSIVIDADE === */
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 var(--space-sm);
+      }
+      
+      .color-picker-card {
+        padding: var(--space-md);
+      }
+      
+      .hex-container {
+        flex-direction: column;
+        gap: var(--space-sm);
+        align-items: flex-start;
+      }
+      
+      .copy-btn {
+        margin-left: 0;
+        width: 100%;
+        justify-content: center;
+      }
     }
   </style>
 </head>
 <body>
+  <header>
+    <div class="header-top">
+        <div class="header-brand">
+            <h1 class="header-title">RDGCZ</h1>
+            <div class="digital-clock" aria-live="polite">
+                <div class="time" id="time">HH:MM:SS</div>
+                <div class="date" id="date">DD/MM/AAAA</div>
+            </div>
+        </div>
+    </div>
+    
+    <nav class="breadcrumb" aria-label="Navegação estrutural">
+        <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+            <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                <a href="index.html" itemprop="item"><span itemprop="name">Home</span></a>
+                <meta itemprop="position" content="1">
+            </li>
+            <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                <span itemprop="name">Seletor de Cores</span>
+                <meta itemprop="position" content="2">
+            </li>
+        </ol>
+    </nav>
+    
+    <div class="separator" role="separator"></div>
+</header>
   <div class="container">
-    <h1>Seletor de Cores Interativo</h1>
+    <h2>Seletor de Cores Interativo</h2>
+    
     <div class="color-picker-card">
       <div class="color-picker-area" id="colorPickerArea">
         <div class="color-picker-selector" id="colorSelector"></div>
       </div>
+      
       <div class="color-preview" id="colorPreview"></div>
+      
       <div class="controls">
         <div class="slider-container">
           <label>Vermelho</label>
@@ -144,19 +503,25 @@
           <input type="range" id="blueSlider" min="0" max="255" value="0">
           <span class="value-display" id="blueValue">0</span>
         </div>
+        
         <div class="hex-container">
           <label>HEX:</label>
-          <input type="text" id="hexInput" class="hex-input" value="#ff0000">
-          <button id="copyBtn" class="copy-btn">Copiar</button>
+          <input type="text" id="hexInput" class="hex-input" value="#ff0000" spellcheck="false">
+          <button id="copyBtn" class="copy-btn">
+            <i class="far fa-copy" aria-hidden="true"></i> Copiar
+          </button>
         </div>
       </div>
     </div>
   </div>
+  
   <footer>
     © <span id="current-year"></span> - RDGCZ - Todos os direitos reservados.
   </footer>
+  
   <script>
     document.addEventListener('DOMContentLoaded', function() {
+      // Elementos DOM
       const area = document.getElementById('colorPickerArea');
       const selector = document.getElementById('colorSelector');
       const preview = document.getElementById('colorPreview');
@@ -168,42 +533,100 @@
       const blueValue = document.getElementById('blueValue');
       const hexInput = document.getElementById('hexInput');
       const copyBtn = document.getElementById('copyBtn');
+
+      // Função do relógio digital
+function updateClock() {
+    const now = new Date();
+    
+    // Formatar hora
+    timeElement.textContent = now.toLocaleTimeString('pt-BR', { 
+        hour12: false,
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+    });
+    
+    // Formatar data
+    dateElement.textContent = now.toLocaleDateString('pt-BR', {
+        weekday: 'long',
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric'
+    }).replace(/^./, str => str.toUpperCase());
+}
+
+// Inicializar relógio
+const timeElement = document.getElementById('time');
+const dateElement = document.getElementById('date');
+
+// Atualizar imediatamente e a cada segundo
+if (timeElement && dateElement) {
+    updateClock();
+    setInterval(updateClock, 1000);
+}
+      // Atualizar ano no footer
       document.getElementById('current-year').textContent = new Date().getFullYear();
-
+      
+      // Estado da cor atual
       let currentColor = { r: 255, g: 0, b: 0 };
-
+      
+      // Função para atualizar a interface
       function updateUI() {
-        preview.style.backgroundColor = `rgb(${currentColor.r}, ${currentColor.g}, ${currentColor.b})`;
+        const rgbString = `rgb(${currentColor.r}, ${currentColor.g}, ${currentColor.b})`;
+        const hexString = rgbToHex(currentColor.r, currentColor.g, currentColor.b);
+        
+        preview.style.backgroundColor = rgbString;
+        preview.textContent = `${rgbString} | ${hexString}`;
+        
         redSlider.value = currentColor.r;
         greenSlider.value = currentColor.g;
         blueSlider.value = currentColor.b;
+        
         redValue.textContent = currentColor.r;
         greenValue.textContent = currentColor.g;
         blueValue.textContent = currentColor.b;
-        hexInput.value = rgbToHex(currentColor.r, currentColor.g, currentColor.b);
+        
+        hexInput.value = hexString;
       }
-
+      
+      // Converter RGB para HEX
       function rgbToHex(r, g, b) {
-        return "#" + [r, g, b].map(x => x.toString(16).padStart(2, '0')).join('');
+        return "#" + [r, g, b].map(x => {
+          const hex = x.toString(16);
+          return hex.length === 1 ? "0" + hex : hex;
+        }).join('');
       }
-
+      
+      // Converter HEX para RGB
       function hexToRgb(hex) {
         hex = hex.replace('#', '');
-        if (hex.length === 3) hex = hex.split('').map(c => c + c).join('');
-        const r = parseInt(hex.substr(0, 2), 16);
-        const g = parseInt(hex.substr(2, 2), 16);
-        const b = parseInt(hex.substr(4, 2), 16);
+        
+        // Expandir formato curto (3 dígitos) para completo (6 dígitos)
+        if (hex.length === 3) {
+          hex = hex.split('').map(c => c + c).join('');
+        }
+        
+        const r = parseInt(hex.substring(0, 2), 16);
+        const g = parseInt(hex.substring(2, 4), 16);
+        const b = parseInt(hex.substring(4, 6), 16);
+        
         return { r, g, b };
       }
-
+      
+      // Obter cor na posição do seletor
       function getColorAtPosition(x, y) {
         const rect = area.getBoundingClientRect();
         const relX = x - rect.left;
         const relY = y - rect.top;
-        const ctx = document.createElement('canvas').getContext('2d');
-        ctx.canvas.width = rect.width;
-        ctx.canvas.height = rect.height;
-        const grad = ctx.createLinearGradient(0, 0, ctx.canvas.width, 0);
+        
+        // Criar canvas temporário para extrair a cor
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = rect.width;
+        canvas.height = rect.height;
+        
+        // Gradiente horizontal (arco-íris)
+        const grad = ctx.createLinearGradient(0, 0, canvas.width, 0);
         grad.addColorStop(0, '#ff0000');
         grad.addColorStop(0.16, '#ff00ff');
         grad.addColorStop(0.32, '#0000ff');
@@ -212,48 +635,84 @@
         grad.addColorStop(0.80, '#ffff00');
         grad.addColorStop(1, '#ff0000');
         ctx.fillStyle = grad;
-        ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-        const brightGrad = ctx.createLinearGradient(0, 0, 0, ctx.canvas.height);
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        
+        // Gradiente vertical (brilho/sombra)
+        const brightGrad = ctx.createLinearGradient(0, 0, 0, canvas.height);
         brightGrad.addColorStop(0, 'rgba(255,255,255,1)');
         brightGrad.addColorStop(0.5, 'rgba(255,255,255,0)');
         brightGrad.addColorStop(0.5, 'rgba(0,0,0,0)');
         brightGrad.addColorStop(1, 'rgba(0,0,0,1)');
         ctx.fillStyle = brightGrad;
-        ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        
+        // Extrair dados do pixel
         const pixel = ctx.getImageData(relX, relY, 1, 1).data;
         return { r: pixel[0], g: pixel[1], b: pixel[2] };
       }
-
+      
+      // Evento de clique na área de seleção
       area.addEventListener('click', function(e) {
         const color = getColorAtPosition(e.clientX, e.clientY);
         currentColor = color;
         updateUI();
+        
+        // Posicionar o seletor
         const rect = area.getBoundingClientRect();
         selector.style.left = (e.clientX - rect.left) + 'px';
         selector.style.top = (e.clientY - rect.top) + 'px';
       });
-
-      redSlider.addEventListener('input', () => { currentColor.r = +redSlider.value; updateUI(); });
-      greenSlider.addEventListener('input', () => { currentColor.g = +greenSlider.value; updateUI(); });
-      blueSlider.addEventListener('input', () => { currentColor.b = +blueSlider.value; updateUI(); });
-
+      
+      // Eventos dos sliders
+      redSlider.addEventListener('input', () => {
+        currentColor.r = +redSlider.value;
+        updateUI();
+      });
+      
+      greenSlider.addEventListener('input', () => {
+        currentColor.g = +greenSlider.value;
+        updateUI();
+      });
+      
+      blueSlider.addEventListener('input', () => {
+        currentColor.b = +blueSlider.value;
+        updateUI();
+      });
+      
+      // Evento do input HEX
       hexInput.addEventListener('input', () => {
-        if (hexInput.value.length === 7 || hexInput.value.length === 4) {
+        const hex = hexInput.value;
+        if (/^#?([0-9A-F]{3}){1,2}$/i.test(hex)) {
           try {
-            currentColor = hexToRgb(hexInput.value);
+            currentColor = hexToRgb(hex);
             updateUI();
-          } catch (e) { console.error("HEX inválido"); }
+          } catch (e) {
+            console.error("Formato HEX inválido");
+          }
         }
       });
-
+      
+      // Evento do botão copiar
       copyBtn.addEventListener('click', () => {
         hexInput.select();
         document.execCommand('copy');
-        copyBtn.textContent = 'Copiado!';
-        setTimeout(() => copyBtn.textContent = 'Copiar', 2000);
+        
+        // Feedback visual
+        const originalText = copyBtn.innerHTML;
+        copyBtn.innerHTML = '<i class="fas fa-check" aria-hidden="true"></i> Copiado!';
+        
+        setTimeout(() => {
+          copyBtn.innerHTML = originalText;
+        }, 2000);
       });
-
+      
+      // Inicialização
       updateUI();
+      
+      // Posicionar seletor no centro inicialmente
+      const rect = area.getBoundingClientRect();
+      selector.style.left = (rect.width / 2) + 'px';
+      selector.style.top = (rect.height / 2) + 'px';
     });
   </script>
 </body>
