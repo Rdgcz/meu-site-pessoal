@@ -46,6 +46,7 @@
         }
 
         /* === EFETO SCANLINE NO BACKGROUND === */
+        /*
         body::after {
             content: '';
             position: fixed;
@@ -68,7 +69,7 @@
         @keyframes scanline {
             0% { top: 0; }
             100% { top: 100%; }
-        }
+        } */
 
         h1 {
             position: absolute;
@@ -90,6 +91,19 @@
             0% { background-position: 0% center; }
             100% { background-position: -200% center; }
         }
+
+        .header-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    margin-bottom: var(--space-md);
+}
+
+.header-title {
+    position: static;
+    margin: 0;
+    text-align: left;
+}
 
         .digital-clock {
             position: absolute;
@@ -374,28 +388,26 @@
 </head>
 <body>
     <header>
-        <section class="header">
+        <div class="header-content">
         <h1 class="header-title">RDGCZ</h1>
-    
-    <div class="digital-clock" aria-live="polite">
-        <div class="time" id="time">HH:MM</div>
-        <div class="date" id="date">Data</div>
-    </div>
-        <section>
-  <nav class="breadcrumb" aria-label="Navegação estrutural">
-      <ol itemscope itemtype="https://schema.org/BreadcrumbList">
-        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-          <a href="index.html" itemprop="item"><span itemprop="name">Home</span></a>
-          <meta itemprop="position" content="1">
-        </li>
-        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-          <span itemprop="name">Ferramentas</span>
-          <meta itemprop="position" content="2">
+            <nav class="breadcrumb" aria-label="Navegação estrutural">
+                <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+                    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                      <a href="index.html" itemprop="item"><span itemprop="name">Home</span></a>
+                          <meta itemprop="position" content="1">
+            </li>
+             <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <span itemprop="name">Ferramentas</span>
+        <meta itemprop="position" content="2">
         </li>
       </ol>
     </nav>
-</section>
-        </section>
+        </div>       
+    
+    <div class="digital-clock" aria-live="polite">
+        <div class="time" id="time">HH:MM:SS</div>
+        <div class="date" id="date">Data</div>
+    </div>
     <div class="separator" role="separator"></div>
         </header>
         <!-- CATEGORIA 1: Diversos -->
@@ -490,7 +502,8 @@
                 timeElement.textContent = now.toLocaleTimeString('pt-BR', { 
                     hour12: false,
                     hour: '2-digit',
-                    minute: '2-digit'
+                    minute: '2-digit',
+                    second: '2-digit'
                 });
                 
                 // Format date
