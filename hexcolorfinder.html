@@ -44,21 +44,12 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
       padding: var(--space-md);
+      padding-top: 180px; /* Espaço para o header fixo */
       line-height: 1.6;
     }
 
-    h2 {
-    color: var(--accent-color);
-    text-shadow: var(--glow-effect);
-    font-size: clamp(1.25rem, 3.5vw, 1.75rem);
-    margin: 0 0 var(--space-lg);
-    text-align: center;
-    padding-bottom: var(--space-sm);
-    border-bottom: 1px solid var(--separator-color);
-}
-    
+        
     /* === EFEITO SCANLINE === */
     body::after {
       content: '';
@@ -84,19 +75,28 @@
       100% { top: 100%; }
     }
 
-    /* === HEADER TOP === */
+/* === HEADER TOP === */
 .header-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: var(--space-sm);
-    width: 100%;
+    position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column; /* Alterado para coluna */
+  padding: var(--space-md) var(--space-lg);
+  width: 100%;
+  background-color: rgba(13, 13, 26, 0.95);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.4);
+  gap: var(--space-sm);
 }
 
 .header-brand {
     display: flex;
-    align-items: center;
-    gap: var(--space-xl);
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
 .header-title {
@@ -132,8 +132,10 @@
 /* === BREADCRUMB === */
 .breadcrumb {
     font-family: 'Orbitron', sans-serif;
+   width: 100%;
+  margin: 0;
+  padding: var(--space-xs) 0;
     font-size: 0.8rem;
-    margin: var(--space-sm) 0 var(--space-md);
     color: var(--text-color);
 }
 
@@ -202,7 +204,7 @@
       max-width: 600px; 
       width: 100%;
       margin: 0 auto;
-    }
+      }
     
     /* === TÍTULOS === */
     h1 {
@@ -218,6 +220,16 @@
       background-size: 200% 100%;
       animation: metallicShine 8s linear infinite;
     }
+
+    h2 {
+    color: var(--accent-color);
+    text-shadow: var(--glow-effect);
+    font-size: clamp(1.25rem, 3.5vw, 1.75rem);
+    margin: 0 0 var(--space-lg);
+    text-align: center;
+    padding-bottom: var(--space-sm);
+    border-bottom: 1px solid var(--separator-color);
+}
     
     @keyframes metallicShine {
       0% { background-position: 0% center; }
@@ -428,8 +440,28 @@
     
     /* === RESPONSIVIDADE === */
     @media (max-width: 768px) {
-      .container {
+body {
+    padding-top: 160px; /* Menos espaço em mobile */
+  }      
+      .header-top {
+        padding: var(--space-sm);
+    }
+
+      .header-title {
+    font-size: 1.5rem;
+  }
+  
+  .digital-clock {
+    font-size: 0.8rem;
+  
+    
+    .header-brand {
+        gap: var(--space-md);
+    }
+    
+    .container {
         padding: 0 var(--space-sm);
+        margin-top: 100px;
       }
       
       .color-picker-card {
@@ -468,9 +500,13 @@
                 <a href="index.html" itemprop="item"><span itemprop="name">Home</span></a>
                 <meta itemprop="position" content="1">
             </li>
+          <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                <a href="ferramentas.html" itemprop="item"><span itemprop="name">Ferramentas</span></a>
+                <meta itemprop="position" content="2">
+            </li>
             <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
                 <span itemprop="name">Seletor de Cores</span>
-                <meta itemprop="position" content="2">
+                <meta itemprop="position" content="3">
             </li>
         </ol>
     </nav>
