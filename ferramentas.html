@@ -61,6 +61,43 @@
             animation: metallicShine 8s linear infinite;
         }
 
+            /* h2 - subtítulos principais */
+h2 {
+    color: var(--accent-color);
+    text-shadow: var(--glow-effect);
+    font-size: clamp(1.25rem, 3.5vw, 2rem);
+    margin: var(--space-md) 0 var(--space-sm);
+    background: linear-gradient(90deg, rgba(255,255,255,0.7), rgba(255,255,255,0.15), rgba(255,255,255,0.7));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    background-size: 200% 100%;
+    animation: metallicShine 10s linear infinite;
+    position: relative; /* removi o absolute para fluxo normal */
+    padding-bottom: var(--space-xs);
+    border-bottom: 1px solid var(--separator-color);
+}
+
+/* h3 - subtítulos secundários */
+h3 {
+    color: var(--accent-secondary);
+    font-size: clamp(1.1rem, 3vw, 1.5rem);
+    margin: var(--space-sm) 0;
+    text-shadow: 0 0 4px rgba(0, 102, 255, 0.3);
+    position: relative;
+    padding-left: var(--space-sm);
+}
+
+/* h4 - títulos menores */
+h4 {
+    color: var(--text-color);
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    margin: var(--space-sm) 0;
+    font-weight: 500;
+    opacity: 0.9;
+    position: relative;
+}
+        
         @keyframes metallicShine {
             0% { background-position: 0% center; }
             100% { background-position: -200% center; }
