@@ -126,7 +126,49 @@
             opacity: 0.5;
         }
 
-        .btn {
+        .breadcrumb {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.8rem;
+      margin-bottom: var(--space-md);
+      color: var(--text-color);
+    }
+
+    .breadcrumb ol {
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .breadcrumb li {
+      display: flex;
+      align-items: center;
+    }
+
+    .breadcrumb a {
+      color: var(--accent-color);
+      text-decoration: none;
+      transition: var(--transition-normal);
+    }
+
+    .breadcrumb a:hover,
+    .breadcrumb a:focus {
+      text-shadow: 0 0 5px var(--accent-color);
+      outline: none;
+    }
+
+    .breadcrumb li:not(:last-child)::after {
+      content: ">";
+      margin: 0 var(--space-xs);
+      color: var(--accent-secondary);
+    }
+
+    .breadcrumb li:last-child span {
+      opacity: 0.7;
+    }
+
+           .btn {
             display: inline-flex;
             align-items: center;
             gap: var(--space-xs);
@@ -331,20 +373,28 @@
     </style>
 </head>
 <body>
-    <h1 class="header-title">RDGCZ</h1>
+    <header>
+        <h1 class="header-title">RDGCZ</h1>
     
     <div class="digital-clock" aria-live="polite">
         <div class="time" id="time">HH:MM</div>
         <div class="date" id="date">Data</div>
     </div>
-
-    <div class="container">
-        <header class="projects-header">
-            <a href="index.html" class="btn btn--primary" aria-label="Voltar para página inicial">
-                <i class="fas fa-arrow-left" aria-hidden="true"></i> Voltar para Home
-            </a>
-        </header>
-
+ </header>
+    
+   <nav class="breadcrumb" aria-label="Navegação estrutural">
+      <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="index.html" itemprop="item"><span itemprop="name">Home</span></a>
+          <meta itemprop="position" content="1">
+        </li>
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <span itemprop="name">Sobre</span>
+          <meta itemprop="position" content="2">
+        </li>
+      </ol>
+    </nav>
+    <div class="separator" role="separator"></div>
         <!-- CATEGORIA 1: Diversos -->
         <section class="projects-category" aria-labelledby="diversos-heading">
             <h2 id="diversos-heading" class="projects-category__title">
