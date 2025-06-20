@@ -3,39 +3,360 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ferramentas | Rodrigo Cezar</title>
+    <meta name="description" content="Ferramentas e projetos desenvolvidos por Rodrigo Cezar">
+    <meta name="keywords" content="ferramentas, projetos, desenvolvimento web, frontend, Rodrigo Cezar">
+    <meta name="author" content="Rodrigo Cezar da Silva">
+    <title>Ferramentas | RDGCZ</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Orbitron:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" href="assets/images/favicon/favicon-32x32.png" type="image/png">
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        :root {
+            --bg-color: #0d0d1a;
+            --text-color: #e0f7fa;
+            --accent-color: #00f0ff;
+            --accent-secondary: #0066ff;
+            --card-bg: rgba(0, 48, 73, 0.3);
+            --separator-color: #003d66;
+            --glow-effect: 0 0 8px rgba(0, 240, 255, 0.5);
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 2rem;
+            --space-xl: 3rem;
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --transition-normal: 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Orbitron', sans-serif;
+            min-height: 100vh;
+            margin: 0;
+            padding: var(--space-md);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* === EFETO SCANLINE NO BACKGROUND === */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                transparent 95%, 
+                rgba(0, 240, 255, 0.03) 95.5%,
+                transparent 96%
+            );
+            background-size: 100% 8px;
+            animation: scanline 8s linear infinite;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.5;
+        }
+        
+        @keyframes scanline {
+            0% { top: 0; }
+            100% { top: 100%; }
+        }
+
+        h1 {
+            position: absolute;
+            top: var(--space-md);
+            left: var(--space-lg);
+            color: var(--accent-color);
+            text-shadow: var(--glow-effect);
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            padding-left: var(--space-sm);
+            background: linear-gradient(90deg, rgba(255,255,255,0.8), rgba(255,255,255,0.2), rgba(255,255,255,0.8));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            background-size: 200% 100%;
+            animation: metallicShine 8s linear infinite;
+        }
+
+        @keyframes metallicShine {
+            0% { background-position: 0% center; }
+            100% { background-position: -200% center; }
+        }
+
+        .digital-clock {
+            position: absolute;
+            top: var(--space-md);
+            right: var(--space-lg);
+            text-align: center;
+            color: var(--accent-color);
+            text-shadow: var(--glow-effect);
+            font-size: 0.9rem;
+        }
+
+        .time {
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+        }
+
+        .date {
+            opacity: 0.8;
+            font-size: 0.8rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 80px auto 0;
+            padding: 0 var(--space-md);
+        }
+
+        .separator {
+            height: 1px;
+            background-color: var(--separator-color);
+            margin: var(--space-xl) auto;
+            width: 100%;
+            max-width: 1200px;
+            opacity: 0.5;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+            padding: var(--space-xs) var(--space-sm);
+            border-radius: var(--radius-sm);
+            font-family: 'Orbitron', sans-serif;
+            text-decoration: none;
+            transition: var(--transition-normal);
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .btn--primary {
+            background-color: rgba(0, 102, 255, 0.2);
+            border-color: var(--accent-secondary);
+            color: var(--text-color);
+        }
+
+        .btn--primary:hover,
+        .btn--primary:focus {
+            background-color: rgba(0, 102, 255, 0.4);
+            border-color: var(--accent-color);
+            box-shadow: var(--glow-effect);
+            outline: none;
+        }
+
+        .btn--disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            background-color: rgba(100, 100, 100, 0.2);
+        }
+
+        .projects-header {
+            margin-bottom: var(--space-xl);
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        .projects-category {
+            margin-bottom: var(--space-xl);
+        }
+
+        .projects-category__title {
+            color: var(--accent-color);
+            font-size: 1.5rem;
+            margin-bottom: var(--space-lg);
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .grid {
+            display: grid;
+            gap: var(--space-md);
+        }
+
+        .grid--projects {
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid rgba(0, 150, 255, 0.2);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            transition: var(--transition-normal);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover,
+        .card:focus-within {
+            transform: translateY(-5px);
+            box-shadow: var(--glow-effect);
+            border-color: var(--accent-color);
+        }
+
+        .card__image-container {
+            position: relative;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            overflow: hidden;
+        }
+
+        .card__image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover .card__image {
+            transform: scale(1.05);
+        }
+
+        .card__badge {
+            position: absolute;
+            top: var(--space-sm);
+            right: var(--space-sm);
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.75rem;
+            font-weight: bold;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .card__badge[data-categoria="design"] {
+            color: #00f0ff;
+        }
+
+        .card__badge[data-categoria="games"] {
+            color: #ff00aa;
+        }
+
+        .card__content {
+            padding: var(--space-md);
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card__content h2 {
+            color: var(--accent-color);
+            margin-bottom: var(--space-sm);
+            font-size: 1.25rem;
+        }
+
+        .card__content p {
+            margin-bottom: var(--space-md);
+            flex-grow: 1;
+        }
+
+        .tech-tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-xs);
+            margin-bottom: var(--space-md);
+        }
+
+        .tech-tag {
+            background-color: rgba(0, 102, 255, 0.2);
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.75rem;
+            color: var(--accent-color);
+        }
+
+        .projects-footer {
+            margin-top: var(--space-xl);
+            padding: var(--space-md) 0;
+            font-size: 0.8rem;
+            text-align: center;
+            opacity: 0.7;
+        }
+
+        /* Acessibilidade - reduzir movimento */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
+            }
+            
+            body::after {
+                display: none;
+            }
+            
+            .card:hover,
+            .card:focus-within {
+                transform: none;
+            }
+            
+            .card__image {
+                transition: none;
+            }
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            h1 {
+                position: static;
+                margin-top: var(--space-md);
+                text-align: center;
+            }
+            
+            .digital-clock {
+                position: static;
+                margin: var(--space-sm) auto;
+            }
+            
+            .projects-header {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .grid--projects {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1 class="header-title">Rodrigo Cezar da Silva</h1>
+    <h1 class="header-title">RDGCZ</h1>
     
-    <div class="digital-clock">
+    <div class="digital-clock" aria-live="polite">
         <div class="time" id="time">HH:MM</div>
-        <div class="date" id="date">1 de Janeiro de 2023</div>
+        <div class="date" id="date">Data</div>
     </div>
 
     <div class="container">
         <header class="projects-header">
-            <a href="index.html" class="btn btn--primary">
-                <i class="fas fa-arrow-left"></i> Voltar para Home
+            <a href="index.html" class="btn btn--primary" aria-label="Voltar para página inicial">
+                <i class="fas fa-arrow-left" aria-hidden="true"></i> Voltar para Home
             </a>
         </header>
 
-        <!-- CATEGORIA 1: Projetos em Andamento -->
-        <section class="projects-category">
-            <h2 class="projects-category__title">
-                <i class="fas fa-code-branch"></i> Diversos
+        <!-- CATEGORIA 1: Diversos -->
+        <section class="projects-category" aria-labelledby="diversos-heading">
+            <h2 id="diversos-heading" class="projects-category__title">
+                <i class="fas fa-code-branch" aria-hidden="true"></i> Diversos
             </h2>
             <div class="grid grid--projects">
                 <!-- Projeto 1 -->
-                <div class="card">
+                <div class="card" tabindex="0">
                     <div class="card__image-container">
-                        <img src="assets/images/projects/meu-site-pessoal/thumb-card-hex-color-finder.png" 
+                        <img src="assets/images/projects/meu-site-pessoal/thumb-card-hex-color-finder.webp" 
                              onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg'"
-                             alt="Site Pessoal" class="card__image">
+                             alt="Visualizador de cores HEX" class="card__image" loading="lazy">
                         <div class="card__badge" data-categoria="design">Online</div>
                     </div>
                     <div class="card__content">
@@ -44,125 +365,126 @@
                         <div class="tech-tag-container">
                             <span class="tech-tag">HTML</span>
                             <span class="tech-tag">CSS</span>
-                            <span class="tech-tag">HEX Color Finder</span>
+                            <span class="tech-tag">JavaScript</span>
                         </div>
-                        <a href="https://rdgcz.github.io/meu-site-pessoal/hexcolorfinder.html" target="_blank" class="btn btn--primary">
-                            <i class="fas fa-external-link-alt"></i> Visitar Projeto
+                        <a href="https://rdgcz.github.io/meu-site-pessoal/hexcolorfinder.html" target="_blank" rel="noopener noreferrer" class="btn btn--primary">
+                            <i class="fas fa-external-link-alt" aria-hidden="true"></i> Visitar Projeto
                         </a>
                     </div>
                 </div>
                 
                 <!-- Projeto 2 -->              
-                <div class="card">
+                <div class="card" tabindex="0">
                     <div class="card__image-container">
-                        <img src="assets/images/projects/sitio-sabio-sabia/thumb-card-.png" 
+                        <img src="assets/images/projects/emoji-map/thumb-card.webp" 
                              onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg'"
-                             alt="Mapa de Emojis" class="card__image">
+                             alt="Mapa de emojis do Windows 10" class="card__image" loading="lazy">
                         <div class="card__badge" data-categoria="design">Online</div>
                     </div>
                     <div class="card__content">
                         <h2>Mapa de Emojis</h2>
-                        <p>Mapa de emojis segoeUIemoji para Win10, dividido em categorias (as categorias podem não conter todos os emojis existentes. Atualizações poderão ser realizadas no futuro).</p>
+                        <p>Mapa de emojis Segoe UI Emoji para Windows 10, dividido em categorias.</p>
                         <div class="tech-tag-container">
-                            <span class="tech-tag">Win10</span>
+                            <span class="tech-tag">Windows 10</span>
                             <span class="tech-tag">Emoji</span>
-                            <span class="tech-tag">SegoeUIemoji</span>
+                            <span class="tech-tag">Segoe UI</span>
                         </div>
-                        <a href="https://rdgcz.github.io/meu-site-pessoal/emojimap.html" target="_blank" class="btn btn--primary">
-                            <i class="fas fa-external-link-alt"></i>Ver
+                        <a href="https://rdgcz.github.io/meu-site-pessoal/emojimap.html" target="_blank" rel="noopener noreferrer" class="btn btn--primary">
+                            <i class="fas fa-external-link-alt" aria-hidden="true"></i> Ver Projeto
                         </a>
                     </div>
                 </div>
                 
                 <!-- Projeto 3 -->
-                <div class="card">
+                <div class="card" tabindex="0">
                     <div class="card__image-container">
-                        <img src="assets/images/projects/DEFINIR" 
+                        <img src="assets/images/projects/coming-soon.webp" 
                              onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg'"
-                             alt="Próximo projeto" class="card__image">
+                             alt="Próximo projeto em desenvolvimento" class="card__image" loading="lazy">
                         <div class="card__badge" data-categoria="games">Em breve</div>
                     </div>
                     <div class="card__content">
                         <h2>Em Breve!</h2>
-                        <p>O que está por vir?</p>
+                        <p>Novas ferramentas e projetos estão em desenvolvimento.</p>
                         <div class="tech-tag-container">
                             <span class="tech-tag">Suspense</span>
                             <span class="tech-tag">Mistério</span>
                         </div>
-                        <a href="#" class="btn btn--disabled">
-                            <i class="fas fa-external-link-alt"></i> Ainda não tem nada...
+                        <a href="#" class="btn btn--disabled" aria-disabled="true">
+                            <i class="fas fa-external-link-alt" aria-hidden="true"></i> Em desenvolvimento
                         </a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <div class="separator"></div>
+        <div class="separator" role="separator"></div>
         
         <!-- CATEGORIA 2: Projetos Realizados -->
-        <section class="projects-category">
-            <h2 class="projects-category__title">
-                <i class="fas fa-check-circle"></i> Projetos Realizados
+        <section class="projects-category" aria-labelledby="realizados-heading">
+            <h2 id="realizados-heading" class="projects-category__title">
+                <i class="fas fa-check-circle" aria-hidden="true"></i> Projetos Realizados
             </h2>
             <div class="grid grid--projects">
                 <!-- Projeto 1 -->
-                <div class="card">
+                <div class="card" tabindex="0">
                     <div class="card__image-container">
-                        <img src="assets/images/projects/animacao-simples/thumb-card-" 
+                        <img src="assets/images/projects/animacao-simples/thumb-card.webp" 
                              onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg'"
-                             alt="Animação Simples" class="card__image">
-                        <div class="card__badge">...</div>
+                             alt="Animação CSS simples" class="card__image" loading="lazy">
+                        <div class="card__badge" data-categoria="design">Online</div>
                     </div>
                     <div class="card__content">
-                        <h2>Em breve!</h2>
-                        <p>...</p>
+                        <h2>Animação Simples</h2>
+                        <p>Exemplo de animações CSS para uso em projetos web.</p>
                         <div class="tech-tag-container">
-                            <span class="tech-tag">...</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">Animação</span>
                         </div>
-                        <a href="https://rdgcz.github.io/meu-site-pessoal/.html" class="btn btn--primary">
-                            <i class="fas fa-external-link-alt"></i> Ver
+                        <a href="https://rdgcz.github.io/meu-site-pessoal/animacao-simples.html" target="_blank" rel="noopener noreferrer" class="btn btn--primary">
+                            <i class="fas fa-external-link-alt" aria-hidden="true"></i> Ver Projeto
                         </a>
                     </div>
                 </div>
                 
                 <!-- Projeto 2 -->
-                <div class="card">
+                <div class="card" tabindex="0">
                     <div class="card__image-container">
-                        <img src="assets/images/projects/audio-spectrum/thumb-card-" 
+                        <img src="assets/images/projects/audio-spectrum/thumb-card.webp" 
                              onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg'"
-                             alt="Áudio Spectrum" class="card__image">
-                        <div class="card__badge">...</div>
+                             alt="Visualizador de espectro de áudio" class="card__image" loading="lazy">
+                        <div class="card__badge" data-categoria="design">Online</div>
                     </div>
                     <div class="card__content">
-                        <h2>Em breve!</h2>
-                        <p>...</p>
+                        <h2>Áudio Spectrum</h2>
+                        <p>Visualizador de espectro de áudio usando Web Audio API.</p>
                         <div class="tech-tag-container">
-                            <span class="tech-tag">...</span>
-                            <span class="tech-tag">...</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Web Audio API</span>
                         </div>
-                        <a href="https://rdgcz.github.io/meu-site-pessoal/.html" class="btn btn--primary">
-                            <i class="fas fa-external-link-alt"></i> Ver
+                        <a href="https://rdgcz.github.io/meu-site-pessoal/audio-spectrum.html" target="_blank" rel="noopener noreferrer" class="btn btn--primary">
+                            <i class="fas fa-external-link-alt" aria-hidden="true"></i> Ver Projeto
                         </a>
                     </div>
                 </div>
                 
                 <!-- Projeto 3 -->
-                <div class="card">
+                <div class="card" tabindex="0">
                     <div class="card__image-container">
-                        <img src="assets/images/projects/video-institucional/thumb-card-.png" 
+                        <img src="assets/images/projects/video-institucional/thumb-card.webp" 
                              onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg'"
-                             alt="Vídeo Institucional" class="card__image">
-                        <div class="card__badge">...</div>
+                             alt="Player de vídeo institucional" class="card__image" loading="lazy">
+                        <div class="card__badge" data-categoria="design">Online</div>
                     </div>
                     <div class="card__content">
-                        <h2>Em breve!</h2>
-                        <p>...</p>
+                        <h2>Player de Vídeo</h2>
+                        <p>Player de vídeo institucional com controles personalizados.</p>
                         <div class="tech-tag-container">
-                            <span class="tech-tag">...</span>
-                            <span class="tech-tag">...</span>
+                            <span class="tech-tag">HTML5</span>
+                            <span class="tech-tag">Video</span>
                         </div>
-                        <a href="https://rdgcz.github.io/meu-site-pessoal/.html" class="btn btn--primary">
-                            <i class="fas fa-external-link-alt"></i> Ver
+                        <a href="https://rdgcz.github.io/meu-site-pessoal/video-player.html" target="_blank" rel="noopener noreferrer" class="btn btn--primary">
+                            <i class="fas fa-external-link-alt" aria-hidden="true"></i> Ver Projeto
                         </a>
                     </div>
                 </div>
@@ -176,25 +498,53 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Update year in footer
             document.getElementById('current-year').textContent = new Date().getFullYear();
+            
+            // Digital clock functionality
+            const timeElement = document.getElementById('time');
+            const dateElement = document.getElementById('date');
             
             function updateClock() {
                 const now = new Date();
-                const timeElement = document.getElementById('time');
-                const dateElement = document.getElementById('date');
                 
-                // Formata hora
-                const time = now.toLocaleTimeString('pt-BR', { hour12: false });
-                timeElement.textContent = time;
+                // Format time
+                timeElement.textContent = now.toLocaleTimeString('pt-BR', { 
+                    hour12: false,
+                    hour: '2-digit',
+                    minute: '2-digit'
+                });
                 
-                // Formata data
-                const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
-                const date = now.toLocaleDateString('pt-BR', options);
-                dateElement.textContent = date.charAt(0).toUpperCase() + date.slice(1);
+                // Format date
+                dateElement.textContent = now.toLocaleDateString('pt-BR', {
+                    weekday: 'long',
+                    day: 'numeric',
+                    month: 'long',
+                    year: 'numeric'
+                }).replace(/^./, str => str.toUpperCase());
             }
             
-            setInterval(updateClock, 1000);
+            // Update immediately and then every second
             updateClock();
+            const clockInterval = setInterval(updateClock, 1000);
+            
+            // Cleanup function for animations
+            function cleanupAnimations() {
+                clearInterval(clockInterval);
+            }
+            
+            // Cleanup on page hide to save resources
+            document.addEventListener('visibilitychange', function() {
+                if (document.hidden) {
+                    cleanupAnimations();
+                } else {
+                    updateClock();
+                    clockInterval = setInterval(updateClock, 1000);
+                }
+            });
+            
+            // Cleanup before page unload
+            window.addEventListener('beforeunload', cleanupAnimations);
         });
     </script>
 </body>
