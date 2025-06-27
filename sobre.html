@@ -46,31 +46,6 @@
       line-height: 1.6;
     }
 
-    /* === EFETO SCANLINE NO BACKGROUND === */
-    body::after {
-      content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(
-          transparent 95%, 
-          rgba(0, 240, 255, 0.1) 95.5%,
-          transparent 96%
-      );
-      background-size: 100% 12px;
-      animation: scanline 8s linear infinite;
-      pointer-events: none;
-      z-index: -1;
-      opacity: 0.5;
-    }
-    
-    @keyframes scanline {
-      0% { top: 0; }
-      100% { top: 100%; }
-    }
-
     h1 {
       position: absolute;
       top: var(--space-md);
