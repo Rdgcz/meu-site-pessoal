@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Inspirações criativas - RDGCZ Portfólio">
+  <meta name="keywords" content="inspiração, design, fotografia, arte, criatividade">
+  <meta name="author" content="Rodrigo Cezar da Silva">
+  <title>Inspirações | RDGCZ - Portfólio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Orbitron:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --bg-color: #0d0d1a;
+      --text-color: #e0f7fa;
+      --accent-color: #00f0ff;
+      --accent-secondary: #0066ff;
+      --card-bg: rgba(0, 48, 73, 0.3);
+      --separator-color: #003d66;
+      --search-border: #0066ff;
+      --glow-effect: 0 0 8px rgba(0, 240, 255, 0.5);
+      --space-xs: 0.5rem;
+      --space-sm: 1rem;
+      --space-md: 1.5rem;
+      --space-lg: 2rem;
+      --space-xl: 3rem;
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --transition-normal: 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Orbitron', sans-serif;
+      min-height: 100vh;
+      margin: 0;
+      padding: var(--space-md);
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.6;
+    }
+
+    h1 {
+      position: absolute;
+      top: var(--space-md);
+      left: var(--space-lg);
+      color: var(--accent-color);
+      text-shadow: var(--glow-effect);
+      font-size: clamp(1.5rem, 4vw, 2.5rem);
+      padding-left: var(--space-sm);
+      background: linear-gradient(90deg, rgba(255,255,255,0.8), rgba(255,255,255,0.2), rgba(255,255,255,0.8));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      background-size: 200% 100%;
+      animation: metallicShine 8s linear infinite;
+    }
+
+    @keyframes metallicShine {
+      0% { background-position: 0% center; }
+      100% { background-position: -200% center; }
+    }
+
+    .digital-clock {
+      position: absolute;
+      top: var(--space-md);
+      right: var(--space-lg);
+      text-align: center;
+      color: var(--accent-color);
+      text-shadow: var(--glow-effect);
+      font-size: 0.9rem;
+    }
+
+    .time {
+      font-size: 1.1rem;
+      letter-spacing: 2px;
+    }
+
+    .date {
+      opacity: 0.8;
+      font-size: 0.8rem;
+    }
+
+    .slogan {
+      margin: 20px 0 15px 0;
+      font-style: italic;
+      opacity: 0.8;
+      font-size: clamp(1rem, 3vw, 1.5rem);
+    }
+
+    .separator {
+      height: 1px;
+      background-color: var(--separator-color);
+      margin: var(--space-sm) auto;
+      width: 100%;
+      max-width: 1200px;
+      opacity: 0.5;
+    }
+
+    .breadcrumb {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.8rem;
+      margin-bottom: var(--space-md);
+      color: var(--text-color);
+      text-align: left;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .breadcrumb ol {
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .breadcrumb li {
+      display: flex;
+      align-items: center;
+    }
+
+    .breadcrumb a {
+      color: var(--accent-color);
+      text-decoration: none;
+      transition: var(--transition-normal);
+    }
+
+    .breadcrumb a:hover,
+    .breadcrumb a:focus {
+      text-shadow: 0 0 5px var(--accent-color);
+      outline: none;
+    }
+
+    .breadcrumb li:not(:last-child)::after {
+      content: ">";
+      margin: 0 var(--space-xs);
+      color: var(--accent-secondary);
+    }
+
+    .breadcrumb li:last-child span {
+      opacity: 0.7;
+    }
+
+    .inspiration-container {
+      max-width: 1200px;
+      margin: 80px auto 0;
+      padding: 0 var(--space-md);
+      text-align: left;
+    }
+
+    .section-title {
+      color: var(--accent-color);
+      font-size: 1.5rem;
+      margin-bottom: var(--space-md);
+      text-align: center;
+      position: relative;
+      padding-bottom: var(--space-sm);
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+    }
+
+    .section-description {
+      margin-bottom: var(--space-lg);
+      text-align: center;
+      opacity: 0.8;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: var(--space-md);
+      margin-bottom: var(--space-xl);
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      cursor: pointer;
+      aspect-ratio: 1 / 1;
+      transition: var(--transition-normal);
+      background: var(--card-bg);
+      border: 1px solid rgba(0, 150, 255, 0.2);
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--glow-effect);
+      border-color: var(--accent-color);
+    }
+
+    .gallery-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition-normal);
+    }
+
+    .gallery-item:hover .gallery-image {
+      transform: scale(1.05);
+    }
+
+    .gallery-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: var(--space-sm);
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+      color: white;
+      transform: translateY(100%);
+      transition: var(--transition-normal);
+    }
+
+    .gallery-item:hover .gallery-caption {
+      transform: translateY(0);
+    }
+
+    /* Lightbox */
+    .lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .lightbox.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .lightbox-content {
+      position: relative;
+      max-width: 90%;
+      max-height: 90%;
+    }
+
+    .lightbox-image {
+      max-width: 100%;
+      max-height: 80vh;
+      border-radius: var(--radius-md);
+      box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+    }
+
+    .lightbox-caption {
+      color: white;
+      text-align: center;
+      margin-top: var(--space-sm);
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: -40px;
+      right: 0;
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
+      transition: var(--transition-normal);
+    }
+
+    .lightbox-close:hover {
+      color: var(--accent-color);
+    }
+
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
+      padding: var(--space-md);
+      transition: var(--transition-normal);
+      opacity: 0.7;
+    }
+
+    .lightbox-nav:hover {
+      opacity: 1;
+      color: var(--accent-color);
+    }
+
+    .lightbox-prev {
+      left: 0;
+    }
+
+    .lightbox-next {
+      right: 0;
+    }
+
+    footer {
+      margin-top: auto;
+      padding: var(--space-md) 0;
+      font-size: 0.8rem;
+      opacity: 0.7;
+      text-align: center;
+    }
+
+    /* Acessibilidade - reduzir movimento */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation: none !important;
+        transition: none !important;
+      }
+      
+      .gallery-item,
+      .gallery-image {
+        transition: none !important;
+      }
+    }
+
+    /* Focus styles para acessibilidade */
+    a:focus,
+    button:focus {
+      outline: 2px solid var(--accent-color);
+      outline-offset: 2px;
+    }
+
+    /* Responsividade */
+    @media (max-width: 768px) {
+      h1 {
+        position: static;
+        margin-top: var(--space-md);
+        text-align: center;
+      }
+      
+      .digital-clock {
+        position: static;
+        margin: var(--space-sm) auto;
+      }
+      
+      .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      }
+    }
+
+    @media (max-width: 480px) {
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      
+      .lightbox-nav {
+        font-size: 1.5rem;
+        padding: var(--space-sm);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>RDGCZ</h1>
+    <div class="digital-clock" aria-live="polite">
+      <div class="time" id="time">HH:MM</div>
+      <div class="date" id="date">Data</div>
+    </div>
+  </header>
+  
+  <main class="inspiration-container">
+    <nav class="breadcrumb" aria-label="Navegação estrutural">
+      <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="index.html" itemprop="item"><span itemprop="name">Home</span></a>
+          <meta itemprop="position" content="1">
+        </li>
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <span itemprop="name">Inspirações</span>
+          <meta itemprop="position" content="2">
+        </li>
+      </ol>
+    </nav>
+    
+    <div class="separator" role="separator"></div>
+    
+    <p class="slogan">Sempre em desenvolvimento...</p>
+    
+    <div class="separator" role="separator"></div>
+
+    <!-- Seção 1: Design Inspirador -->
+    <section aria-labelledby="design-heading">
+      <h2 id="design-heading" class="section-title">Design Inspirador</h2>
+      <p class="section-description">Projetos e conceitos que me motivam a criar interfaces melhores</p>
+      
+      <div class="gallery-grid">
+        <!-- Item 1 -->
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: Design minimalista">
+          <img src="https://source.unsplash.com/random/600x600/?minimal,design" alt="Design minimalista" class="gallery-image" loading="lazy">
+          <div class="gallery-caption">
+            <h3>Design Minimalista</h3>
+            <p>Menos é mais</p>
+          </div>
+        </div>
+        
+        <!-- Item 2 -->
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: Tipografia criativa">
+          <img src="https://source.unsplash.com/random/600x600/?typography" alt="Tipografia criativa" class="gallery-image" loading="lazy">
+          <div class="gallery-caption">
+            <h3>Tipografia Criativa</h3>
+            <p>O poder das letras</p>
+          </div>
+        </div>
+        
+        <!-- Item 3 -->
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: Cores vibrantes">
+          <img src="https://source.unsplash.com/random/600x600/?colorful,design" alt="Cores vibrantes" class="gallery-image" loading="lazy">
+          <div class="gallery-caption">
+            <h3>Cores Vibrantes</h3>
+            <p>Paletas que impressionam</p>
+          </div>
+        </div>
+        
+        <!-- Item 4 -->
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: Interface futurista">
+          <img src="https://source.unsplash.com/random/600x600/?futuristic,ui" alt="Interface futurista" class="gallery-image" loading="lazy">
+          <div class="gallery-caption">
+            <h3>Interface Futurista</h3>
+            <p>Visões do amanhã</p>
+          </div>
+        </div>
+        
+        <!-- Item 5 -->
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: Ilustração digital">
+          <img src="https://source.unsplash.com/random/600x600/?digital,art" alt="Ilustração digital" class="gallery-image" loading="lazy">
+          <div class="gallery-caption">
+            <h3>Ilustração Digital</h3>
+            <p>Arte que inspira</p>
+          </div>
+        </div>
+        
+        <!-- Item 6 -->
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: Layout experimental">
+          <img src="https://source.unsplash.com/random/600x600/?experimental,design" alt="Layout experimental" class="gallery-image" loading="lazy">
+          <div class="gallery-caption">
+            <h3>Layout Experimental</h3>
+            <p>Quebrando padrões</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção 2: Fotografia -->
+    <section aria-labelledby="photography-heading">
+      <h2 id="photography-heading" class="section-title">Fotografia</h2>
+      <p class="section-description">Imagens que capturam momentos e inspiram criatividade</p>
+      
+      <div class="gallery-grid">
+        <!-- Item 1 -->
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: Paisagem urbana">
+          <img src="https://source.unsplash.com/random/600x600/?city,night" alt="Paisagem urbana" class="gallery-image" loading="lazy">
+          <div class="gallery-caption">
+            <h3>Paisagem Urbana</h3>
+            <p>Luzes da cidade</p>
+          </div>
+        </div>
+        
+        <!-- Item 2 -->
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: Natureza selvagem">
+          <img src="https://source.unsplash.com/random/600x600/?nature" alt="Natureza selvagem" class="gallery-image" loading="lazy">
+          <div class="gallery-caption">
+            <h3>Natureza Selvagem</h3>
+            <p>Beleza intocada</p>
+          </div>
+        </div>
+        
+        <!-- Item 3 -->
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: Retrato emocional">
+          <img src="https://source.unsplash.com/random/600x600/?portrait" alt="Retrato emocional" class="gallery-image" loading="lazy">
+          <div class="gallery-caption">
+            <h3>Retrato Emocional</h3>
+            <p>Histórias em um olhar</p>
+          </div>
+        </div>
+        
+        <!-- Item 4 -->
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: Arquitetura moderna">
+          <img src="https://source.unsplash.com/random/600x600/?architecture" alt="Arquitetura moderna" class="gallery-image" loading="lazy">
+          <div class="gallery-caption">
+            <h3>Arquitetura Moderna</h3>
+            <p>Formas e linhas</p>
+          </div>
+        </div>
+        
+        <!-- Item 5 -->
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: Viagens inspiradoras">
+          <img src="https://source.unsplash.com/random/600x600/?travel" alt="Viagens inspiradoras" class="gallery-image" loading="lazy">
+          <div class="gallery-caption">
+            <h3>Viagens Inspiradoras</h3>
+            <p>O mundo em imagens</p>
+          </div>
+        </div>
+        
+        <!-- Item 6 -->
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: Detalhes abstratos">
+          <img src="https://source.unsplash.com/random/600x600/?abstract" alt="Detalhes abstratos" class="gallery-image" loading="lazy">
+          <div class="gallery-caption">
+            <h3>Detalhes Abstratos</h3>
+            <p>Beleza no caos</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="current-year"></span> - RDGCZ - Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox-close" id="lightbox-close" aria-label="Fechar visualização">&times;</span>
+    <span class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Imagem anterior">&#10094;</span>
+    <span class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Próxima imagem">&#10095;</span>
+    <div class="lightbox-content">
+      <img id="lightbox-image" class="lightbox-image" alt="">
+      <p id="lightbox-caption" class="lightbox-caption"></p>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Update year in footer
+      document.getElementById('current-year').textContent = new Date().getFullYear();
+      
+      // Digital clock functionality
+      const timeElement = document.getElementById('time');
+      const dateElement = document.getElementById('date');
+      
+      function updateClock() {
+        const now = new Date();
+        timeElement.textContent = now.toLocaleTimeString('pt-BR', { hour12: false });
+        dateElement.textContent = now.toLocaleDateString('pt-BR', {
+          weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'
+        }).replace(/^./, str => str.toUpperCase());
+      }
+      
+      // Update immediately and then every second
+      updateClock();
+      const clockInterval = setInterval(updateClock, 1000);
+      
+      // Lightbox functionality
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImage = document.getElementById('lightbox-image');
+      const lightboxCaption = document.getElementById('lightbox-caption');
+      const lightboxClose = document.getElementById('lightbox-close');
+      const lightboxPrev = document.getElementById('lightbox-prev');
+      const lightboxNext = document.getElementById('lightbox-next');
+      
+      // Get all gallery items
+      const galleryItems = document.querySelectorAll('.gallery-item');
+      let currentIndex = 0;
+      
+      // Open lightbox with clicked image
+      galleryItems.forEach((item, index) => {
+        item.addEventListener('click', () => {
+          openLightbox(index);
+        });
+        
+        // Add keyboard support
+        item.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            openLightbox(index);
+          }
+        });
+      });
+      
+      function openLightbox(index) {
+        currentIndex = index;
+        const imgSrc = galleryItems[index].querySelector('img').src;
+        const imgAlt = galleryItems[index].querySelector('img').alt;
+        const caption = galleryItems[index].querySelector('h3').textContent;
+        
+        lightboxImage.src = imgSrc;
+        lightboxImage.alt = imgAlt;
+        lightboxCaption.textContent = caption;
+        lightbox.classList.add('active');
+        
+        // Focus on close button for keyboard navigation
+        lightboxClose.focus();
+      }
+      
+      function closeLightbox() {
+        lightbox.classList.remove('active');
+      }
+      
+      function navigateLightbox(direction) {
+        currentIndex += direction;
+        
+        // Wrap around
+        if (currentIndex >= galleryItems.length) {
+          currentIndex = 0;
+        } else if (currentIndex < 0) {
+          currentIndex = galleryItems.length - 1;
+        }
+        
+        const imgSrc = galleryItems[currentIndex].querySelector('img').src;
+        const imgAlt = galleryItems[currentIndex].querySelector('img').alt;
+        const caption = galleryItems[currentIndex].querySelector('h3').textContent;
+        
+        lightboxImage.src = imgSrc;
+        lightboxImage.alt = imgAlt;
+        lightboxCaption.textContent = caption;
+      }
+      
+      // Event listeners
+      lightboxClose.addEventListener('click', closeLightbox);
+      lightboxPrev.addEventListener('click', () => navigateLightbox(-1));
+      lightboxNext.addEventListener('click', () => navigateLightbox(1));
+      
+      // Keyboard navigation
+      document.addEventListener('keydown', (e) => {
+        if (!lightbox.classList.contains('active')) return;
+        
+        switch (e.key) {
+          case 'Escape':
+            closeLightbox();
+            break;
+          case 'ArrowLeft':
+            navigateLightbox(-1);
+            break;
+          case 'ArrowRight':
+            navigateLightbox(1);
+            break;
+        }
+      });
+      
+      // Close when clicking outside image
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+          closeLightbox();
+        }
+      });
+      
+      // Cleanup function for animations
+      function cleanupAnimations() {
+        clearInterval(clockInterval);
+      }
+      
+      // Cleanup on page hide to save resources
+      document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+          cleanupAnimations();
+        } else {
+          updateClock();
+          clockInterval = setInterval(updateClock, 1000);
+        }
+      });
+      
+      // Cleanup before page unload
+      window.addEventListener('beforeunload', cleanupAnimations);
+    });
+  </script>
+</body>
+</html>
