@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,8 @@
   <meta name="keywords" content="inspiração, design, fotografia, arte, criatividade">
   <meta name="author" content="Rodrigo Cezar da Silva">
   <title>Inspirações | RDGCZ - Portfólio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Orbitron:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Orbitron:wght@400;500&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
@@ -56,7 +58,7 @@
       text-shadow: var(--glow-effect);
       font-size: clamp(1.5rem, 4vw, 2.5rem);
       padding-left: var(--space-sm);
-      background: linear-gradient(90deg, rgba(255,255,255,0.8), rgba(255,255,255,0.2), rgba(255,255,255,0.8));
+      background: linear-gradient(90deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.8));
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -65,8 +67,13 @@
     }
 
     @keyframes metallicShine {
-      0% { background-position: 0% center; }
-      100% { background-position: -200% center; }
+      0% {
+        background-position: 0% center;
+      }
+
+      100% {
+        background-position: -200% center;
+      }
     }
 
     .digital-clock {
@@ -186,31 +193,31 @@
     }
 
     .gallery-grid {
-  display: grid;
-  gap: var(--space-md);
-}
+      display: grid;
+      gap: var(--space-md);
+    }
 
-/* Mobile (2 colunas) */
-@media (max-width: 599px) {
-  .gallery-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
+    /* Mobile (2 colunas) */
+    @media (max-width: 599px) {
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
 
-/* Tablet (3 colunas) */
-@media (min-width: 600px) and (max-width: 899px) {
-  .gallery-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
+    /* Tablet (3 colunas) */
+    @media (min-width: 600px) and (max-width: 899px) {
+      .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
 
-/* Desktop (4 colunas) */
-@media (min-width: 900px) {
-  .gallery-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-    
+    /* Desktop (4 colunas) */
+    @media (min-width: 900px) {
+      .gallery-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
     .gallery-item {
       position: relative;
       border-radius: var(--radius-md);
@@ -232,7 +239,8 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.3s ease; /* Efeito hover suave */
+      transition: transform 0.3s ease;
+      /* Efeito hover suave */
     }
 
     .gallery-item:hover .gallery-image {
@@ -349,7 +357,7 @@
         animation: none !important;
         transition: none !important;
       }
-      
+
       .gallery-item,
       .gallery-image {
         transition: none !important;
@@ -370,12 +378,12 @@
         margin-top: var(--space-md);
         text-align: center;
       }
-      
+
       .digital-clock {
         position: static;
         margin: var(--space-sm) auto;
       }
-      
+
       .gallery-grid {
         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
       }
@@ -385,7 +393,7 @@
       .gallery-grid {
         grid-template-columns: 1fr 1fr;
       }
-      
+
       .lightbox-nav {
         font-size: 1.5rem;
         padding: var(--space-sm);
@@ -393,6 +401,7 @@
     }
   </style>
 </head>
+
 <body>
   <header>
     <h1>RDGCZ</h1>
@@ -401,7 +410,7 @@
       <div class="date" id="date">Data</div>
     </div>
   </header>
-  
+
   <main class="inspiration-container">
     <nav class="breadcrumb" aria-label="Navegação estrutural">
       <ol itemscope itemtype="https://schema.org/BreadcrumbList">
@@ -415,83 +424,377 @@
         </li>
       </ol>
     </nav>
-    
-    <div class="separator" role="separator"></div>
-    
-    <p class="slogan">Sempre em desenvolvimento...</p>
-    
+
     <div class="separator" role="separator"></div>
 
-    <!-- Seção 1: Design Inspirador -->
+    <p class="slogan">Sempre em desenvolvimento...</p>
+
+    <div class="separator" role="separator"></div>
+
     <section aria-labelledby="design-heading">
       <h2 id="design-heading" class="section-title">Para refletir e inspirar</h2>
-      <p class="section-description">Coleção de imagens e ilustrações que me fazem pensar ou repensar</p>
-      
+      <p class="section-description">Coleção de imagens e frases que me fazem pensar ou repensar</p>
+
       <div class="gallery-grid">
-        <!-- Item 1 -->
         <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: Chimpanzé gritando com gorila">
-          <img src="assets/images/inspiration/stronger.png" alt="Chimpanzé gritando com gorila" class="gallery-image" loading="lazy">
-          <div class="gallery-caption">
-            <h3>O Chefe</h3>
-            <p>Autor: <a href="https://tiagohoisel.blogspot.com/2010/12/o-chefe.html" 
-                        target="_blank" 
-                        aria-label="Abrir link: página do autor da imagem">Tiago Hoisel</a></p>
-          </div>
+          <img src="assets/images/inspiration/stronger.png" alt="Chimpanzé gritando com gorila" class="gallery-image"
+            loading="lazy">
         </div>
-        
-        <!-- Item 2 -->
-        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: A Grande Onda de Kanagawa (The Great Wave off Kanagawa)">
-          <img src="assets/images/inspiration/the-great-wave-off-kanagawa.png" alt="A Grande Onda de Kanagawa (The Great Wave off Kanagawa)" class="gallery-image" loading="lazy">
-          <div class="gallery-caption">
-            <h3>A Grande Onda de Kanagawa</h3>
-           <p>Gravura de<a href="https://en.wikipedia.org/wiki/Hokusai"> Katsushika Hokusai</a></p>
-          </div>
+        <div class="gallery-item" tabindex="0" role="button"
+          aria-label="Abrir imagem: A Grande Onda de Kanagawa (The Great Wave off Kanagawa)">
+          <img src="assets/images/inspiration/the-great-wave-off-kanagawa.png"
+            alt="A Grande Onda de Kanagawa (The Great Wave off Kanagawa)" class="gallery-image" loading="lazy">
         </div>
-        
-        <!-- Item 3 -->
         <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: Feliz ou triste: você decide">
-          <img src="assets/images/inspiration/you-decide.jpg" alt="Feliz ou triste: você decide" class="gallery-image" loading="lazy">
-          <div class="gallery-caption">
-            <h3>Você decide</h3>
-          </div>
+          <img src="assets/images/inspiration/you-decide.jpg" alt="Feliz ou triste: você decide" class="gallery-image"
+            loading="lazy">
         </div>
-        
-        <!-- Item 4 -->
         <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem:Pense mais, fale menos">
-          <img src="assets/images/inspiration/think-more-talk-less.png" alt="Frase: Pense mais, fale menos" class="gallery-image" loading="lazy">
-          <div class="gallery-caption">
-            <h3>Pense mais</h3>
-            <p>Fale menos</p>
-          </div>
+          <img src="assets/images/inspiration/think-more-talk-less.png" alt="Frase: Pense mais, fale menos"
+            class="gallery-image" loading="lazy">
         </div>
-        
-        <!-- Item 5 -->
-        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: Ilustração 3D de uma bolinha amarela sorridente cercado por bolinhas azuis tristes">
-          <img src="assets/images/inspiration/smile.png" alt="bolinha amarela sorridente cercado por bolinhas azuis tristes" class="gallery-image" loading="lazy">
-          <div class="gallery-caption">
-            <h3>:)</h3>
-            <p>Sorria</p>
-          </div>
+        <div class="gallery-item" tabindex="0" role="button"
+          aria-label="Abrir imagem: Ilustração 3D de uma bolinha amarela sorridente cercado por bolinhas azuis tristes">
+          <img src="assets/images/inspiration/smile.png"
+            alt="bolinha amarela sorridente cercado por bolinhas azuis tristes" class="gallery-image" loading="lazy">
         </div>
-        
-        <!-- Item 6 -->
-        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: Layout experimental">
-          <img src="https://source.unsplash.com/random/600x600/?experimental,design" alt="Layout experimental" class="gallery-image" loading="lazy">
-          <div class="gallery-caption">
-            <h3>Layout Experimental</h3>
-            <p>Quebrando padrões</p>
-          </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_001.webp" alt="a definir" class="gallery-image" loading="lazy">
         </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_002.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_003.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_004.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_005.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_006.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_007.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_008.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_009.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_010.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_011.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_012.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_013.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_014.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_015.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_016.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_017.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_018.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_019.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_020.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_021.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_022.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_023.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_024.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_025.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_026.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_027.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_028.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_029.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_030.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_031.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_032.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_033.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_034.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_035.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_036.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_037.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_038.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_039.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_040.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_041.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_042.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_043.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_044.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_045.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_046.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_047.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_048.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_049.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_050.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_051.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_052.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_053.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_054.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_055.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_056.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_057.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_058.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_059.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_060.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_061.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_062.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_063.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_064.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_065.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_066.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_067.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_068.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_069.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_070.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_071.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_072.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_073.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_074.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_075.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_076.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_077.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_078.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_079.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_080.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_081.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_082.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_083.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_084.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_085.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_086.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_087.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_088.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_089.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_090.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_091.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_092.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_093.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_094.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_095.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_096.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_097.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_098.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_099.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_100.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_101.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_102.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_103.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_104.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_105.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_106.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_107.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: a definir">
+          <img src="assets/images/inspiration/insp_108.webp" alt="a definir" class="gallery-image" loading="lazy">
+        </div>
+
+
+
       </div>
     </section>
 
-    <!-- Seção 2: Fotografia -->
+    <!-- Seção 2: Fotografia
     <section aria-labelledby="photography-heading">
       <h2 id="photography-heading" class="section-title">Fotografia</h2>
       <p class="section-description">Imagens que capturam momentos e inspiram criatividade</p>
       
       <div class="gallery-grid">
-        <!-- Item 1 -->
+        <!-- Item 1
         <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: Paisagem urbana">
           <img src="https://source.unsplash.com/random/600x600/?city,night" alt="Paisagem urbana" class="gallery-image" loading="lazy">
           <div class="gallery-caption">
@@ -500,7 +803,7 @@
           </div>
         </div>
         
-        <!-- Item 2 -->
+        <!-- Item 2 
         <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: Natureza selvagem">
           <img src="https://source.unsplash.com/random/600x600/?nature" alt="Natureza selvagem" class="gallery-image" loading="lazy">
           <div class="gallery-caption">
@@ -509,7 +812,7 @@
           </div>
         </div>
         
-        <!-- Item 3 -->
+        <!-- Item 3
         <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: Retrato emocional">
           <img src="https://source.unsplash.com/random/600x600/?portrait" alt="Retrato emocional" class="gallery-image" loading="lazy">
           <div class="gallery-caption">
@@ -518,7 +821,7 @@
           </div>
         </div>
         
-        <!-- Item 4 -->
+        <!-- Item 4
         <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: Arquitetura moderna">
           <img src="https://source.unsplash.com/random/600x600/?architecture" alt="Arquitetura moderna" class="gallery-image" loading="lazy">
           <div class="gallery-caption">
@@ -527,7 +830,7 @@
           </div>
         </div>
         
-        <!-- Item 5 -->
+        <!-- Item 5
         <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: Viagens inspiradoras">
           <img src="https://source.unsplash.com/random/600x600/?travel" alt="Viagens inspiradoras" class="gallery-image" loading="lazy">
           <div class="gallery-caption">
@@ -536,7 +839,7 @@
           </div>
         </div>
         
-        <!-- Item 6 -->
+        <!-- Item 6
         <div class="gallery-item" tabindex="0" role="button" aria-label="Abrir imagem: Detalhes abstratos">
           <img src="https://source.unsplash.com/random/600x600/?abstract" alt="Detalhes abstratos" class="gallery-image" loading="lazy">
           <div class="gallery-caption">
@@ -545,7 +848,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
   </main>
 
   <footer>
@@ -567,11 +870,11 @@
     document.addEventListener('DOMContentLoaded', function () {
       // Update year in footer
       document.getElementById('current-year').textContent = new Date().getFullYear();
-      
+
       // Digital clock functionality
       const timeElement = document.getElementById('time');
       const dateElement = document.getElementById('date');
-      
+
       function updateClock() {
         const now = new Date();
         timeElement.textContent = now.toLocaleTimeString('pt-BR', { hour12: false });
@@ -579,11 +882,11 @@
           weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'
         }).replace(/^./, str => str.toUpperCase());
       }
-      
+
       // Update immediately and then every second
       updateClock();
       const clockInterval = setInterval(updateClock, 1000);
-      
+
       // Lightbox functionality
       const lightbox = document.getElementById('lightbox');
       const lightboxImage = document.getElementById('lightbox-image');
@@ -591,17 +894,17 @@
       const lightboxClose = document.getElementById('lightbox-close');
       const lightboxPrev = document.getElementById('lightbox-prev');
       const lightboxNext = document.getElementById('lightbox-next');
-      
+
       // Get all gallery items
       const galleryItems = document.querySelectorAll('.gallery-item');
       let currentIndex = 0;
-      
+
       // Open lightbox with clicked image
       galleryItems.forEach((item, index) => {
         item.addEventListener('click', () => {
           openLightbox(index);
         });
-        
+
         // Add keyboard support
         item.addEventListener('keydown', (e) => {
           if (e.key === 'Enter' || e.key === ' ') {
@@ -610,54 +913,54 @@
           }
         });
       });
-      
+
       function openLightbox(index) {
         currentIndex = index;
         const imgSrc = galleryItems[index].querySelector('img').src;
         const imgAlt = galleryItems[index].querySelector('img').alt;
         const caption = galleryItems[index].querySelector('h3').textContent;
-        
+
         lightboxImage.src = imgSrc;
         lightboxImage.alt = imgAlt;
         lightboxCaption.textContent = caption;
         lightbox.classList.add('active');
-        
+
         // Focus on close button for keyboard navigation
         lightboxClose.focus();
       }
-      
+
       function closeLightbox() {
         lightbox.classList.remove('active');
       }
-      
+
       function navigateLightbox(direction) {
         currentIndex += direction;
-        
+
         // Wrap around
         if (currentIndex >= galleryItems.length) {
           currentIndex = 0;
         } else if (currentIndex < 0) {
           currentIndex = galleryItems.length - 1;
         }
-        
+
         const imgSrc = galleryItems[currentIndex].querySelector('img').src;
         const imgAlt = galleryItems[currentIndex].querySelector('img').alt;
         const caption = galleryItems[currentIndex].querySelector('h3').textContent;
-        
+
         lightboxImage.src = imgSrc;
         lightboxImage.alt = imgAlt;
         lightboxCaption.textContent = caption;
       }
-      
+
       // Event listeners
       lightboxClose.addEventListener('click', closeLightbox);
       lightboxPrev.addEventListener('click', () => navigateLightbox(-1));
       lightboxNext.addEventListener('click', () => navigateLightbox(1));
-      
+
       // Keyboard navigation
       document.addEventListener('keydown', (e) => {
         if (!lightbox.classList.contains('active')) return;
-        
+
         switch (e.key) {
           case 'Escape':
             closeLightbox();
@@ -670,21 +973,21 @@
             break;
         }
       });
-      
+
       // Close when clicking outside image
       lightbox.addEventListener('click', (e) => {
         if (e.target === lightbox) {
           closeLightbox();
         }
       });
-      
+
       // Cleanup function for animations
       function cleanupAnimations() {
         clearInterval(clockInterval);
       }
-      
+
       // Cleanup on page hide to save resources
-      document.addEventListener('visibilitychange', function() {
+      document.addEventListener('visibilitychange', function () {
         if (document.hidden) {
           cleanupAnimations();
         } else {
@@ -692,10 +995,11 @@
           clockInterval = setInterval(updateClock, 1000);
         }
       });
-      
+
       // Cleanup before page unload
       window.addEventListener('beforeunload', cleanupAnimations);
     });
   </script>
 </body>
+
 </html>
